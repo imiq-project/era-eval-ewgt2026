@@ -4,7 +4,7 @@ Data, prompts and analysis code behind the evaluation in
 
 > Bilgin, D., Winkler, L., Wendemuth, A., Kauschke, L. (2026). *Environment-Aware Mobility Recommendations Through Multi-Agent LLM Reasoning Over Urban Digital Twin Data.* Euro Working Group on Transportation Annual Meeting 2026 (EWGT2026), Transportation Research Procedia.
 
-The bundle contains everything needed to recompute every number in Sections 5.2–5.4 of the paper from the recorded trial logs, and to re-run the ERA trials against any OpenAI-compatible model endpoint. It does **not** require access to the Neo4j knowledge graph, the FIWARE context broker or the routing services: the route candidates ERA scores were computed once by the full pipeline and are shipped here as a cache.
+The bundle contains everything needed to recompute every number in Sections 5.2–5.4 of the paper from the recorded trial logs, and to re-run the ERA trials against any OpenAI-compatible model endpoint. It does not require access to the Neo4j knowledge graph, the FIWARE context broker or the routing services. The route candidates ERA scores were computed once by the full pipeline and are shipped here as a cache.
 
 ## What is in here
 
@@ -41,9 +41,9 @@ All scripts are stdlib-only except `build_era_heatmap.py` (numpy, matplotlib).
 
 ```bash
 pip install openai
-export OPENAI_API_KEY=...            # your key
-export OPENAI_BASE_URL=...          # optional; the paper used an academic OpenAI-compatible gateway
-export ERA_MODEL=qwen3-30b-a3b-instruct-2507   # optional; default = paper model
+export OPENAI_API_KEY=...           
+export OPENAI_BASE_URL=...          
+export ERA_MODEL=qwen3-30b-a3b-instruct-2507  
 
 python replay_era.py --dry-run                                  # plumbing check, no network
 python replay_era.py --queries Q01 --conditions C1,C5 --out t.jsonl
@@ -51,7 +51,7 @@ python replay_era.py --out replay_full.jsonl                    # full 25 x 8 gr
 python replay_era.py --stability --runs 5 --temperature 0.1 --out stab.jsonl   # Sec. 5.4 stability setup
 ```
 
-Replay records have the same schema as `trials.jsonl`. Expect scores to differ slightly from the recorded ones even at temperature 0 (provider-side nondeterminism); the paper's stability run quantifies this (σ̄ = 0.37 on a 1–10 scale at τ = 0.1).
+Replay records have the same schema as `trials.jsonl`. Expect scores to differ slightly from the recorded ones even at temperature 0 (provider-side nondeterminism). The paper's stability run quantifies this (σ̄ = 0.37 on a 1–10 scale at τ = 0.1).
 
 ## Provenance
 
