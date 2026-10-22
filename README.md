@@ -58,8 +58,3 @@ Replay records have the same schema as `trials.jsonl`. Expect scores to differ s
 - ERA model: `qwen3-30b-a3b-instruct-2507`; sensitivity/ablation trials at τ = 0.0 (2026-05-07), stability at τ = 0.1 (2026-05-08), judge `gpt-5.4` at τ = 0.0 (2026-05-09).
 - The three worked examples in the ERA prompt overlap in condition space with C1, C2 and C5–C6; see the paper's Sec. 6.
 - Conditions are synthetic (injected), origins/destinations are real Magdeburg places. No personal data.
-
-## Licence and citation
-
-Licence: *to be set by the authors before release* (suggested: CC BY 4.0 for data, MIT for code).
-Please cite the paper above.
