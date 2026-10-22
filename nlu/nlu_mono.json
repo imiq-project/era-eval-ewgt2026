@@ -1,0 +1,4719 @@
+{
+  "provenance": {
+    "last_updated": "20260506_232934",
+    "agent_mode": "mono",
+    "dataset_path": "evaluation\\NLU_data.json",
+    "dataset_sha1": "c7c5e0d50509",
+    "queries_total": 100,
+    "queries_done": 100,
+    "delay_seconds": 18.0,
+    "router_model": "qwen3-30b-a3b-instruct-2507",
+    "synth_model": "qwen3-30b-a3b-instruct-2507",
+    "embedding_model": "BAAI/bge-base-en-v1.5",
+    "python": "3.14.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "caches_disabled": true,
+    "skipped": 0,
+    "this_batch_seconds": 410.1
+  },
+  "metrics": {
+    "intent_accuracy": {
+      "accuracy": 0.93,
+      "correct": 93,
+      "total": 100,
+      "errors": [
+        {
+          "id": 5,
+          "query": "Walk me through the order of stops Tram 5 makes",
+          "expected": "get_transit_info",
+          "actual": ""
+        },
+        {
+          "id": 32,
+          "query": "What's the river running like at Buckau today?",
+          "expected": "get_sensor_info",
+          "actual": "get_traffic_info"
+        },
+        {
+          "id": 38,
+          "query": "Tell me about Tram 1's full route and where the major switch points are",
+          "expected": "compound_query",
+          "actual": "get_transit_info"
+        },
+        {
+          "id": 51,
+          "query": "Where can I find the delivery robot right now?",
+          "expected": "get_sensor_info",
+          "actual": "get_location_info"
+        },
+        {
+          "id": 58,
+          "query": "Which Tram lines pass through Hasselbachplatz, and what's the closest restaurant?",
+          "expected": "compound_query",
+          "actual": "get_location_info"
+        },
+        {
+          "id": 64,
+          "query": "Tell me everything about the Universitätsplatz/Opernhaus stop",
+          "expected": "get_transit_info",
+          "actual": "get_location_info"
+        },
+        {
+          "id": 67,
+          "query": "What's the latest reading on the Walter weather station?",
+          "expected": "get_weather",
+          "actual": "get_sensor_info"
+        }
+      ]
+    },
+    "function_selection": {
+      "accuracy": 0.866,
+      "correct": 84,
+      "partial": 11,
+      "total": 97,
+      "errors": [
+        {
+          "id": 58,
+          "query": "Which Tram lines pass through Hasselbachplatz, and what's the closest restaurant?",
+          "expected": [
+            "find_nearest_by_type",
+            "find_places_near_building",
+            "get_line_info",
+            "get_stop_info"
+          ],
+          "actual": []
+        },
+        {
+          "id": 71,
+          "query": "What's the address of the EE faculty and is the air quality OK there?",
+          "expected": [
+            "get_all_sensors_near_building",
+            "get_building_info",
+            "get_sensor_near_building"
+          ],
+          "actual": [
+            "find_building_by_function"
+          ]
+        }
+      ]
+    },
+    "entity_resolution": {
+      "accuracy": 0.8478,
+      "correct": 78,
+      "total": 92,
+      "errors": [
+        {
+          "id": 19,
+          "query": "Which landmarks host wedding ceremonies?",
+          "input": "Lukasklause",
+          "expected": "Lukasklause",
+          "actual_resolutions": {
+            "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'hosts_weddings', 'operator': 'is_true'}], 'return_properties': ['name', 'description', 'location']})",
+            "router_[query_graph]": "Landmark | filters: hosts_weddingsis_true"
+          }
+        },
+        {
+          "id": 54,
+          "query": "Find any landmark that hosts concerts",
+          "input": "FestungMark",
+          "expected": "FestungMark",
+          "actual_resolutions": {
+            "router_location": "landmark",
+            "router_function": "hosts concerts",
+            "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'function', 'operator': 'contains', 'value': 'concert'}], 'return_properties': ['name', 'description', 'function'], 'limit': 5})",
+            "router_[query_graph]": "Landmark | filters: functioncontains"
+          }
+        },
+        {
+          "id": 58,
+          "query": "Which Tram lines pass through Hasselbachplatz, and what's the closest restaurant?",
+          "input": "Hasselbachplatz",
+          "expected": "Magdeburg Hasselbachplatz",
+          "actual_resolutions": {}
+        },
+        {
+          "id": 59,
+          "query": "Cafes that explicitly offer vegetarian options",
+          "input": "Bo Bo Q",
+          "expected": "Bo Bo Q",
+          "actual_resolutions": {
+            "router_place_type": "cafe",
+            "router_cuisine": "vegetarian",
+            "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'vegetarian', 'place_type': 'cafe', 'limit': 10})"
+          }
+        },
+        {
+          "id": 59,
+          "query": "Cafes that explicitly offer vegetarian options",
+          "input": "Cowvanavegan Food More",
+          "expected": "Cowvanavegan Food More",
+          "actual_resolutions": {
+            "router_place_type": "cafe",
+            "router_cuisine": "vegetarian",
+            "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'vegetarian', 'place_type': 'cafe', 'limit': 10})"
+          }
+        },
+        {
+          "id": 60,
+          "query": "Find stops served by Bus 73 that also have a tram line",
+          "input": "Magdeburg Opernhaus",
+          "expected": "Magdeburg Opernhaus",
+          "actual_resolutions": {
+            "router_line_name": "Bus 73",
+            "router_neo4j": "fn:  find_transfer_hubs({'min_lines': 2})",
+            "param_line_name": "Bus 73"
+          }
+        },
+        {
+          "id": 75,
+          "query": "Find any restaurant marked as not accessible",
+          "input": "Hummels Brauhaus",
+          "expected": "Hummels Brauhaus",
+          "actual_resolutions": {
+            "router_accessibility": "not accessible",
+            "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'accessibility', 'operator': 'is_false'}, {'property': 'category', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location', 'accessibility'], 'limit': 10})",
+            "router_[query_graph]": "POI | filters: accessibilityis_false, category?"
+          }
+        },
+        {
+          "id": 75,
+          "query": "Find any restaurant marked as not accessible",
+          "input": "Korfu",
+          "expected": "Korfu",
+          "actual_resolutions": {
+            "router_accessibility": "not accessible",
+            "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'accessibility', 'operator': 'is_false'}, {'property': 'category', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location', 'accessibility'], 'limit': 10})",
+            "router_[query_graph]": "POI | filters: accessibilityis_false, category?"
+          }
+        },
+        {
+          "id": 75,
+          "query": "Find any restaurant marked as not accessible",
+          "input": "Tucherstube",
+          "expected": "Tucherstube",
+          "actual_resolutions": {
+            "router_accessibility": "not accessible",
+            "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'accessibility', 'operator': 'is_false'}, {'property': 'category', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location', 'accessibility'], 'limit': 10})",
+            "router_[query_graph]": "POI | filters: accessibilityis_false, category?"
+          }
+        },
+        {
+          "id": 76,
+          "query": "Show me restaurants whose name starts with 'Asia'",
+          "input": "Asia Long",
+          "expected": "Asia Long",
+          "actual_resolutions": {
+            "router_place_type": "Restaurant",
+            "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'name', 'operator': 'starts_with', 'value': 'Asia'}, {'property': 'category', 'operator': 'is', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location'], 'limit': 10})",
+            "router_[query_graph]": "POI | filters: namestarts_with, categoryis"
+          }
+        },
+        {
+          "id": 76,
+          "query": "Show me restaurants whose name starts with 'Asia'",
+          "input": "Asia Bixie",
+          "expected": "Asia Bixie",
+          "actual_resolutions": {
+            "router_place_type": "Restaurant",
+            "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'name', 'operator': 'starts_with', 'value': 'Asia'}, {'property': 'category', 'operator': 'is', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location'], 'limit': 10})",
+            "router_[query_graph]": "POI | filters: namestarts_with, categoryis"
+          }
+        },
+        {
+          "id": 76,
+          "query": "Show me restaurants whose name starts with 'Asia'",
+          "input": "Asia Wok",
+          "expected": "Asia Wok",
+          "actual_resolutions": {
+            "router_place_type": "Restaurant",
+            "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'name', 'operator': 'starts_with', 'value': 'Asia'}, {'property': 'category', 'operator': 'is', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location'], 'limit': 10})",
+            "router_[query_graph]": "POI | filters: namestarts_with, categoryis"
+          }
+        },
+        {
+          "id": 77,
+          "query": "Are there any landmarks with theater services?",
+          "input": "FestungMark",
+          "expected": "FestungMark",
+          "actual_resolutions": {
+            "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'services', 'operator': 'contains', 'value': 'theater'}], 'return_properties': ['name', 'description', 'services'], 'limit': 10})",
+            "router_[query_graph]": "Landmark | filters: servicescontains"
+          }
+        },
+        {
+          "id": 99,
+          "query": "Find any landmark with a courtyard",
+          "input": "FestungMark",
+          "expected": "FestungMark",
+          "actual_resolutions": {
+            "router_location": "landmark",
+            "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'hasCourtyard', 'operator': 'is_true'}], 'return_properties': ['name', 'description', 'hasCourtyard'], 'limit': 5})",
+            "router_[query_graph]": "Landmark | filters: hasCourtyardis_true"
+          }
+        }
+      ]
+    },
+    "latency": {
+      "p50_ms": 3373,
+      "p95_ms": 6445,
+      "avg_ms": 3983
+    },
+    "per_category": [
+      {
+        "Category": "building_entity",
+        "N": 14,
+        "Intent Accuracy": "100.0% (14/14)",
+        "Function Selection": "92.9% (13/14)",
+        "Entity Resolution": "100.0% (15/15)",
+        "p50 (ms)": 2951,
+        "p95 (ms)": 4083
+      },
+      {
+        "Category": "compound",
+        "N": 15,
+        "Intent Accuracy": "86.7% (13/15)",
+        "Function Selection": "66.7% (10/15)",
+        "Entity Resolution": "94.7% (18/19)",
+        "p50 (ms)": 4009,
+        "p95 (ms)": 7810
+      },
+      {
+        "Category": "dynamic_query",
+        "N": 14,
+        "Intent Accuracy": "100.0% (14/14)",
+        "Function Selection": "100.0% (14/14)",
+        "Entity Resolution": "87.5% (7/8)",
+        "p50 (ms)": 2818,
+        "p95 (ms)": 5083
+      },
+      {
+        "Category": "poi_lookup",
+        "N": 14,
+        "Intent Accuracy": "100.0% (14/14)",
+        "Function Selection": "71.4% (10/14)",
+        "Entity Resolution": "100.0% (12/12)",
+        "p50 (ms)": 3926,
+        "p95 (ms)": 6621
+      },
+      {
+        "Category": "property_edge",
+        "N": 15,
+        "Intent Accuracy": "100.0% (15/15)",
+        "Function Selection": "86.7% (13/15)",
+        "Entity Resolution": "42.9% (9/21)",
+        "p50 (ms)": 2480,
+        "p95 (ms)": 4853
+      },
+      {
+        "Category": "sensor_fiware",
+        "N": 14,
+        "Intent Accuracy": "78.6% (11/14)",
+        "Function Selection": "100.0% (11/11)",
+        "Entity Resolution": "n/a",
+        "p50 (ms)": 2161,
+        "p95 (ms)": 4101
+      },
+      {
+        "Category": "transit_routing",
+        "N": 14,
+        "Intent Accuracy": "85.7% (12/14)",
+        "Function Selection": "92.9% (13/14)",
+        "Entity Resolution": "100.0% (17/17)",
+        "p50 (ms)": 4332,
+        "p95 (ms)": 20617
+      },
+      {
+        "Category": "Overall",
+        "N": 100,
+        "Intent Accuracy": "93.0% (93/100)",
+        "Function Selection": "86.6% (84/97)",
+        "Entity Resolution": "84.8% (78/92)",
+        "p50 (ms)": 3373,
+        "p95 (ms)": 6445
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": 1,
+      "query": "I'm getting hungry — any chance there's somewhere doing real pizza near the electrical engineering faculty?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "query_graph"
+        ],
+        "entity_resolution": {
+          "electrical engineering faculty": "Building 03"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "find_building_by_function",
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "electrical engineering faculty",
+          "router_building_name": "electrical engineering faculty",
+          "router_cuisine": "pizza",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Right near the electrical engineering faculty, there’s a spot called *Pizzeria La Bella*, just a 3-minute walk from Building 03 — it’s got real wood-fired pizza, and the staff know the regulars by name. There’s also *Mensa Uni*, which is a solid option if you’re up for a quick, hearty slice with a student vibe. Both are within 300 meters — you’re in luck.",
+        "era_ran": false,
+        "total_ms": 5991
+      },
+      "skipped": false
+    },
+    {
+      "id": 2,
+      "query": "From where the rector sits, what's the closest place to grab coffee?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "where the rector sits": "Building 04"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_any_location",
+          "find_nearest_by_type"
+        ],
+        "resolved_entities": {
+          "router_location": "rector",
+          "router_poi_name": "coffee",
+          "router_neo4j": ">>   POI: PIER16 (score=0)",
+          "router_lookup": ">>  'rector' -> 'Rectorate' (Building) [fulltext, 0.75]",
+          "neo4j_Building": "Rectorate",
+          "neo4j_POI": "PIER16",
+          "param_search_term": "rector"
+        },
+        "response": "Right next to the Rectorate, just a 3-minute walk down Denhardtstraße — there's a little spot called PIER16. It's a cozy café, perfect for a quick coffee. You're practically on the doorstep.",
+        "era_ran": false,
+        "total_ms": 6959
+      },
+      "skipped": false
+    },
+    {
+      "id": 3,
+      "query": "Tell me everything you know about Sushi City",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_poi_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Sushi City": "Sushi City"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_poi_info"
+        ],
+        "resolved_entities": {
+          "router_location": "Sushi City",
+          "router_poi_name": "Sushi City",
+          "router_neo4j": "fn:  get_poi_info({'name': 'Sushi City'})",
+          "param_name": "Sushi City"
+        },
+        "response": "I don’t have info on Sushi City — it might not be in my database. Let me know if you’re looking for something else nearby!",
+        "era_ran": false,
+        "total_ms": 1832
+      },
+      "skipped": false
+    },
+    {
+      "id": 4,
+      "query": "Which spot serving Italian food has the shortest walk from Building 16?",
+      "category": "poi_lookup",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "Building 16": "Building 16"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "Building 16",
+          "router_building_name": "Building 16",
+          "router_cuisine": "Italian",
+          "router_place_type": "Restaurant",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Lagodi Garda on Erzbergerstraße is the only Italian spot within 500 meters — a 7-minute walk from Building 16. It’s right on the route if you're heading toward the university center.",
+        "era_ran": false,
+        "total_ms": 3607
+      },
+      "skipped": false
+    },
+    {
+      "id": 5,
+      "query": "Walk me through the order of stops Tram 5 makes",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_line_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "Tram 5": "Tram 5"
+        }
+      },
+      "actual": {
+        "primary_intent": "",
+        "is_compound": false,
+        "confidence": 0,
+        "neo4j_functions_called": [
+          "get_line_route"
+        ],
+        "resolved_entities": {
+          "router_line_name": "Tram 5",
+          "router_neo4j": "fn:  get_line_route({'line_name': 'Tram 5', 'direction': None})"
+        },
+        "response": "I'm sorry, I encountered an error. Please try again.",
+        "era_ran": false,
+        "total_ms": 36451
+      },
+      "skipped": false
+    },
+    {
+      "id": 6,
+      "query": "If I'm at Hauptbahnhof, which stops can I reach on foot in less than ten minutes?",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_walking_connections"
+        ],
+        "acceptable_alt_functions": [
+          "find_transfer_hubs"
+        ],
+        "entity_resolution": {
+          "Hauptbahnhof": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_walking_connections"
+        ],
+        "resolved_entities": {
+          "router_origin": "Hauptbahnhof",
+          "router_transport_mode": "walking",
+          "router_time_constraint": "10 minutes",
+          "router_neo4j": "fn:  get_walking_connections({'stop_name': 'Hauptbahnhof', 'max_walk_time': 10})",
+          "param_stop_name": "Hauptbahnhof"
+        },
+        "response": "From Hauptbahnhof, you can reach several stops on foot in under 10 minutes — most within 5 to 6 minutes. The closest are:\n\n- **Magdeburg ZOB-Bussteig 2** (2 min walk) — served by Bus 59  \n- **Magdeburg Hauptbahnhof/Willy-Brandt-Platz** (3 min walk) — Tram 3, 8, and 9  \n- **Magdeburg Hauptbahnhof/Kölnner Platz** (3 min walk) — Tram 1, 3, 4, and 6  \n- **Magdeburg ZOB/Adelheidring** (5 min walk) — Tram 1 and 6  \n- **Magdeburg ZOB-Ankunftshaltestelle** (5–7 min walk) — Bus 59  \n- **Magdeburg Verkehrsbetriebe** (5 min walk) — Tram 3, 8, 9  \n- **Magdeburg City Carré** (6 min walk) — Tram 1, 4, 6, 8, 9  \n\nIt’s dark now, so keep an eye on the path — especially near the ZOB and the tram stops. But all of these are well-lit and safe to walk to. If you're heading out late, maybe stick to the main routes near the station.",
+        "era_ran": false,
+        "total_ms": 4372
+      },
+      "skipped": false
+    },
+    {
+      "id": 7,
+      "query": "Is there a stop right by the rector's office that I could catch a tram from?",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "rector's office": "Building 04"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "find_any_location",
+          "get_nearest_tram_from_building"
+        ],
+        "resolved_entities": {
+          "router_location": "rector's office",
+          "router_building_name": "rector's office",
+          "router_transport_mode": "tram",
+          "router_neo4j": ">>   Building: ?",
+          "neo4j_Building": "International Office / Media Center / Transfer and Start-up Center"
+        },
+        "response": "The rector's office is in Building 18 — the International Office / Media Center / Transfer and Start-up Center — right on Walther-Rathenau-Straße.  \n\nThere’s no tram stop *right* next to it, but the closest is **Magdeburg Listemannstraße**, just 162 meters away — a 2-minute walk. Tram 2 and Tram 5 stop there.  \n\nIf you're heading toward the library or campus center, you could also walk to **Universitätsbibliothek** (193 m away), which has Tram 2 and Bus 73.  \n\nSo no direct stop, but you’re only a short walk from one — not bad at all.",
+        "era_ran": false,
+        "total_ms": 5773
+      },
+      "skipped": false
+    },
+    {
+      "id": 8,
+      "query": "What sits flush against Building 09 — like sharing a wall?",
+      "category": "building_entity",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_spatial_relations"
+        ],
+        "acceptable_alt_functions": [
+          "get_nearby_buildings",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Building 09": "Building 09"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_building_borders"
+        ],
+        "resolved_entities": {
+          "router_building_name": "Building 09",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "Building 09"
+        },
+        "response": "Right next to Building 09 on the west side is the Mensa and the OvGU Sports Center (SPOZ), sharing a wall. On the east, it's the Faculty of Mechanical Engineering, Process and Systems Engineering, and EIT. North is the Institute for Automation Technology (IFAT), and the south side faces Walther-Rathenau-Straße.",
+        "era_ran": false,
+        "total_ms": 2989
+      },
+      "skipped": false
+    },
+    {
+      "id": 9,
+      "query": "What's framing the library on each side?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_borders"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_spatial_relations",
+          "get_nearby_buildings"
+        ],
+        "entity_resolution": {
+          "library": "Building 30"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_building_borders"
+        ],
+        "resolved_entities": {
+          "router_building_name": "library",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "library"
+        },
+        "response": "The library is bordered on the east by Hohepfortestraße and on the south by Walther-Rathenau-Straße. To the north, it's flanked by the Student Council, Lecture Hall I, and the University Computer Center (URZ), plus the Mensa and the OvGU Sports Center. On the west side, it's next to the Faculty of Computer Science.",
+        "era_ran": false,
+        "total_ms": 2691
+      },
+      "skipped": false
+    },
+    {
+      "id": 10,
+      "query": "Which faculty has the chemistry labs?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_building_by_function"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "chemistry labs": "Building 16"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_building_by_function"
+        ],
+        "resolved_entities": {
+          "router_location": "chemistry labs",
+          "router_neo4j": "fn:  find_building_by_function({'query': 'chemistry labs'})"
+        },
+        "response": "The chemistry labs are in the Faculty of Natural Sciences, specifically in Building 16 — Denhardtstraße 11. It's right next to the Institute of Experimental Physics and the International Office. The building has dedicated labs, a cafeteria, and is wheelchair accessible.",
+        "era_ran": false,
+        "total_ms": 3411
+      },
+      "skipped": false
+    },
+    {
+      "id": 11,
+      "query": "Any chance the air's getting bad on Guericke-Strasse right now?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "AirQuality",
+        "fiware_entity_id": "Air:GuerickeStrasse",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "Guericke-Strasse",
+          "router_fiware:": "AirQuality (id=None, limit=5)"
+        },
+        "response": "Nope, air quality on Guericke-Strasse is actually great — PM2.5 is 4 µg/m³, PM10 is 5, and NO2 is 6. All well below safe thresholds. It’s not just good, it’s excellent. No concerns there.",
+        "era_ran": false,
+        "total_ms": 2745
+      },
+      "skipped": false
+    },
+    {
+      "id": 12,
+      "query": "How packed is the Faculty CS junction in terms of bikes today?",
+      "category": "sensor_fiware",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_traffic_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "traffic"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Traffic",
+        "fiware_entity_id": "Traffic:Junction:FacultyCS",
+        "fiware_attributes": [
+          "cyclists"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_traffic_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "Faculty CS junction",
+          "router_transport_mode": "bikes",
+          "router_time_constraint": "today",
+          "router_fiware:": "Traffic (id=None, limit=5)"
+        },
+        "response": "The Faculty CS junction is clear right now — no congestion, traffic flowing at free-flow speed. But it’s dark outside, so if you're biking or walking, keep an eye out and stay visible. There are a few road closures nearby, mostly minor, but nothing directly on the main route. All good to go, just mind the dark.",
+        "era_ran": false,
+        "total_ms": 3290
+      },
+      "skipped": false
+    },
+    {
+      "id": 13,
+      "query": "Are there spots free at the Wissenschaftshafen lot?",
+      "category": "sensor_fiware",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_parking_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Parking",
+        "fiware_entity_id": "ParkingSpot:ScienceHarbor",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_parking_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "Wissenschaftshafen lot",
+          "router_sensor_type": "parking",
+          "router_fiware:": "Parking (id=None, limit=5)"
+        },
+        "response": "The Wissenschaftshafen lot isn't listed directly, but nearby, the Tiefgarage City Carré has 300 spots open — that’s the closest big garage. The one at Universitätsplatz has 110 free spots too, just a few minutes away. So yes, plenty of room — you won’t have to circle long.",
+        "era_ran": false,
+        "total_ms": 3981
+      },
+      "skipped": false
+    },
+    {
+      "id": 14,
+      "query": "I'm vegetarian — what restaurants would actually feed me on this campus?",
+      "category": "dynamic_query",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "dietary_options",
+              "operator": "in_list",
+              "value": "vegetarian"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_location": "campus",
+          "router_cuisine": "vegetarian",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'vegetarian', 'place_type': 'Restaurant', 'limit': 5})"
+        },
+        "response": "Not much luck — there aren’t any restaurants on campus that are specifically marked for vegetarian options right now. But the Mensa Uni does have a dedicated vegetarian section, so you’re covered there. It’s just a 4-minute walk from Building 03.",
+        "era_ran": false,
+        "total_ms": 2315
+      },
+      "skipped": false
+    },
+    {
+      "id": 15,
+      "query": "Stops where wheelchairs can get on without help",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "wheelchair_accessible",
+              "operator": "is_true"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_accessibility": "wheelchair accessible",
+          "router_transport_mode": "transit",
+          "router_neo4j": "fn:  query_graph({'node_label': 'Stop', 'filters': [{'property': 'wheelchair_accessible', 'operator': 'is_true'}], 'return_properties': ['name', 'location', 'wheelchair_accessible']})",
+          "router_[query_graph]": "Stop | filters: wheelchair_accessibleis_true"
+        },
+        "response": "I can't pull up the exact list of stops where wheelchairs can board without help right now — the system's having a small hiccup. But I can check for you if you're near a specific route or stop. Just let me know!",
+        "era_ran": false,
+        "total_ms": 2384
+      },
+      "skipped": false
+    },
+    {
+      "id": 16,
+      "query": "Show me all the Greek restaurants on campus",
+      "category": "dynamic_query",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "equals",
+              "value": "greek"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_location": "campus",
+          "router_cuisine": "Greek",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'Greek', 'place_type': 'Restaurant', 'limit': 10})"
+        },
+        "response": "Here are 10 Greek restaurants on campus — all within a short walk of each other, mostly around the central area:\n\n- **Korfu** – Gustav-Adolf-Straße. Open Mon–Sun 5–11 PM. Great spot for a relaxed dinner.\n- **Kalimera** – Erzbergerstraße. Open Tue–Sun 11:30–2:30 PM and 5–11 PM (closed Mon). A bit more casual, but solid food.\n- **Meteora** – Werner-von-Siemens-Ring. Open daily 11:30 AM–11:30 PM. A bit further out, but worth it for the vibe.\n- **Metaxa** – Olvenstedter Straße. Open daily 11:30 AM–11 PM. Reliable and cozy.\n- **Asteria** – Leiterstraße. Open Tue–Sun 11:30 AM–2 PM and 5–10 PM. Small, intimate, great for a quiet meal.\n- **Kalipso** – Bierer Weg. Open Tue–Sun 5–10 PM (closed Mon). A bit off the beaten path, but good value.\n- **Meraki** – Bierer Weg. Open Tue–Sun 11:30 AM–2:30 PM and 5–11 PM (closed Mon). Modern, fresh, and popular.\n- **Troja** – Erich-Weinert-Straße. Open Tue–Sun 11:30 AM–2:30 PM and 5–10 PM. A local favorite.\n- **Der Grieche** – Ebendorfer Straße. Open Tue–Sun 11:30 AM–2:30 PM and 5–11 PM (closed Mon). Simple, authentic, and affordable.\n- **ARTEMIS Nr.1** – Lübecker Straße. Open PH/Tue–Sun 11:30 AM–2 PM and 5:30–10 PM. A bit more upscale, great for a special night.\n\nMost are open late, so you’ve got options no matter the time. If you’re near the university center, Kalimera and Korfu are the easiest to hit.",
+        "era_ran": false,
+        "total_ms": 4728
+      },
+      "skipped": false
+    },
+    {
+      "id": 17,
+      "query": "Show me sushi spots within walking distance of Building 16, and also which lines stop there",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building",
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "query_graph",
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "Building 16": "Building 16"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "find_places_near_building",
+          "get_nearest_tram_from_building"
+        ],
+        "resolved_entities": {
+          "router_location": "Building 16",
+          "router_building_name": "Building 16",
+          "router_cuisine": "sushi",
+          "router_place_type": "Restaurant",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "There aren’t any sushi spots within 500 meters of Building 16 — at least not on the map right now. The closest options are a bit further out, so you’d need to head toward the city center or the main campus area.\n\nThat said, there are a few transit stops nearby if you’re open to walking a bit:\n- Magdeburg Universitätsbibliothek (184 m away) — Tram 2 and Bus 73\n- Magdeburg Listemannstraße (246 m) — Tram 2 and Tram 5\n- Magdeburg Universität (306 m) — Tram 1, 8, 9, and 10\n\nIt’s a bit chilly at 12.6°C, and it’s pretty humid — feels damp — and it’s dark now, so if you’re heading out, maybe bundle up. Walking to a sushi place would mean being outside for a while, so you might want to consider a delivery or a quick ride instead.",
+        "era_ran": false,
+        "total_ms": 5572
+      },
+      "skipped": false
+    },
+    {
+      "id": 18,
+      "query": "What faculty handles chemistry, and is there a parking lot near it?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_building_by_function",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "chemistry": "Building 16"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_building_by_function",
+          "get_all_sensors_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "chemistry",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "The chemistry faculty is housed in the Faculty of Natural Sciences — officially known as the Institute of Experimental Physics and Institute of Chemistry, located at Denhardtstraße. It's also commonly referred to as Building 16.\n\nThere's a parking lot right near it — Campus Parking B is just a short walk away, with 23 spots available out of 100. You should be able to find a spot without much hassle.",
+        "era_ran": false,
+        "total_ms": 3748
+      },
+      "skipped": false
+    },
+    {
+      "id": 19,
+      "query": "Which landmarks host wedding ceremonies?",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "services",
+              "operator": "in_list",
+              "value": "wedding"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Lukasklause": "Lukasklause"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'hosts_weddings', 'operator': 'is_true'}], 'return_properties': ['name', 'description', 'location']})",
+          "router_[query_graph]": "Landmark | filters: hosts_weddingsis_true"
+        },
+        "response": "That’s outside what I cover — I focus on routes, weather, parking, transit, and building details in Magdeburg. For wedding venues, you might want to check with the city’s event or tourism office.",
+        "era_ran": false,
+        "total_ms": 2195
+      },
+      "skipped": false
+    },
+    {
+      "id": 20,
+      "query": "What sensors track PM10 specifically?",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "list_sensors_by_type",
+          "list_all_sensors"
+        ],
+        "query_graph_spec": {
+          "node_label": "Sensor",
+          "filters": [
+            {
+              "property": "realtime_attributes",
+              "operator": "in_list",
+              "value": "pm10"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "list_sensors_by_type"
+        ],
+        "resolved_entities": {
+          "router_sensor_type": "PM10",
+          "router_neo4j": "fn:  list_sensors_by_type({'sensor_type': 'AirQuality'})"
+        },
+        "response": "I don’t have access to real-time sensor data for PM10 right now — the system isn’t showing any active PM10 sensors in the current dataset. Let me know if you'd like help with something else in Magdeburg.",
+        "era_ran": false,
+        "total_ms": 3422
+      },
+      "skipped": false
+    },
+    {
+      "id": 21,
+      "query": "Where's the nearest pharmacy if I'm at the Allee-Center?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "Allee-Center": "Magdeburg Allee-Center"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "Allee-Center",
+          "router_building_name": "Allee-Center",
+          "router_poi_type": "pharmacy",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Right next door — Pluspunkt-Apotheke is just a 1-minute walk from the Allee-Center, on Breiter Weg. Open Monday to Friday until 8 PM, Saturday until 8 PM too. Perfect if you need something quick.",
+        "era_ran": false,
+        "total_ms": 3665
+      },
+      "skipped": false
+    },
+    {
+      "id": 22,
+      "query": "Are there any Asian fusion spots near where the IT students go?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "query_graph"
+        ],
+        "entity_resolution": {
+          "where the IT students go": "Building 29"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_any_location",
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_location": "where the IT students go",
+          "router_place_type": "Asian fusion",
+          "router_cuisine": "Asian fusion",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'Asian fusion', 'place_type': 'Restaurant', 'limit': 5})",
+          "neo4j_Building": "Student Dormitory 9",
+          "param_search_term": "IT students"
+        },
+        "response": "The IT students mostly hang out around Student Dormitory 9 on Walther-Rathenau-Straße — it's right near the Mensa and the sports center.\n\nAs for Asian fusion spots nearby? There aren’t any specifically listed within walking distance. The closest options would be a bit further out — maybe around the city center or near the train station. If you're up for a short walk or bike ride, I can point you to a few good ones.",
+        "era_ran": false,
+        "total_ms": 5258
+      },
+      "skipped": false
+    },
+    {
+      "id": 23,
+      "query": "What fast-food joints are within 500 meters of the mensa?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {
+          "mensa": "Building 27"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "mensa",
+          "router_building_name": "mensa",
+          "router_place_type": "fast-food",
+          "router_radius_meters": "500",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Just a 5-minute walk from the Mensa — ADIS am Stadion, a Turkish spot on Friedrich-Ebert-Straße. Open daily from 10 to 10, even weekends. Great if you're in the mood for something quick and tasty.",
+        "era_ran": false,
+        "total_ms": 6439
+      },
+      "skipped": false
+    },
+    {
+      "id": 24,
+      "query": "What's the route between Universitätsplatz and the campus library?",
+      "category": "transit_routing",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": true,
+        "era_should_trigger": true,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [],
+        "entity_resolution": {
+          "Universitätsplatz": "Magdeburg Universitätsplatz/Opernhaus",
+          "campus library": "Building 30"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_multimodal_route"
+        ],
+        "resolved_entities": {
+          "router_origin": "Universitätsplatz",
+          "router_destination": "campus library",
+          "router_neo4j": "fn:  get_multimodal_route({'origin': 'Universitätsplatz', 'destination': 'campus library'})",
+          "router_lookup": ">>  'campus library' -> 'Campus House' (Building) [fulltext, 0.75]",
+          "router_route": ">>   Direct distance: 507m (Haversine) → walk ~6 min",
+          "param_origin": "Universitätsplatz",
+          "param_destination": "campus library"
+        },
+        "response": "Take Tram 2 — it’s a quick 1-minute walk from Universitätsplatz to Magdeburg Listemannstraße, then just 2 stops to Magdeburg Universitätsbibliothek, and a 3-minute walk to Campus House (where the library is). Total time: about 8 minutes.\n\nIf you’d rather walk, it’s a straight 507 meters — about 6 minutes — but it’s dark now and the air’s damp (95% humidity, 12.6°C), so the walk feels a bit chilly and slick. Tram 2 is sheltered and faster, so I’d go with that.\n\nJust keep an eye out if you’re walking — it’s dark, and the paths might be a bit slippery.",
+        "era_ran": false,
+        "total_ms": 5669
+      },
+      "skipped": false
+    },
+    {
+      "id": 25,
+      "query": "I need a wheelchair-accessible path from Building 03 to the mensa",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_accessible_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_directions_between_buildings"
+        ],
+        "entity_resolution": {
+          "Building 03": "Building 03",
+          "mensa": "Building 27"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_accessible_route"
+        ],
+        "resolved_entities": {
+          "router_origin": "Building 03",
+          "router_destination": "mensa",
+          "router_accessibility": "wheelchair accessible",
+          "router_neo4j": "fn:  get_accessible_route({'from_building': 'Building 03', 'to_building': 'mensa'})"
+        },
+        "response": "I checked for a wheelchair-accessible route from Building 03 to the Mensa, but unfortunately, no such path is available right now. The buildings aren’t connected by a ramp or accessible walkway.\n\nIt’s also dark outside — 10:56 PM — and the air is quite humid (95%) with a light breeze. If you need to go, I’d recommend asking someone to accompany you or checking with campus services for a shuttle or alternative access. Safety first, especially in the dark.",
+        "era_ran": false,
+        "total_ms": 4636
+      },
+      "skipped": false
+    },
+    {
+      "id": 26,
+      "query": "Where are the busiest interchange spots for switching tram lines?",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_transfer_hubs"
+        ],
+        "acceptable_alt_functions": [
+          "get_all_lines"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_transfer_hubs"
+        ],
+        "resolved_entities": {
+          "router_transport_mode": "tram",
+          "router_neo4j": "fn:  find_transfer_hubs({'min_lines': 2, 'limit': 5})"
+        },
+        "response": "The busiest tram interchange spots are:\n\n- **Magdeburg Braunlager Straße** — 8 lines here, including Tram 1, 10, and several buses. Real hub for transfers.\n- **Hasselbachplatz** — 7 lines, including Tram 2, 3, 5, 8, 9, 10, and Bus 59. Central and well-connected.\n- **Kastanienstraße** — 7 lines, with Tram 1, 8, 9, 10, and multiple buses. Great for east-west transfers.\n- **Opernhaus** — 7 lines, including Tram 1, 2, 5, 8, 9, 10, and Bus 73. Right in the city center, super convenient.\n- **Am Katharinenturm** — 6 lines, mainly Tram 1, 2, 5, 8, 9, 10. A key stop near the university.\n\nIf you're switching trams, these are the places to be — especially Braunlager Straße and Hasselbachplatz, where you’ve got the most options.",
+        "era_ran": false,
+        "total_ms": 3309
+      },
+      "skipped": false
+    },
+    {
+      "id": 27,
+      "query": "Which buildings are right next to the rectorate?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearby_buildings"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_borders",
+          "get_building_spatial_relations"
+        ],
+        "entity_resolution": {
+          "rectorate": "Building 04"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_nearby_buildings"
+        ],
+        "resolved_entities": {
+          "router_location": "rectorate",
+          "router_building_name": "rectorate",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Right next to the rectorate are a few key buildings:  \n\n- The Media Technology / Faculty of EIT building on Falkenbergstraße — offices, labs, seminar rooms, and even the Senate Hall.  \n- The Finance & Student Affairs Building on Denhardtstraße — where most admin offices are.  \n- The Institute for Automation Technology (IFAT), also on Falkenbergstraße — labs and training rooms.  \n- The Student Club Baracke and copy shop, just down Denhardtstraße — great for a quick break or grabbing prints.  \n- The Institute for Manufacturing Technology and Quality Assurance (IFQ), also on Denhardtstraße — workshops and a big test hall.  \n\nIt’s a busy cluster — all the main academic and administrative hubs are close by.",
+        "era_ran": false,
+        "total_ms": 3648
+      },
+      "skipped": false
+    },
+    {
+      "id": 28,
+      "query": "What's the deal with Building 80?",
+      "category": "building_entity",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Building 80": "Building 80"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_building_info"
+        ],
+        "resolved_entities": {
+          "router_building_name": "Building 80",
+          "router_neo4j": ">>   Building: IMIQ Project Building"
+        },
+        "response": "Building 80 is the IMIQ Project Building, right on Niels-Bohr-Straße 1 — just a short walk from Otto-Hahn-Straße and Joseph-von-Fraunhofer-Straße. It's a two-story building that houses the IMIQ project itself, so it's kind of the brain behind all this real-time city data you're getting. Not much else to it — quiet, low-key, but central to what we do.",
+        "era_ran": false,
+        "total_ms": 2914
+      },
+      "skipped": false
+    },
+    {
+      "id": 29,
+      "query": "Which building works as both sports center and dining hall?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_building_by_function"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "sports center and dining hall": "Building 27"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_building_by_function"
+        ],
+        "resolved_entities": {
+          "router_location": "sports center and dining hall",
+          "router_neo4j": "fn:  find_building_by_function({'query': 'sports center and dining hall'})"
+        },
+        "response": "The building that works as both a sports center and dining hall is the Mensa / OvGU Sports Center (SPOZ), also known as Building 27. It's right on Hohepfortestraße, just a short walk from the main campus. You’ll find the cafeteria, sports facilities, lounges, and even a kitchen all under one roof. It’s a real hub for students — whether you’re grabbing a bite or hitting the gym, this is the place.",
+        "era_ran": false,
+        "total_ms": 3543
+      },
+      "skipped": false
+    },
+    {
+      "id": 30,
+      "query": "How fast is the wind blowing right now over at the welcome center?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Weather",
+        "fiware_entity_id": "Sensor:Weather:WelcomeCenter",
+        "fiware_attributes": [
+          "windSpeed"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "confidence": 0.92,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "welcome center",
+          "router_sensor_type": "wind",
+          "router_fiware:": "Weather (id=None, limit=5)"
+        },
+        "response": "The wind at the welcome center is barely moving — just 1.2 km/h, almost calm. It's a bit humid (95%) and feels like 12.6°C, but the wind itself is practically nothing.",
+        "era_ran": false,
+        "total_ms": 1728
+      },
+      "skipped": false
+    },
+    {
+      "id": 31,
+      "query": "How many cars passed through the Science Hub junction this morning?",
+      "category": "sensor_fiware",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_traffic_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "traffic"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Traffic",
+        "fiware_entity_id": "Traffic:Junction:ScienceHub",
+        "fiware_attributes": [
+          "vehiclesIn",
+          "vehiclesOut"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_traffic_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "Science Hub junction",
+          "router_time_constraint": "this morning",
+          "router_fiware:": "Traffic (id=None, limit=5)"
+        },
+        "response": "I can’t give you the exact number of cars that passed through the Science Hub junction this morning — that data isn’t available in real time. But I can tell you the current traffic situation: it’s light congestion, with a current speed of 26 km/h (free flow is 32 km/h), and no delays right now.\n\nThat said, there are quite a few road closures and roadworks nearby — especially along B71 and around the university area — so traffic might have been affected earlier. It’s also dark now, so if you’re out walking or cycling, keep an eye on the path and stay visible.",
+        "era_ran": false,
+        "total_ms": 3349
+      },
+      "skipped": false
+    },
+    {
+      "id": 32,
+      "query": "What's the river running like at Buckau today?",
+      "category": "sensor_fiware",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "WaterLevel",
+        "fiware_entity_id": "WaterLevel:Buckau",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_traffic_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "Buckau",
+          "router_sensor_type": "WaterLevel",
+          "router_fiware:": "WaterLevel (id=None, limit=5)"
+        },
+        "response": "The river level at Buckau is 117 cm — that's above normal, but not a concern yet. The water's flowing, but nothing to worry about. For comparison, the level at Strombrücke is 76 cm, so Buckau is a bit higher, but still within safe limits.",
+        "era_ran": false,
+        "total_ms": 2091
+      },
+      "skipped": false
+    },
+    {
+      "id": 33,
+      "query": "Restaurants that are marked as wheelchair accessible",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "accessibility",
+              "operator": "contains",
+              "value": "accessible"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_accessibility": "wheelchair accessible",
+          "router_place_type": "Restaurant",
+          "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'category', 'operator': 'equals', 'value': 'Restaurant'}, {'property': 'wheelchair_accessible', 'operator': 'is_true'}], 'return_properties': ['name', 'category', 'subCategory', 'location', 'wheelchair_accessible']})",
+          "router_[query_graph]": "POI | filters: categoryequals, wheelchair_accessibleis_true"
+        },
+        "response": "I can't pull up a list of wheelchair-accessible restaurants right now — the system's having trouble with the query. But I can check for specific places if you have a name in mind.",
+        "era_ran": false,
+        "total_ms": 5743
+      },
+      "skipped": false
+    },
+    {
+      "id": 34,
+      "query": "Which buildings on campus offer guest accommodations in their description?",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_building_by_function"
+        ],
+        "query_graph_spec": {
+          "node_label": "Building",
+          "filters": [
+            {
+              "property": "note",
+              "operator": "contains",
+              "value": "guest accommodations"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "guest accommodations": "Building 18"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_location": "campus",
+          "router_neo4j": "fn:  query_graph({'node_label': 'Building', 'filters': [{'property': 'description', 'operator': 'contains', 'value': 'guest accommodations'}], 'return_properties': ['name', 'description'], 'limit': 10})",
+          "router_[query_graph]": "Building | filters: descriptioncontains"
+        },
+        "response": "I can't find any buildings on campus with \"guest accommodations\" in their description — the system doesn't have that info available. If you're looking for guest housing, I’d recommend checking the university’s official website or contacting the student services office directly.",
+        "era_ran": false,
+        "total_ms": 3535
+      },
+      "skipped": false
+    },
+    {
+      "id": 35,
+      "query": "Show me places that offer vegan options on campus",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "dietary_options",
+              "operator": "in_list",
+              "value": "vegan"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_place_type": "Restaurant",
+          "router_cuisine": "vegan",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'vegan', 'place_type': 'Restaurant', 'limit': 10})"
+        },
+        "response": "I’ve checked across campus, but there aren’t any restaurants listed with dedicated vegan options right now. The campus dining spots mostly offer standard meals with limited plant-based choices. You might want to check the Mensa’s daily menu online — they sometimes include a vegan dish, even if it’s not highlighted as such.",
+        "era_ran": false,
+        "total_ms": 2671
+      },
+      "skipped": false
+    },
+    {
+      "id": 36,
+      "query": "What's the temperature near the library, and tell me the closest tram stop",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "fiware_entity_type": "Weather",
+        "entity_resolution": {
+          "library": "Building 30"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "get_nearest_tram_from_building"
+        ],
+        "resolved_entities": {
+          "router_location": "library",
+          "router_building_name": "library",
+          "router_sensor_type": "temperature",
+          "router_neo4j": ">>   Building: ?",
+          "router_fiware:": "Weather (id=None, limit=5)"
+        },
+        "response": "It's 12.6°C with very high humidity — feels a bit damp and cool, especially since it's barely any wind. Not bad, but you might want a light jacket if you're heading out.\n\nThe closest tram stop is Magdeburg Universitätsbibliothek — just 168 meters away, a quick 2-minute walk. Tram 2 and Bus 73 both stop there.",
+        "era_ran": false,
+        "total_ms": 3699
+      },
+      "skipped": false
+    },
+    {
+      "id": 37,
+      "query": "Find Italian places near Building 22 and check if there's a sensor for parking close by",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "Building 22": "Building 22"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "find_places_near_building",
+          "get_nearest_sensor"
+        ],
+        "resolved_entities": {
+          "router_location": "Building 22",
+          "router_building_name": "Building 22",
+          "router_place_type": "Restaurant",
+          "router_cuisine": "Italian",
+          "router_sensor_type": "parking",
+          "router_neo4j": "fn:  get_nearest_sensor({'latitude': 52.139, 'longitude': 11.645, 'sensor_type': 'parking', 'radius': 500})"
+        },
+        "response": "There’s one Italian place near Building 22: Ristorante Da Nino Dolce Vita, right on Wittenberger Platz. It’s about 600m away — an 8-minute walk. Open Tuesday to Sunday for lunch and dinner, closed Mondays.\n\nAs for parking sensors, I don’t have real-time data on sensors near Building 22. But there are parking spots nearby — Campus Parking B has 23 open out of 100, so you should be able to find a spot.",
+        "era_ran": false,
+        "total_ms": 4006
+      },
+      "skipped": false
+    },
+    {
+      "id": 38,
+      "query": "Tell me about Tram 1's full route and where the major switch points are",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_line_route",
+          "find_transfer_hubs"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "Tram 1": "Tram 1"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_line_route"
+        ],
+        "resolved_entities": {
+          "router_line_name": "Tram 1",
+          "router_neo4j": "fn:  get_line_route({'line_name': 'Tram 1', 'direction': 'all'})",
+          "param_line_name": "Tram 1"
+        },
+        "response": "Tram 1 runs between **Magdeburg Kannenstieg** and **Sudenburg (Kroatenweg)** in both directions — 30 stops total, about 30 minutes each way.\n\nThe main switch points (where it changes direction) are at the two endpoints:\n- **Kannenstieg** (in the city center, near the university and shopping area)\n- **Sudenburg (Kroatenweg)** (in the southern part of the city, near residential areas and the Sudenburg district)\n\nAlong the way, it passes through key spots like:\n- **Universitätsplatz** (near the university and Faculty of Electrical Engineering)\n- **Hauptbahnhof (Main Station)** — great for transfers to trains and other trams\n- **Alter Markt** — central square, close to the cathedral and city hall\n- **ZOB (Central Bus Station)** — connects to regional and long-distance buses\n\nIt’s a solid loop through the heart of Magdeburg, so if you're heading anywhere central or near the university, it’s usually a reliable option.",
+        "era_ran": false,
+        "total_ms": 3168
+      },
+      "skipped": false
+    },
+    {
+      "id": 39,
+      "query": "Find stops served by both Tram 5 and Tram 9",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_transfer_hubs"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Tram 5"
+            },
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Tram 9"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Tram 5": "Tram 5",
+          "Tram 9": "Tram 9",
+          "Magdeburg Alter Markt": "Magdeburg Alter Markt",
+          "Magdeburg Hasselbachplatz": "Magdeburg Hasselbachplatz"
+        },
+        "notes": "Tests multi-filter on same LIST property (lines) — AND-combined; mono may collapse to a single filter."
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_line_route",
+          "get_line_route",
+          "find_transfer_hubs"
+        ],
+        "resolved_entities": {
+          "router_line_name": "Tram 5",
+          "router_line_name_2": "Tram 9",
+          "router_neo4j": "fn:  find_transfer_hubs({'min_lines': 2})",
+          "param_line_name": "Tram 9"
+        },
+        "response": "Tram 5 and Tram 9 both stop at:\n\n- **Magdeburg Opernhaus**  \n- **Magdeburg Am Katharinenturm**  \n- **Magdeburg Alter Markt**  \n- **Magdeburg Hasselbachplatz**  \n- **Magdeburg Kastanienstraße**  \n\nThese are the key transfer points — especially Opernhaus and Am Katharinenturm, which are central and well-connected.",
+        "era_ran": false,
+        "total_ms": 3800
+      },
+      "skipped": false
+    },
+    {
+      "id": 40,
+      "query": "Find any stop served by Bus 73",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_route",
+          "get_line_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Bus 73"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Bus 73": "Bus 73"
+        },
+        "notes": "Tests query_graph for a query that get_line_route also handles — distinguishes the dynamic-graph path from the specialized transit function."
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_line_info"
+        ],
+        "resolved_entities": {
+          "router_line_name": "Bus 73",
+          "router_neo4j": "fn:  get_line_info({'line_name': 'Bus 73'})",
+          "param_line_name": "Bus 73"
+        },
+        "response": "Bus 73 runs from Olvenstedter Platz to Wissenschaftshafen, stopping at 13 places along the way — including Walther-Rathenau-Straße, Universitätsbibliothek, and Wissenschaftshafen. It’s a solid route if you're heading across town.",
+        "era_ran": false,
+        "total_ms": 2105
+      },
+      "skipped": false
+    },
+    {
+      "id": 41,
+      "query": "How far apart are Sushi City and the library?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_distance_between_locations"
+        ],
+        "acceptable_alt_functions": [
+          "check_proximity",
+          "get_directions_between_buildings"
+        ],
+        "entity_resolution": {
+          "Sushi City": "Sushi City",
+          "library": "Building 30"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_distance_between_locations"
+        ],
+        "resolved_entities": {
+          "router_location": "Sushi City",
+          "router_poi_name": "Sushi City",
+          "router_destination": "library",
+          "router_neo4j": "fn:  get_distance_between_locations({'location1': 'Sushi City', 'location2': 'library'})",
+          "router_lookup": ">>  'library' -> 'Building 30' (Building) [exact_alias, 0.95]"
+        },
+        "response": "Sushi City and the library are about 2.1 km apart — a good 27-minute walk. Not too bad if you're in the mood for a stroll, but you might want to consider a bike or a quick bus ride if you're in a hurry.",
+        "era_ran": false,
+        "total_ms": 3873
+      },
+      "skipped": false
+    },
+    {
+      "id": 42,
+      "query": "Where can I grab a beer that's not far from where students eat?",
+      "category": "poi_lookup",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_places_by_cuisine"
+        ],
+        "entity_resolution": {
+          "where students eat": "Building 27"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_any_location",
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "where students eat",
+          "router_poi_name": "beer",
+          "router_place_type": "bar",
+          "router_neo4j": ">>   Building: ?",
+          "neo4j_POI": "Mensa Uni",
+          "param_search_term": "mensa"
+        },
+        "response": "Right near Mensa Uni — just a 2-minute walk down Johann-Gottlob-Nathusius-Ring — there’s a cozy little bar called *Kneipe am Ring*. It’s popular with students, open until late, and they’ve got a solid selection of local beers. Perfect spot to grab a drink after eating.",
+        "era_ran": false,
+        "total_ms": 5001
+      },
+      "skipped": false
+    },
+    {
+      "id": 43,
+      "query": "What kind of cuisine does ALEX serve?",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_poi_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "ALEX": "ALEX"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_poi_info"
+        ],
+        "resolved_entities": {
+          "router_poi_name": "ALEX",
+          "router_neo4j": "fn:  get_poi_info({'poi_name': 'ALEX'})"
+        },
+        "response": "ALEX serves burgers, steak, and Thai food — so you’ve got hearty classics and something a bit more exotic. They’re also fully vegetarian and vegan-friendly, so there’s good variety. And yes, they’ve got outdoor seating if you want to grab a bite in the fresh air.",
+        "era_ran": false,
+        "total_ms": 2419
+      },
+      "skipped": false
+    },
+    {
+      "id": 44,
+      "query": "Tell me about all the public transit lines in town",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_all_lines"
+        ],
+        "acceptable_alt_functions": [],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_all_lines"
+        ],
+        "resolved_entities": {
+          "router_neo4j": "fn:  get_all_lines({})"
+        },
+        "response": "Magdeburg’s public transit has 24 lines in total — a mix of buses and trams.  \n\nBuses cover most of the city, with routes like 45, 51–61, 66, 69, 71–73, and more. Trams are the backbone of the core network: Tram 1 runs from the university to the city center, Tram 2 and 3 loop through the west and east, and Tram 4–10 serve the outer districts and key connections.  \n\nTram 1 is the most frequent and runs through the heart of town — great for university and city center trips. Buses fill in the gaps, especially in residential areas and newer neighborhoods.  \n\nIf you're planning a trip, I can help you pick the best one based on your start and end points.",
+        "era_ran": false,
+        "total_ms": 3563
+      },
+      "skipped": false
+    },
+    {
+      "id": 45,
+      "query": "What lines stop at AOK?",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_stop_info"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "AOK": "Magdeburg AOK"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_stop_info"
+        ],
+        "resolved_entities": {
+          "router_stop_name": "AOK",
+          "router_neo4j": "fn:  get_stop_info({'stop_name': 'AOK'})",
+          "router_lookup": ">>  'AOK' -> 'Magdeburg AOK' (Stop) [exact_name, 1.00]",
+          "param_stop_name": "AOK"
+        },
+        "response": "Tram 1, 8, 9, and 10 all stop at Magdeburg AOK — it's a proper transfer hub, so you've got plenty of options depending on where you're headed.",
+        "era_ran": false,
+        "total_ms": 3176
+      },
+      "skipped": false
+    },
+    {
+      "id": 46,
+      "query": "I want to drive from the Hauptbahnhof — point me to the route to Building 80",
+      "category": "transit_routing",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "traffic",
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "Hauptbahnhof": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz",
+          "Building 80": "Building 80"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_multimodal_route"
+        ],
+        "resolved_entities": {
+          "router_origin": "Hauptbahnhof",
+          "router_destination": "Building 80",
+          "router_transport_mode": "car",
+          "router_neo4j": "fn:  get_multimodal_route({'origin': 'Hauptbahnhof', 'destination': 'Building 80'})",
+          "router_lookup": ">>  'Building 80' -> 'IMIQ Project Building' (Building) [exact_alias, 1.00]",
+          "router_route": ">>   Direct distance: 2206m (Haversine) → walk ~28 min",
+          "param_origin": "Hauptbahnhof",
+          "param_destination": "Building 80"
+        },
+        "response": "You're heading to Building 80 — the IMIQ Project Building — from Hauptbahnhof. Since it's late and dark, and the weather's damp (95% humidity, 12.6°C), I'd recommend taking the tram and bus route instead of walking.\n\nHere’s how:  \nWalk 1 minute from Fahrradparkhaus Hauptbahnhof to Magdeburg Hauptbahnhof/Kölnplatz, then hop on Tram 1. Ride 5 stops to Opernhaus — about 10 minutes. Transfer to Bus 73, ride 7 stops to Wissenschaftshafen, then walk 1 minute to Building 80. Total time: 27 minutes.\n\nIt’s a bit of a ride, but you’ll stay dry and out of the dark. Walking it would take 28 minutes — same time, but you’d be out in the damp and dark the whole way. Not worth it.\n\nTraffic’s clear right now, so if you *do* drive, it’s smooth — but parking near Building 80 might be tight. Public transit is the smarter move tonight.",
+        "era_ran": false,
+        "total_ms": 12092
+      },
+      "skipped": false
+    },
+    {
+      "id": 47,
+      "query": "Which building sits directly south of the EE faculty?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_south_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "EE faculty": "Building 03"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "what_is_south_of"
+        ],
+        "resolved_entities": {
+          "router_location": "EE faculty",
+          "router_building_name": "EE faculty",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "EE faculty"
+        },
+        "response": "Right south of the EE faculty is the Rectorate — that's where the university's main offices and conference rooms are.",
+        "era_ran": false,
+        "total_ms": 2491
+      },
+      "skipped": false
+    },
+    {
+      "id": 48,
+      "query": "Tell me what landmarks I'd see from Building 18",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_landmarks"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_info",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Building 18": "Building 18"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_building_landmarks"
+        ],
+        "resolved_entities": {
+          "router_building_name": "Building 18",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "Building 18"
+        },
+        "response": "From Building 18, you’ve got the Lokomobile — a historic traction engine — sitting right out front to the north. It’s a bit of a quirky landmark, kind of like a mechanical time capsule. Nothing behind it, but it’s a nice little detail if you’re walking by.",
+        "era_ran": false,
+        "total_ms": 2663
+      },
+      "skipped": false
+    },
+    {
+      "id": 49,
+      "query": "Is the Mensa close to Building 03?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "check_proximity"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "Mensa": "Building 27",
+          "Building 03": "Building 03"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "check_proximity"
+        ],
+        "resolved_entities": {
+          "router_location": "Mensa",
+          "router_building_name": "Building 03",
+          "router_neo4j": "fn:  check_proximity({'location1': 'Mensa', 'location2': 'Building 03'})",
+          "router_lookup": ">>  'Building 03' -> 'Faculty of Electrical Engineering and Information Technology' (Building) [exact_alias, 1.00]"
+        },
+        "response": "Not really — the Mensa is about 3.6 km from Building 03, which is a good 44-minute walk. If you're planning to go, you might want to consider a bike or a quick bus ride.",
+        "era_ran": false,
+        "total_ms": 3041
+      },
+      "skipped": false
+    },
+    {
+      "id": 50,
+      "query": "What's the indoor temperature in Room 2?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Room",
+        "fiware_entity_id": "Room2",
+        "fiware_attributes": [
+          "temperature"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "Room 2",
+          "router_sensor_type": "Room",
+          "router_fiware:": "Room (id=Room 2, limit=1)"
+        },
+        "response": "I don’t have real-time sensor data for Room 2 — I can’t access indoor temperatures or specific room conditions. Let me know if you’d like help with something else, like a route or weather.",
+        "era_ran": false,
+        "total_ms": 1883
+      },
+      "skipped": false
+    },
+    {
+      "id": 51,
+      "query": "Where can I find the delivery robot right now?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Vehicle",
+        "fiware_entity_id": "DeliveryRobot",
+        "fiware_attributes": [
+          "location"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_location": "delivery robot",
+          "router_vehicle_type": "robot",
+          "router_neo4j": "fn:  query_graph({'node_label': 'Vehicle', 'filters': [{'property': 'category', 'operator': '=', 'value': 'robot'}], 'return_properties': ['location', 'category', 'source'], 'limit': 1})",
+          "router_[query_graph]": "Vehicle | filters: category="
+        },
+        "response": "I can't track delivery robots right now — they're not part of the city's public data network. You might want to check with the university's logistics team or the app they use.",
+        "era_ran": false,
+        "total_ms": 2101
+      },
+      "skipped": false
+    },
+    {
+      "id": 52,
+      "query": "Show me every sensor we have running",
+      "category": "sensor_fiware",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "list_all_sensors"
+        ],
+        "acceptable_alt_functions": [
+          "list_sensors_by_type"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "list_all_sensors"
+        ],
+        "resolved_entities": {
+          "router_neo4j": "fn:  list_all_sensors({})"
+        },
+        "response": "We don’t have any active sensors currently registered in the system. Let me know if you’d like to check something specific — like weather, parking, or transit.",
+        "era_ran": false,
+        "total_ms": 2135
+      },
+      "skipped": false
+    },
+    {
+      "id": 53,
+      "query": "Find any restaurant where the cuisine mentions thai",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "contains",
+              "value": "thai"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_place_type": "Restaurant",
+          "router_cuisine": "thai",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'thai', 'place_type': 'Restaurant', 'limit': 5})"
+        },
+        "response": "There's one place that fits — ALEX on Ulrichplatz. They do burgers, steaks, and Thai food. Open daily from 8 AM, late night on weekends (until 2 AM Fri/Sat). It's accessible and has a website if you want to check the menu.",
+        "era_ran": false,
+        "total_ms": 2382
+      },
+      "skipped": false
+    },
+    {
+      "id": 54,
+      "query": "Find any landmark that hosts concerts",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "event_types",
+              "operator": "in_list",
+              "value": "concert"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "FestungMark": "FestungMark"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_location": "landmark",
+          "router_function": "hosts concerts",
+          "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'function', 'operator': 'contains', 'value': 'concert'}], 'return_properties': ['name', 'description', 'function'], 'limit': 5})",
+          "router_[query_graph]": "Landmark | filters: functioncontains"
+        },
+        "response": "I can't find any landmarks in Magdeburg that specifically host concerts — the system doesn't have a \"function\" field for landmarks, so I can't filter by that. But if you're looking for event spaces, the University's main auditorium or the Kulturpalast often host concerts and cultural events. Let me know if you'd like help finding one!",
+        "era_ran": false,
+        "total_ms": 2290
+      },
+      "skipped": false
+    },
+    {
+      "id": 55,
+      "query": "Show me POIs that are convenience stores",
+      "category": "dynamic_query",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Convenience"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_place_type": "convenience store",
+          "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'category', 'operator': 'equals', 'value': 'Convenience Store'}], 'return_properties': ['name', 'category', 'subCategory', 'location'], 'limit': 10})",
+          "router_[query_graph]": "POI | filters: categoryequals"
+        },
+        "response": "I can't pull up convenience stores right now — the system's looking for a 'category' property that doesn't exist in the data. I’ll keep an eye on it, but for now, I can’t list them. Let me know if you’d like help with something else nearby.",
+        "era_ran": false,
+        "total_ms": 2229
+      },
+      "skipped": false
+    },
+    {
+      "id": 56,
+      "query": "Tell me about Building 16 and what sensors are nearby",
+      "category": "compound",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_building_info",
+          "get_all_sensors_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_sensor_near_building"
+        ],
+        "entity_resolution": {
+          "Building 16": "Building 16"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_building_info",
+          "get_all_sensors_near_building"
+        ],
+        "resolved_entities": {
+          "router_building_name": "Building 16",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Building 16 is the Faculty of Natural Sciences, housing the Institute of Experimental Physics and the Institute of Chemistry. It’s a three-story building with labs, Lecture Hall V, and a cafeteria — great for grabbing a bite between classes. It’s fully wheelchair accessible, and the building’s pretty efficient, using about 215 kWh per square meter per year for electricity.\n\nIt’s located right on Denhardtstraße, just a short walk from the main campus hub. Nearby, you’ve got the International Office, the Chemical Storage Facility, and several other science and engineering buildings.\n\nAs for sensors — right now, there aren’t any active environmental or monitoring sensors directly tied to the building in the system. But it’s close to several tram stops, including Magdeburg Universität (Tram 1, 8, 9, 10) and Magdeburg Universitätsbibliothek (Tram 2, Bus 73), so transit access is solid.",
+        "era_ran": false,
+        "total_ms": 4663
+      },
+      "skipped": false
+    },
+    {
+      "id": 57,
+      "query": "How do I walk from Universitätsplatz to the Mensa, and is parking nearby?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking",
+          "darkness"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_multimodal_route",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_directions_between_buildings",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "Universitätsplatz": "Magdeburg Universitätsplatz/Opernhaus",
+          "Mensa": "Building 27"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "get_directions_between_buildings",
+          "get_all_sensors_near_building"
+        ],
+        "resolved_entities": {
+          "router_origin": "Universitätsplatz",
+          "router_destination": "Mensa",
+          "router_location": "Mensa",
+          "router_building_name": "Mensa",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Walking from Universitätsplatz to the Mensa is about 2.1 km — a 26-minute stroll. It’s a bit of a hike, but the route takes you through quiet streets, mostly along Universitätsstraße and then down Schloßstraße.  \n\nThe weather’s damp — 12.6°C with 95% humidity and barely any wind. It’s not raining, but it’s pretty foggy and feels chilly. And it’s dark now — 11:09 PM — so keep an eye on the path, especially on the quieter stretches.  \n\nAs for parking, there’s a small lot right near the Mensa, but it’s not marked as “available” in real time. Given the late hour and the fog, it might be tricky to find a spot. If you’re driving, you might want to consider parking at Campus Parking B instead — it’s a bit farther, but better lit and more reliable.  \n\nHonestly, if you’re not in a rush, walking’s fine — just bundle up and stay on well-lit paths.",
+        "era_ran": false,
+        "total_ms": 5734
+      },
+      "skipped": false
+    },
+    {
+      "id": 58,
+      "query": "Which Tram lines pass through Hasselbachplatz, and what's the closest restaurant?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_stop_info",
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info",
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "Hasselbachplatz": "Magdeburg Hasselbachplatz"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.5,
+        "neo4j_functions_called": [],
+        "resolved_entities": {},
+        "response": "I don’t have real-time data on tram lines stopping at Hasselbachplatz or nearby restaurants right now. I’d recommend checking the local transit map or a city guide for the most up-to-date info. Let me know if you’d like help with something else!",
+        "era_ran": false,
+        "total_ms": 11959
+      },
+      "skipped": false
+    },
+    {
+      "id": 59,
+      "query": "Cafes that explicitly offer vegetarian options",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Cafe"
+            },
+            {
+              "property": "dietary_options",
+              "operator": "in_list",
+              "value": "vegetarian"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Bo Bo Q": "Bo Bo Q",
+          "Cowvanavegan Food More": "Cowvanavegan Food More"
+        },
+        "notes": "Multi-filter on POI: type + dietary_options. Cafe type filter distinguishes from id 14 (Restaurant + vegetarian)."
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_place_type": "cafe",
+          "router_cuisine": "vegetarian",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'vegetarian', 'place_type': 'cafe', 'limit': 10})"
+        },
+        "response": "I couldn’t find any cafes in Magdeburg that are explicitly listed as offering vegetarian options. It might be worth checking with individual cafes directly — some may offer vegetarian items even if they’re not marked as such.",
+        "era_ran": false,
+        "total_ms": 2131
+      },
+      "skipped": false
+    },
+    {
+      "id": 60,
+      "query": "Find stops served by Bus 73 that also have a tram line",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_route",
+          "find_transfer_hubs"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Bus 73"
+            },
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Tram"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Bus 73": "Bus 73",
+          "Magdeburg Opernhaus": "Magdeburg Opernhaus"
+        },
+        "notes": "in_list with substring match: 'Tram' matches any line containing 'Tram' (Tram 1..10). Tests filter intersection mono usually misses."
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "get_line_info",
+          "find_transfer_hubs"
+        ],
+        "resolved_entities": {
+          "router_line_name": "Bus 73",
+          "router_neo4j": "fn:  find_transfer_hubs({'min_lines': 2})",
+          "param_line_name": "Bus 73"
+        },
+        "response": "Bus 73 connects with trams at a few key stops — the most useful ones are:\n\n- **Opernhaus**: Tram 1, 2, 5, 8, 9, 10 all stop here. Great for transfers.\n- **Am Katharinenturm**: Tram 1, 2, 5, 8, 9, 10 — right near the university.\n- **Olvenstedter Platz**: Tram 3 and 4, plus Bus 73 — handy if you're coming from the east.\n\nThese are your best options if you're looking to switch between Bus 73 and a tram.",
+        "era_ran": false,
+        "total_ms": 3082
+      },
+      "skipped": false
+    },
+    {
+      "id": 61,
+      "query": "Find me an Italian restaurant",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_by_cuisine"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_cuisine": "Italian",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'Italian', 'place_type': 'Restaurant', 'limit': 5})"
+        },
+        "response": "Here are a few Italian spots nearby:\n\n- **Lagodi Garda** on Erzbergerstraße — open Tue–Sun from 11:00 to midnight. Cozy, accessible, and got a great reputation for pasta.\n- **Ciao Ciao** on Kleine Münzstraße — open every day from 11:30 to 11 PM. A local favorite, casual and always busy.\n- **La Perla** on Breiter Weg — open 11:00 to 11 PM. A bit more upscale, great for a relaxed dinner.\n- **Piccolo Mondo** on Münchenhofstraße — no details on hours, but it’s a solid pick if you’re in the mood for something simple.\n- **Ristorante Da Nino Dolce Vita** on Wittenberger Platz — open Tue–Sat for dinner, Sun for dinner only. A bit more formal, great for a special night.\n\nAll are accessible and within a short walk of each other. If you're near the campus, Ciao Ciao or La Perla are easiest to get to.",
+        "era_ran": false,
+        "total_ms": 3915
+      },
+      "skipped": false
+    },
+    {
+      "id": 62,
+      "query": "Where's that place called Korfu?",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_poi_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Korfu": "Korfu"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "get_poi_info"
+        ],
+        "resolved_entities": {
+          "router_location": "Korfu",
+          "router_poi_name": "Korfu",
+          "router_neo4j": "fn:  get_poi_info({'name': 'Korfu'})",
+          "param_name": "Korfu"
+        },
+        "response": "Sorry, I couldn’t find a place called Korfu in Magdeburg. It might be a nickname or a smaller spot not in the current database. Let me know if you have more details — like what kind of place it is (café, shop, etc.) — and I’ll try again.",
+        "era_ran": false,
+        "total_ms": 2023
+      },
+      "skipped": false
+    },
+    {
+      "id": 63,
+      "query": "How do I cycle from Building 03 to Hasselbachplatz?",
+      "category": "transit_routing",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "Building 03": "Building 03",
+          "Hasselbachplatz": "Magdeburg Hasselbachplatz"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_multimodal_route"
+        ],
+        "resolved_entities": {
+          "router_origin": "Building 03",
+          "router_destination": "Hasselbachplatz",
+          "router_transport_mode": "cycling",
+          "router_neo4j": "fn:  get_multimodal_route({'origin': 'Building 03', 'destination': 'Hasselbachplatz', 'transport_mode': 'cycling'})",
+          "router_lookup": ">>  'Hasselbachplatz' -> 'Magdeburg Hasselbachplatz' (Stop) [exact_name, 1.00]",
+          "router_route": ">>   Direct distance: 2343m (Haversine) → walk ~29 min",
+          "param_origin": "Building 03",
+          "param_destination": "Hasselbachplatz"
+        },
+        "response": "You can't cycle directly from Building 03 to Hasselbachplatz — the route goes through the city center via Tram 10. Here’s how it works:\n\nWalk 4 minutes from Building 03 to Magdeburg Universität stop, then hop on Tram 10. It’s a 7-stop ride to Hasselbachplatz — about 14 minutes — and you’ll be there in 18 minutes total.\n\nIt’s a bit damp out (95% humidity, 12.6°C), and it’s dark now — so if you’re walking the 4-minute stretch, make sure you’re visible. The tram’s sheltered, so that’s the safer bet.\n\nHonestly, for this trip, cycling isn’t the way — the tram’s faster, drier, and you’re not out in the dark with the wind.",
+        "era_ran": false,
+        "total_ms": 6566
+      },
+      "skipped": false
+    },
+    {
+      "id": 64,
+      "query": "Tell me everything about the Universitätsplatz/Opernhaus stop",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_stop_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Universitätsplatz/Opernhaus": "Magdeburg Universitätsplatz/Opernhaus"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_stop_info"
+        ],
+        "resolved_entities": {
+          "router_stop_name": "Universitätsplatz/Opernhaus",
+          "router_neo4j": "fn:  get_stop_info({'stop_name': 'Universitätsplatz/Opernhaus'})",
+          "router_lookup": ">>  'Universitätsplatz/Opernhaus' -> 'Magdeburg Universitätsplatz/Opernhaus' (Stop) [exact_name, 1.00]",
+          "param_stop_name": "Universitätsplatz/Opernhaus"
+        },
+        "response": "The Universitätsplatz/Opernhaus stop is right on Große Steinernetischstraße, just a short walk from the opera house and the university square. It’s served by Bus 73, and it’s wheelchair accessible — easy to get to from any direction.\n\nYou’re practically on Breiter Weg, which is the main street running through the area, and it’s only about 50 meters to the nearest side of the square. If you’re heading to the university or the library, it’s a solid starting point.",
+        "era_ran": false,
+        "total_ms": 3398
+      },
+      "skipped": false
+    },
+    {
+      "id": 65,
+      "query": "What's east of Building 22?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_east_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Building 22": "Building 22"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "what_is_east_of"
+        ],
+        "resolved_entities": {
+          "router_building_name": "Building 22",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "Building 22"
+        },
+        "response": "East of Building 22 is the Faculty of Economics (Chairs), which houses offices, seminar rooms, a library, and workshop spaces. Just beyond that is the Faculty of Natural Sciences.",
+        "era_ran": false,
+        "total_ms": 2371
+      },
+      "skipped": false
+    },
+    {
+      "id": 66,
+      "query": "Tell me about the Speicher buildings",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_building_by_function"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Speicher buildings": "Building 81"
+        },
+        "notes": "Plural query — wants Building 81 (Speicher K) and Building 82 (Speicher B). Mono may pick get_building_info and ask which one."
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_building_by_function"
+        ],
+        "resolved_entities": {
+          "router_location": "Speicher buildings",
+          "router_building_name": "Speicher buildings",
+          "router_neo4j": "fn:  find_building_by_function({'query': 'Speicher'})"
+        },
+        "response": "The Speicher buildings are a cluster of structures near the science harbor, mostly used for research and specialized functions.  \n\n- **Speicher B / STIMULATE Research Campus** (also known as Building 82) is the most notable — it’s a big 4,913 m² space housing the STIMULATE research campus. It’s got advanced climate systems, including refrigeration and humidification, and is located on Otto-Hahn-Straße. It’s also right next to the IMIQ Project Building.  \n\n- **Speicher K** (Building 81) sits on Werner-Heisenberg-Straße and is linked to the Galileo portal — though its exact function isn’t listed.  \n\n- **Speicher GHI** is on Niels-Bohr-Straße, but details on its use are sparse.  \n\nThey’re all part of the university’s science harbor area — a mix of research, innovation, and tech-focused spaces.",
+        "era_ran": false,
+        "total_ms": 3805
+      },
+      "skipped": false
+    },
+    {
+      "id": 67,
+      "query": "What's the latest reading on the Walter weather station?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Weather",
+        "fiware_entity_id": "Sensor:Weather:Walter",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_sensor_for_location"
+        ],
+        "resolved_entities": {
+          "router_location": "Walter",
+          "router_sensor_type": "weather",
+          "router_neo4j": "fn:  get_sensor_for_location({'location_name': 'Walter', 'sensor_type': 'weather'})",
+          "router_fiware:": "Weather (id=None, limit=1)"
+        },
+        "response": "The Walter weather station reports 12.6°C — feels like 12.6°C, with 95% humidity and barely any wind. It's been dry recently (0.0 mm rain in the last hour), but the air is pretty damp. UV index is moderate at 3.1, so a light sunscreen might not hurt if you're out long.",
+        "era_ran": false,
+        "total_ms": 2374
+      },
+      "skipped": false
+    },
+    {
+      "id": 68,
+      "query": "What's the weather like at NorthPark?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Weather",
+        "fiware_entity_id": "Sensor:Weather:NorthPark",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "NorthPark",
+          "router_fiware:": "Weather (id=None, limit=5)"
+        },
+        "response": "NorthPark is feeling pretty damp right now — 12.6°C with 95% humidity, and it's not raining at the moment. Feels like 12.6°C, so a bit chilly and quite humid. Wind's light, just 1.2 km/h, and UV is low (3.1), so no need to worry about sunburn. If you're heading out, a light jacket might be nice.",
+        "era_ran": false,
+        "total_ms": 2187
+      },
+      "skipped": false
+    },
+    {
+      "id": 69,
+      "query": "Show me hotels close to the train station",
+      "category": "dynamic_query",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building",
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Hotel"
+            }
+          ],
+          "near_location": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz"
+        },
+        "entity_resolution": {
+          "train station": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "train station",
+          "router_place_type": "hotel",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Right near the train station, you’ve got a few solid options:\n\n- CityHotel Magdeburg — just a 3-minute walk away, right on Konrad-Adenauer-Platz. Super convenient.\n- Hotel Magdeburg City Center by Leonardo Hotels — 4 minutes on foot, right on Bahnhofstraße. Great if you want to be right in the middle of things.\n- Maritim Hotel — a bit farther, 8 minutes’ walk, but still within easy reach on foot. A bit more upscale, and right off Otto-von-Guericke-Straße.\n\nAll three are within 600m — you won’t need a car.",
+        "era_ran": false,
+        "total_ms": 2957
+      },
+      "skipped": false
+    },
+    {
+      "id": 70,
+      "query": "Restaurants with cuisines including burger",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "contains",
+              "value": "burger"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "ALEX": "ALEX",
+          "Peter Pane": "Peter Pane"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_place_type": "Restaurant",
+          "router_cuisine": "burger",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'burger', 'place_type': 'Restaurant', 'limit': 10})"
+        },
+        "response": "Here are three spots for burgers:\n\n- **ALEX** on Ulrichplatz — open late, serves burgers, steak, and Thai. They're open from 8 AM to midnight (until 1 AM on Thursdays, 2 AM on Fridays and Saturdays).  \n- **Peter Pane** on Ernst-Reuter-Allee — straightforward burger place, open 11 AM to 10 PM (11 PM on weekends).  \n- **Linharts** on Gerhart-Hauptmann-Straße — a bit more low-key, open only from 5:30 to 9 PM Tuesday through Saturday.  \n\nAll are accessible, and you can check their websites if you want to see menus or current offers.",
+        "era_ran": false,
+        "total_ms": 3053
+      },
+      "skipped": false
+    },
+    {
+      "id": 71,
+      "query": "What's the address of the EE faculty and is the air quality OK there?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_building_info",
+          "get_all_sensors_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_sensor_near_building"
+        ],
+        "fiware_entity_type": "AirQuality",
+        "entity_resolution": {
+          "EE faculty": "Building 03"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_building_by_function"
+        ],
+        "resolved_entities": {
+          "router_location": "EE faculty",
+          "router_building_name": "EE faculty",
+          "router_neo4j": "fn:  find_building_by_function({'query': 'EE faculty'})",
+          "router_fiware:": "AirQuality (id=None, limit=5)"
+        },
+        "response": "The Faculty of Electrical Engineering and Information Technology — commonly known as Building 03 — is located on Gareisstraße, right near the heart of the university campus. It's shared with the Faculty of Mathematics, so you'll find labs, offices, and seminar rooms for both departments.\n\nAs for air quality, the closest sensor is at Agnesstraße (near the campus center), where PM2.5 is at 4 µg/m³ — that’s excellent, well below the WHO’s safe threshold. So yes, the air’s fine there.",
+        "era_ran": false,
+        "total_ms": 3935
+      },
+      "skipped": false
+    },
+    {
+      "id": 72,
+      "query": "Find a Greek restaurant near the rectorate and check the parking situation around there",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "rectorate": "Building 04"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "rectorate",
+          "router_poi_name": "Greek restaurant",
+          "router_building_name": "rectorate",
+          "router_sensor_type": "parking",
+          "router_neo4j": ">>   Building: ?",
+          "router_fiware:": "Parking (id=None, limit=5)"
+        },
+        "response": "There's a Greek place called Korfu on Gustav-Adolf-Straße — just a 8-minute walk from the rectorate. It's open Monday to Sunday from 5 PM to 11 PM, but not accessible for wheelchairs.\n\nAs for parking, the closest spot is the Tiefgarage Universitätsplatz — 110 out of 120 spots free. It's right near the rectorate, so you're in luck. The Allee Center and Hotel Ratswaage garages are full, but there's still plenty at City Carré (300 spots) and Hotel Maritim (376 spots) if you're willing to walk a bit farther.",
+        "era_ran": false,
+        "total_ms": 4009
+      },
+      "skipped": false
+    },
+    {
+      "id": 73,
+      "query": "Is the IBZ wheelchair accessible, and what's the closest tram stop?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_building_info",
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_accessible_route",
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "IBZ": "Building 32"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_building_infrastructure",
+          "get_nearest_tram_from_building"
+        ],
+        "resolved_entities": {
+          "router_building_name": "IBZ",
+          "router_accessibility": "wheelchair accessible",
+          "router_transport_mode": "tram",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "IBZ"
+        },
+        "response": "Yes, the IBZ is wheelchair accessible — all entrances and internal areas are designed for easy access.\n\nThe closest tram stop is Magdeburg Universitätsbibliothek, just 135 meters away. Tram 2 and Bus 73 both stop there — you can catch either one from there.",
+        "era_ran": false,
+        "total_ms": 4024
+      },
+      "skipped": false
+    },
+    {
+      "id": 74,
+      "query": "Tell me what's at FestungMark and how I'd get there from Building 03",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": true,
+        "era_should_trigger": true,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_landmark_info",
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location",
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "FestungMark": "FestungMark",
+          "Building 03": "Building 03"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "get_poi_info",
+          "get_multimodal_route"
+        ],
+        "resolved_entities": {
+          "router_location": "FestungMark",
+          "router_origin": "Building 03",
+          "router_neo4j": "fn:  get_multimodal_route({'origin': 'Building 03', 'destination': 'FestungMark'})",
+          "router_lookup": ">>  'FestungMark' -> 'FestungMark' (Landmark) [exact_name, 1.00]",
+          "router_route": ">>   Direct distance: 524m (Haversine) → walk ~7 min",
+          "param_name": "FestungMark",
+          "param_origin": "Building 03",
+          "param_destination": "FestungMark"
+        },
+        "response": "FestungMark is a cultural venue and event space located near the old city fortifications — think historic vibes, occasional exhibitions, concerts, or pop-up markets. It’s a bit off the beaten path, but worth a visit if you’re into local culture.\n\nFrom Building 03, it’s about 1.4 km — a 17-minute walk. You’d head out via Universitätsplatz, follow the path along the Elbe, and pass by the old city walls. It’s a quiet route, but since it’s 23:19 and dark out, I’d suggest being mindful if you’re walking or cycling — the area’s not heavily lit, and it’s damp (95% humidity) with a light breeze. Not a bad evening for a stroll if you’re dressed for it, but maybe not the best time to be out alone.\n\nThere’s no direct transit, and driving isn’t practical for such a short distance — parking’s limited anyway. So walking’s the only real option, but take your time and stay on well-lit paths.",
+        "era_ran": false,
+        "total_ms": 5789
+      },
+      "skipped": false
+    },
+    {
+      "id": 75,
+      "query": "Find any restaurant marked as not accessible",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "accessibility",
+              "operator": "contains",
+              "value": "not accessible"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Hummels Brauhaus": "Hummels Brauhaus",
+          "Korfu": "Korfu",
+          "Tucherstube": "Tucherstube"
+        },
+        "notes": "Tests negative accessibility filter. 3 restaurants verified to have 'not accessible' value."
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_accessibility": "not accessible",
+          "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'accessibility', 'operator': 'is_false'}, {'property': 'category', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location', 'accessibility'], 'limit': 10})",
+          "router_[query_graph]": "POI | filters: accessibilityis_false, category?"
+        },
+        "response": "I can't check for restaurants marked as not accessible — the system doesn't support that filter type. But if you're looking for a specific place or need help finding a wheelchair-friendly option, I can try to help with that.",
+        "era_ran": false,
+        "total_ms": 2480
+      },
+      "skipped": false
+    },
+    {
+      "id": 76,
+      "query": "Show me restaurants whose name starts with 'Asia'",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "name",
+              "operator": "starts_with",
+              "value": "asia"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Asia Long": "Asia Long",
+          "Asia Bixie": "Asia Bixie",
+          "Asia Wok": "Asia Wok"
+        },
+        "notes": "Tests starts_with operator on STRING (rare in dataset)."
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_place_type": "Restaurant",
+          "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'name', 'operator': 'starts_with', 'value': 'Asia'}, {'property': 'category', 'operator': 'is', 'value': 'Restaurant'}], 'return_properties': ['name', 'category', 'subCategory', 'location'], 'limit': 10})",
+          "router_[query_graph]": "POI | filters: namestarts_with, categoryis"
+        },
+        "response": "I can’t find restaurants starting with 'Asia' right now — the system’s having trouble filtering by name and category at the same time. Let me know if you’d like a list of nearby restaurants by type or cuisine instead.",
+        "era_ran": false,
+        "total_ms": 2192
+      },
+      "skipped": false
+    },
+    {
+      "id": 77,
+      "query": "Are there any landmarks with theater services?",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "event_types",
+              "operator": "in_list",
+              "value": "theater"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "FestungMark": "FestungMark"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'services', 'operator': 'contains', 'value': 'theater'}], 'return_properties': ['name', 'description', 'services'], 'limit': 10})",
+          "router_[query_graph]": "Landmark | filters: servicescontains"
+        },
+        "response": "There aren't any landmarks in Magdeburg listed with theater services right now. The city’s main theater is the Städtische Bühnen, located near the town hall — it’s more of a performance venue than a landmark in the traditional sense. If you're looking for cultural events, that’s your best bet.",
+        "era_ran": false,
+        "total_ms": 2652
+      },
+      "skipped": false
+    },
+    {
+      "id": 78,
+      "query": "Find any stop where 'Bus' appears among the lines",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Bus"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_line_name": "Bus",
+          "router_neo4j": "fn:  query_graph({'node_label': 'Stop', 'filters': [{'property': 'lines', 'operator': 'contains', 'value': 'Bus'}], 'return_properties': ['name', 'lines', 'location'], 'limit': 10})",
+          "router_[query_graph]": "Stop | filters: linescontains"
+        },
+        "response": "I can't pull up the exact stops right now, but I can tell you that Bus 73 stops at Walther-Rathenau-Straße and Universitätsbibliothek — both are close to Building 03. If you're looking for other bus stops, let me know and I’ll check again.",
+        "era_ran": false,
+        "total_ms": 2321
+      },
+      "skipped": false
+    },
+    {
+      "id": 79,
+      "query": "Show me POIs with 'Magdeburg' in their name",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "name",
+              "operator": "contains",
+              "value": "magdeburg"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_location": "Magdeburg",
+          "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'name', 'operator': 'contains', 'value': 'Magdeburg'}], 'return_properties': ['name', 'category', 'subCategory', 'location'], 'limit': 10})",
+          "router_[query_graph]": "POI | filters: namecontains"
+        },
+        "response": "I can't retrieve POIs with 'Magdeburg' in the name right now — the system's filtering is limited to certain properties. Let me know if you're looking for something specific, like a building, restaurant, or landmark in the city.",
+        "era_ran": false,
+        "total_ms": 2289
+      },
+      "skipped": false
+    },
+    {
+      "id": 80,
+      "query": "Find any building where the function description includes 'office'",
+      "category": "property_edge",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_building_by_function"
+        ],
+        "query_graph_spec": {
+          "node_label": "Building",
+          "filters": [
+            {
+              "property": "function",
+              "operator": "contains",
+              "value": "office"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_building_by_function"
+        ],
+        "resolved_entities": {
+          "router_neo4j": "fn:  find_building_by_function({'query': 'office'})"
+        },
+        "response": "Here are a few buildings on campus where the function includes 'office':\n\n- **International Office / Media Center / Transfer and Start-up Center (Building 18)** – Offices, labs, training rooms, and guest accommodations. It's near Walther-Rathenau-Straße and hosts several departments like the International Office and Press & PR.\n\n- **Experimental Factory Magdeburg (ExFa)** – Offers office spaces, coworking areas, and conference rooms. It's a research and innovation hub near Johann-Gottlob-Nathusius-Ring.\n\n- **Department of Technology & Construction Planning (K4) – Building 43** – Entirely office and storage space, located on Zschokkestraße.\n\n- **Lecture Hall VI (HS VI) – Building 44** – Houses office space alongside the lecture hall, on Zschokkestraße.\n\n- **IBZ (International Meeting Center) – Building 32** – Offers office space for visiting scholars, along with residential and administrative areas.\n\n- **Faculty of Economics (Chairs) – Building 23** – Offices, seminar rooms, and library space, right near Pfälzer Straße.\n\n- **Student Council / Lecture Hall I / University Computer Center (URZ) – Building 26** – Offices, IT services, and lecture halls, also on Pfälzer Straße.\n\n- **Test Facilities – Faculty of Process and Systems Engineering (Buildings 14 & 15)** – Both have office and lab spaces, located on Hohenstaufenring.\n\nAll of these are well-connected by tram and walking paths. If you're looking for a specific type of office (e.g., administrative, research, or student services), I can narrow it down further.",
+        "era_ran": false,
+        "total_ms": 5596
+      },
+      "skipped": false
+    },
+    {
+      "id": 81,
+      "query": "Find me cafes near 52.139, 11.645",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_coordinates"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_near_coordinates"
+        ],
+        "resolved_entities": {
+          "router_location": "52.139, 11.645",
+          "router_place_type": "cafe",
+          "router_neo4j": "fn:  find_places_near_coordinates({'lat': 52.139, 'lon': 11.645, 'place_type': 'Cafe', 'cuisine': None, 'radius_meters': 500, 'limit': 5})"
+        },
+        "response": "Right near your spot — here are a few good options:\n\n- **Die Kaffeebar** on Walther-Rathenau-Straße — just a 1-minute walk, open Mon–Fri 8:30–5:00. Great for a quick coffee.\n- **Cafeteria Uni Bibliothek** on Hohepfortestraße — 2 minutes away, open until 4 PM Mon–Thu, 3 PM Fri. Good for a sandwich or regional bite.\n- **Primo Espresso** on Pfälzer Straße — also a 2-minute walk, open 9–6 daily. Solid espresso and a quiet spot.\n- **PIER16** on Denhardtstraße — same walking time, open 7:30–3:00 Mon–Fri. Student-run, good for a relaxed break.\n- **Cafe Oriental** on Hohepfortewall — 3 minutes away, if you're in the mood for something different.\n\nAll within a 3-minute walk — you’ve got plenty of choice.",
+        "era_ran": false,
+        "total_ms": 3938
+      },
+      "skipped": false
+    },
+    {
+      "id": 82,
+      "query": "Where can I get sushi specifically?",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_by_cuisine"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_cuisine": "sushi",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'sushi', 'place_type': 'Restaurant', 'limit': 5})"
+        },
+        "response": "If you're after sushi, here are a few solid spots:\n\n- **Yoko Sushi** on Lübecker Straße — open daily from 11:00 to 14:00 and 17:00 to 22:00. Cozy, reliable, and right in the heart of town.\n\n- **Sushifreunde** on Große Diesdorfer Straße — great for a quick bite during the week, open until 10 PM Monday to Friday.\n\n- **SUSHIdeluxe** on Halberstädter Straße — open until 10 PM Saturday, and Sunday from 4 PM. A bit more lively, with a good vibe.\n\n- **Vegan Living** on Im Elbbahnhof — if you're into plant-based sushi, this one’s got a solid selection, open late into the night.\n\n- **Asia Kitchen** on the edge of the city — also serves sushi, but more of a general Asian spot. Open Monday to Saturday, closed Sundays and public holidays.\n\nYoko and Sushifreunde are probably your best bets for a classic sushi experience.",
+        "era_ran": false,
+        "total_ms": 4009
+      },
+      "skipped": false
+    },
+    {
+      "id": 83,
+      "query": "What's the closest stop to the IBZ?",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "IBZ": "Building 32"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_nearest_tram_from_building"
+        ],
+        "resolved_entities": {
+          "router_location": "IBZ",
+          "router_building_name": "IBZ",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "The closest stop to the IBZ is Magdeburg Universitätsbibliothek — just 135 meters away, a quick 2-minute walk. Tram 2 and Bus 73 both stop there.",
+        "era_ran": false,
+        "total_ms": 2866
+      },
+      "skipped": false
+    },
+    {
+      "id": 84,
+      "query": "I need walking directions from Building 03 to Building 22",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_directions_between_buildings"
+        ],
+        "acceptable_alt_functions": [
+          "get_multimodal_route"
+        ],
+        "entity_resolution": {
+          "Building 03": "Building 03",
+          "Building 22": "Building 22"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_directions_between_buildings"
+        ],
+        "resolved_entities": {
+          "router_origin": "Building 03",
+          "router_destination": "Building 22",
+          "router_transport_mode": "walking",
+          "router_neo4j": "fn:  get_directions_between_buildings({'from_building': 'Building 03', 'to_building': 'Building 22'})"
+        },
+        "response": "It’s a short 347 meters — about a 4-minute walk from Building 03 to Building 22. You’ll head out toward Universitätsplatz, then follow the path along the east side of the campus, passing the library and the student center. The route is well-lit, but it’s dark now (11:23 PM), so keep an eye on your path and maybe stick to the main walkways.\n\nIt’s quite humid — 95% — and a bit cool at 12.6°C, so a light jacket might not hurt. Not raining, but it’s damp out, so watch your step on the pavement.",
+        "era_ran": false,
+        "total_ms": 4292
+      },
+      "skipped": false
+    },
+    {
+      "id": 85,
+      "query": "Show me where Bus 51 goes",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_line_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "Bus 51": "Bus 51"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "get_line_route"
+        ],
+        "resolved_entities": {
+          "router_line_name": "Bus 51",
+          "router_neo4j": "fn:  get_line_route({'line_name': 'Bus 51', 'direction': None})"
+        },
+        "response": "Bus 51 runs between Biederitz, Weidenring and Messegelände/Elbauenpark — 12 stops each way.  \n\nOn the way to Messegelände, it goes through Heyrothsberge, Friedensweiler, Stadion Neue Welt, Hohefeld-Privatweg, An der Lake, Wörlitzer Straße, Georg-Heidler-Straße, Friedrich-Ebert-Straße, Arenen, and Jerichower Platz.  \n\nOn the return trip, it follows the same route in reverse — from Messegelände all the way back to Biederitz.  \n\nSo if you're heading toward the exhibition grounds or the Elbauenpark, that’s your route.",
+        "era_ran": false,
+        "total_ms": 3032
+      },
+      "skipped": false
+    },
+    {
+      "id": 86,
+      "query": "What's to the west of Building 02?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_west_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Building 02": "Building 02"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "what_is_west_of"
+        ],
+        "resolved_entities": {
+          "router_building_name": "Building 02",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "Building 02"
+        },
+        "response": "To the west of Building 02 is the Mensa and the OvGU Sports Center — it's where you grab food, work out, or chill in the lounge.",
+        "era_ran": false,
+        "total_ms": 2453
+      },
+      "skipped": false
+    },
+    {
+      "id": 87,
+      "query": "What's north of the Welcome Center?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_north_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Welcome Center": "Building 01"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "what_is_north_of"
+        ],
+        "resolved_entities": {
+          "router_location": "Welcome Center",
+          "router_building_name": "Welcome Center",
+          "router_neo4j": ">>   Building: ?",
+          "param_building_name": "Welcome Center"
+        },
+        "response": "North of the Welcome Center is the Faculty of Mathematics — home to offices, labs, seminar rooms, and the SAP University Competence Center. It’s a solid walk from the Welcome Center, but you’ll find all the math departments and related facilities there.",
+        "era_ran": false,
+        "total_ms": 2383
+      },
+      "skipped": false
+    },
+    {
+      "id": 88,
+      "query": "Find buildings near the IBZ",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearby_buildings"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_spatial_relations",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "IBZ": "Building 32"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_any_location",
+          "get_nearby_buildings"
+        ],
+        "resolved_entities": {
+          "router_location": "IBZ",
+          "router_building_name": "IBZ",
+          "router_neo4j": ">>   Building: ?",
+          "neo4j_Building": "IBZ (International Meeting Center)",
+          "param_search_term": "IBZ"
+        },
+        "response": "The IBZ (International Meeting Center), also known as Building 32, is right on Pfälzer Straße, nestled between several student dorms and academic buildings. Just a few steps away, you’ve got Student Dormitory 1, 2, and 3 all along Johann-Gottlob-Nathusius-Ring. Nearby, the Faculty of Economics (Chairs) and the Faculty of Natural Sciences are within easy walking distance, and there’s also the Campus House and the Sports Hall 3 if you’re looking to stretch your legs. It’s a quiet, central spot — great for meeting people or just getting around.",
+        "era_ran": false,
+        "total_ms": 4602
+      },
+      "skipped": false
+    },
+    {
+      "id": 89,
+      "query": "What pollution levels are at the City Tunnel?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "AirQuality",
+        "fiware_entity_id": "Air:CityTunnel",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "City Tunnel",
+          "router_sensor_type": "air_quality",
+          "router_fiware:": "AirQuality (id=None, limit=5)"
+        },
+        "response": "The City Tunnel has a NO₂ level of 9 µg/m³ — that's very low, well below the threshold for concern. PM2.5 and PM10 are both at 4 and 6 µg/m³ respectively, which is excellent. Air quality there is actually quite good, especially for a tunnel.",
+        "era_ran": false,
+        "total_ms": 2096
+      },
+      "skipped": false
+    },
+    {
+      "id": 90,
+      "query": "Show me the parking situation right at Faculty CS",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_parking_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Parking",
+        "fiware_entity_id": "ParkingSpot:FacultyCS",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_parking_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_any_location"
+        ],
+        "resolved_entities": {
+          "router_location": "Faculty CS",
+          "router_building_name": "Faculty CS",
+          "router_neo4j": ">>   Building: Faculty of Computer Science (score=12.156384468078613)",
+          "router_fiware:": "Parking (id=None, limit=5)",
+          "neo4j_Building": "Faculty of Computer Science",
+          "param_search_term": "Faculty CS"
+        },
+        "response": "Right near the Faculty of Computer Science, there's a parking garage under Universitätsplatz — 110 spots free out of 120. It's just a 2-minute walk from the building, and it's fully operational.\n\nThere's also a big underground lot at City Carré — 300 spots free, though that’s a bit farther. The one at Hotel Maritim has 375 spots open too, but it’s a bit of a walk from the CS faculty.\n\nThe Allee Center and Hotel Ratswaage garages are full right now, so not an option. But you’ve got plenty of room at Universitätsplatz — definitely worth a look.",
+        "era_ran": false,
+        "total_ms": 4324
+      },
+      "skipped": false
+    },
+    {
+      "id": 91,
+      "query": "How clean is the air right now in the West section of town?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "AirQuality",
+        "fiware_entity_id": "Air:West",
+        "entity_resolution": {}
+      },
+      "actual": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [],
+        "resolved_entities": {
+          "router_location": "West section of town",
+          "router_sensor_type": "air_quality",
+          "router_fiware:": "AirQuality (id=None, limit=5)"
+        },
+        "response": "Air quality in the West section of town is excellent — PM2.5 is 4 µg/m³, PM10 is 6 µg/m³, and NO₂ is just 2 µg/m³. It's clean and fresh, no concerns at all.",
+        "era_ran": false,
+        "total_ms": 1840
+      },
+      "skipped": false
+    },
+    {
+      "id": 92,
+      "query": "Show me bars near the rectorate",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Bar"
+            }
+          ],
+          "near_location": "Building 04"
+        },
+        "entity_resolution": {
+          "rectorate": "Building 04"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "rectorate",
+          "router_building_name": "rectorate",
+          "router_place_type": "bar",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "Right near the rectorate, just a 3-minute walk down Walther-Rathenau-Straße, is Unitheke — a popular spot with a relaxed vibe. Open from 4 PM Monday to Friday, and 6 PM on weekends and holidays. Perfect for a quick drink after class.",
+        "era_ran": false,
+        "total_ms": 3748
+      },
+      "skipped": false
+    },
+    {
+      "id": 93,
+      "query": "Find any building whose department list mentions Algebra",
+      "category": "dynamic_query",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_building_by_function"
+        ],
+        "query_graph_spec": {
+          "node_label": "Building",
+          "filters": [
+            {
+              "property": "departments",
+              "operator": "in_list",
+              "value": "algebra"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Algebra": "Building 02"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_building_by_function"
+        ],
+        "resolved_entities": {
+          "router_location": "Algebra",
+          "router_neo4j": "fn:  find_building_by_function({'query': 'Algebra'})"
+        },
+        "response": "There's one building that fits — the Faculty of Mathematics, also known as Building 02. It's right next to Building 03, just a short walk down Gareisstraße. The Algebra & Geometry department (IAG) is based there, along with Analysis & Numerics, Mathematical Optimisation, and Mathematical Stochastics. It's wheelchair accessible too, and you can catch Tram 1, 8, 9, or 10 right outside.",
+        "era_ran": false,
+        "total_ms": 2680
+      },
+      "skipped": false
+    },
+    {
+      "id": 94,
+      "query": "Show me supermarkets near the library",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Supermarket"
+            }
+          ],
+          "near_location": "Building 30"
+        },
+        "entity_resolution": {
+          "library": "Building 30"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.95,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "library",
+          "router_building_name": "library",
+          "router_neo4j": ">>   Building: ?"
+        },
+        "response": "There's one supermarket nearby — NP on Rogätzter Straße, just a 7-minute walk from the library. It's about 564 meters away, open daily from 6 AM to midnight (until 8 PM on Saturdays). Not much choice in the immediate area, but it's right there if you need groceries.",
+        "era_ran": false,
+        "total_ms": 3083
+      },
+      "skipped": false
+    },
+    {
+      "id": 95,
+      "query": "Tell me about the closest weather sensor to Building 22 and what's the temperature",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_all_sensors_near_building",
+          "get_nearest_sensor"
+        ],
+        "fiware_entity_type": "Weather",
+        "entity_resolution": {
+          "Building 22": "Building 22"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.92,
+        "neo4j_functions_called": [
+          "get_nearest_sensor"
+        ],
+        "resolved_entities": {
+          "router_location": "Building 22",
+          "router_building_name": "Building 22",
+          "router_sensor_type": "weather",
+          "router_neo4j": "fn:  get_nearest_sensor({'latitude': 52.139, 'longitude': 11.645, 'sensor_type': 'weather', 'radius': 1000})",
+          "router_fiware:": "Weather (id=None, limit=1)"
+        },
+        "response": "The closest weather sensor is at Walterstraße — about 1.2 km from Building 22. Right now it's 12.6°C, feels like 12.6°C, with 95% humidity and a light breeze. It hasn't rained in the last hour, but it's been damp lately — rain daily total is 27.9 mm. Not bad for a walk, but you might want a light jacket if you're out long.",
+        "era_ran": false,
+        "total_ms": 3447
+      },
+      "skipped": false
+    },
+    {
+      "id": 96,
+      "query": "Find Greek restaurants near the rectorate, then check air quality there",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "AirQuality",
+        "entity_resolution": {
+          "rectorate": "Building 04",
+          "Korfu": "Korfu"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_places_near_building"
+        ],
+        "resolved_entities": {
+          "router_location": "rectorate",
+          "router_poi_name": "Greek restaurant",
+          "router_sensor_type": "air_quality",
+          "router_neo4j": ">>   Building: ?",
+          "router_fiware:": "AirQuality (id=None, limit=5)"
+        },
+        "response": "There's one Greek restaurant near the rectorate — Korfu, on Gustav-Adolf-Straße. It's about 608m away, an 8-minute walk. Open from 5 PM Monday to Sunday, but not accessible for wheelchair users.\n\nAir quality near there is excellent — PM2.5 is 4 µg/m³, PM10 is 5, and NO₂ is just 4. So fresh air, no worries.",
+        "era_ran": false,
+        "total_ms": 3700
+      },
+      "skipped": false
+    },
+    {
+      "id": 97,
+      "query": "How do I get from Allee-Center to FestungMark, and what's the weather?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": true,
+        "era_should_trigger": true,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "fiware_entity_type": "Weather",
+        "entity_resolution": {
+          "Allee-Center": "Magdeburg Allee-Center",
+          "FestungMark": "FestungMark"
+        }
+      },
+      "actual": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "get_multimodal_route"
+        ],
+        "resolved_entities": {
+          "router_origin": "Allee-Center",
+          "router_destination": "FestungMark",
+          "router_neo4j": "fn:  get_multimodal_route({'origin': 'Allee-Center', 'destination': 'FestungMark'})",
+          "router_lookup": ">>  'FestungMark' -> 'FestungMark' (Landmark) [exact_name, 1.00]",
+          "router_route": ">>   Direct distance: 1008m (Haversine) → walk ~13 min",
+          "router_fiware:": "Weather (id=None, limit=5)",
+          "param_origin": "Allee-Center",
+          "param_destination": "FestungMark"
+        },
+        "response": "You can take Tram 5 — it’s a quick 2-minute walk to Magdeburg Goldschmiedebrücke, then 5 stops to Magdeburg Listemannstraße (about 10 minutes), and another 2-minute walk to FestungMark. Total time: 14 minutes.\n\nIt’s a bit chilly and humid right now — 12.6°C with 95% humidity, but no rain and barely any wind. So it’s damp and cool, but not unpleasant. If you’re walking, you might want a light jacket.\n\nWalking it directly is 1.0 km in 13 minutes — almost the same time, but you’d be out in the damp air the whole way. The tram’s a bit more sheltered, so I’d go with that unless you’re in a hurry.",
+        "era_ran": false,
+        "total_ms": 6032
+      },
+      "skipped": false
+    },
+    {
+      "id": 98,
+      "query": "Find POIs whose aliases include 'mensa'",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location",
+          "get_poi_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "aliases",
+              "operator": "in_list",
+              "value": "mensa"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Mensa Uni": "Mensa Uni"
+        },
+        "notes": "Tests in_list operator on aliases LIST property of POI."
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_location": "mensa",
+          "router_poi_name": "mensa",
+          "router_neo4j": "fn:  query_graph({'node_label': 'POI', 'filters': [{'property': 'aliases', 'operator': 'contains', 'value': 'mensa'}], 'return_properties': ['name', 'category', 'subCategory', 'location', 'aliases']})",
+          "router_[query_graph]": "POI | filters: aliasescontains"
+        },
+        "response": "I can't retrieve that info right now — the system's having trouble pulling the full list of POIs with 'mensa' in the aliases. But I do know there's a Mensa Uni right near Building 03, just a 4-minute walk away. Let me know if you'd like details on that one.",
+        "era_ran": false,
+        "total_ms": 2795
+      },
+      "skipped": false
+    },
+    {
+      "id": 99,
+      "query": "Find any landmark with a courtyard",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "facilities",
+              "operator": "in_list",
+              "value": "courtyard"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "FestungMark": "FestungMark"
+        }
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "query_graph"
+        ],
+        "resolved_entities": {
+          "router_location": "landmark",
+          "router_neo4j": "fn:  query_graph({'node_label': 'Landmark', 'filters': [{'property': 'hasCourtyard', 'operator': 'is_true'}], 'return_properties': ['name', 'description', 'hasCourtyard'], 'limit': 5})",
+          "router_[query_graph]": "Landmark | filters: hasCourtyardis_true"
+        },
+        "response": "I can't find any landmarks with a courtyard right now — the system doesn't have that detail available for the current data. Let me know if you'd like help with something else nearby!",
+        "era_ran": false,
+        "total_ms": 2187
+      },
+      "skipped": false
+    },
+    {
+      "id": 100,
+      "query": "Find restaurants whose cuisine starts with 'german'",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "starts_with",
+              "value": "german"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Kantineder Bordekuche": "Kantineder Bordekuche",
+          "Botelstube": "Botelstube"
+        },
+        "notes": "Tests starts_with operator on cuisine. Multi-filter with type. Distinguishes from contains-style cuisine queries."
+      },
+      "actual": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "confidence": 0.9,
+        "neo4j_functions_called": [
+          "find_places_by_cuisine"
+        ],
+        "resolved_entities": {
+          "router_cuisine": "german",
+          "router_neo4j": "fn:  find_places_by_cuisine({'cuisine': 'german', 'place_type': 'Restaurant', 'limit': 10})"
+        },
+        "response": "Here are a few German cuisine spots nearby — all serving hearty, local favorites:\n\n- **Kantineder Bordekuche** on Peter-Paul-Straße — open Mon–Fri 11:00–13:30, great for a quick, no-fuss meal.\n- **Botelstube** at Alter Markt — a cozy, traditional spot with a nice little vibe, open daily.\n- **Käseglocke** on Arenen — open early, great for breakfast or lunch, and they’ve got a solid reputation.\n- **Zum Altmärker** on Beimsstraße — a bit off the beaten path, but worth it for the authentic feel.\n- **Zur Klappermühle** on Brenneckestraße — open daily, perfect if you’re in the mood for something rustic and homey.\n- **König von Preussen** on Klosterwuhne — open Tue–Sat, great for dinner with a proper German menu.\n- **Elbdampfer** on Halberstädter Straße — open early, good for breakfast or a late bite.\n- **Alte Schule** in Alt Salbke — a bit further out, but a lovely old building with a warm atmosphere.\n- **Zum Reformer** on Bunter Weg — open Tue–Sun, ideal for a relaxed lunch or dinner.\n- **Zum Lindenweiler** on Vogelbreite — a family-run place with a nice garden, open daily.\n\nMost are within a 15–20 minute walk or short drive from the campus. Pick one that fits your mood — you can’t go wrong with any of them.",
+        "era_ran": false,
+        "total_ms": 4536
+      },
+      "skipped": false
+    }
+  ]
+}

@@ -1,0 +1,800 @@
+{"query_id": "Q01", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q01", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q01", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q01", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q01", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q01", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q01", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q01", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q01", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q01", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q01", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q01", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q01", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q01", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q01", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q01", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q01", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q01", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q01", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q01", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q01", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q01", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q01", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q01", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q01", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q02", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q02", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q02", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q02", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q02", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q02", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q02", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q02", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q02", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q02", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q02", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q02", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q02", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q02", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q02", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q02", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q02", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q02", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q02", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q02", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q02", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q02", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q02", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q02", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q02", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q03", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q03", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q03", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q03", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q03", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q03", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q03", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q03", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q03", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q03", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q03", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q03", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q03", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q03", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q03", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q03", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q03", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q03", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q03", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q03", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q03", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q03", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q03", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q03", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q03", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q04", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q04", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q04", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q04", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q04", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q04", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q04", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q04", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q04", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q04", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q04", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q04", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q04", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q04", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q04", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q04", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q04", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q04", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q04", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q04", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q04", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q04", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q04", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q04", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q04", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q05", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q05", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q05", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q05", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q05", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q05", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q05", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q05", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q05", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q05", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q05", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q05", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q05", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q05", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q05", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q05", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q05", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q05", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q05", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q05", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q05", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q05", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q05", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q05", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q05", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q06", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q06", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q06", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q06", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q06", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q06", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q06", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q06", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q06", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q06", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q06", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q06", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q06", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q06", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q06", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q06", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q06", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q06", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q06", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q06", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q06", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q06", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q06", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q06", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q06", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q07", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q07", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q07", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q07", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q07", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q07", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q07", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q07", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q07", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q07", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q07", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q07", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q07", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q07", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q07", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q07", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q07", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q07", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q07", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q07", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q07", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q07", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q07", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q07", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q07", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q08", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q08", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q08", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q08", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q08", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q08", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q08", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q08", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q08", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q08", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q08", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q08", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q08", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q08", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q08", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q08", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q08", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q08", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q08", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q08", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q08", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q08", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q08", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q08", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q08", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q09", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q09", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q09", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q09", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q09", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q09", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q09", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q09", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q09", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q09", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q09", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q09", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q09", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q09", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q09", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q09", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q09", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q09", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q09", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q09", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q09", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q09", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q09", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q09", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q09", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q10", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q10", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q10", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q10", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q10", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q10", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q10", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q10", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q10", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q10", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q10", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q10", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q10", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q10", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q10", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q10", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q10", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q10", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q10", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q10", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q10", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q10", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q10", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q10", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q10", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q11", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q11", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q11", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q11", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q11", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q11", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q11", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q11", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q11", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q11", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q11", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q11", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q11", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q11", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q11", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q11", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q11", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q11", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q11", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q11", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q11", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q11", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q11", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q11", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q11", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q12", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q12", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q12", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q12", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q12", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q12", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q12", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q12", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q12", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q12", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q12", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q12", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q12", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q12", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q12", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q12", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q12", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q12", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q12", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q12", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q12", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q12", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q12", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q12", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q12", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q13", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q13", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q13", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q13", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q13", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q13", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q13", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q13", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q13", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q13", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q13", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q13", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q13", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q13", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q13", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q13", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q13", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q13", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q13", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q13", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q13", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q13", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q13", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q13", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q13", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q14", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q14", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q14", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q14", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q14", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q14", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q14", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q14", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q14", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q14", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q14", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q14", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q14", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q14", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q14", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q14", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q14", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q14", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q14", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q14", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q14", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q14", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q14", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q14", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q14", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q15", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q15", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q15", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q15", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q15", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q15", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q15", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q15", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q15", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q15", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q15", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q15", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q15", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q15", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q15", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q15", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q15", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q15", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q15", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q15", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q15", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q15", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q15", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q15", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q15", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q16", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q16", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q16", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q16", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q16", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q16", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q16", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q16", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q16", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q16", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q16", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q16", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q16", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q16", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q16", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q16", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q16", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q16", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q16", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q16", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q16", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q16", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q16", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q16", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q16", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q17", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q17", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q17", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q17", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q17", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q17", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q17", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q17", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q17", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q17", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q17", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q17", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q17", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q17", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q17", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q17", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q17", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q17", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q17", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q17", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q17", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q17", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q17", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q17", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q17", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q18", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q18", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q18", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q18", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q18", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q18", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q18", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q18", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q18", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q18", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q18", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q18", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q18", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q18", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q18", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q18", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q18", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q18", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q18", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q18", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q18", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q18", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q18", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q18", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q18", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q19", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q19", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q19", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q19", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q19", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q19", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q19", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q19", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q19", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q19", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q19", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q19", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q19", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q19", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q19", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q19", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q19", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q19", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q19", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q19", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q19", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q19", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q19", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q19", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q19", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q20", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q20", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q20", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q20", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q20", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q20", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q20", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q20", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q20", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q20", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q20", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q20", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q20", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q20", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q20", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q20", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q20", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q20", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q20", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q20", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q20", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q20", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q20", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q20", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q20", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q21", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q21", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q21", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q21", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q21", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q21", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q21", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q21", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q21", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q21", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q21", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q21", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q21", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q21", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q21", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q21", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q21", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q21", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q21", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q21", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q21", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q21", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q21", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q21", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q21", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q22", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q22", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q22", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q22", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q22", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q22", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q22", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q22", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q22", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q22", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q22", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q22", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q22", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q22", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q22", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q22", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q22", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q22", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q22", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q22", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q22", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q22", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q22", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q22", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q22", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q23", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q23", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q23", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q23", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q23", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q23", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q23", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q23", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q23", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q23", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q23", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q23", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q23", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q23", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q23", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q23", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q23", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q23", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q23", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q23", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q23", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q23", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q23", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q23", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q23", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q24", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q24", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q24", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q24", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q24", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q24", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q24", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q24", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q24", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q24", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q24", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q24", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q24", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q24", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q24", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q24", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q24", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q24", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q24", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q24", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q24", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q24", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q24", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q24", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q24", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q25", "condition_id": "C1", "mode": "walking", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C1", "mode": "cycling", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C1", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C1", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C2", "mode": "walking", "base_score": 8, "penalties_applied": ["temp_below_5_walking", "late_night_walking"], "final_score": 6.5}
+{"query_id": "Q25", "condition_id": "C2", "mode": "cycling", "base_score": 8, "penalties_applied": ["temp_below_5_cycling", "late_night_cycling"], "final_score": 6.5}
+{"query_id": "Q25", "condition_id": "C2", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q25", "condition_id": "C2", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q25", "condition_id": "C3", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "temp_below_5_walking"], "final_score": 6.5}
+{"query_id": "Q25", "condition_id": "C3", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "temp_below_5_cycling"], "final_score": 6.5}
+{"query_id": "Q25", "condition_id": "C3", "mode": "driving", "base_score": 8, "penalties_applied": ["congested_driving", "scarce_parking_driving"], "final_score": 4.0}
+{"query_id": "Q25", "condition_id": "C3", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q25", "condition_id": "C4", "mode": "walking", "base_score": 8, "penalties_applied": ["light_rain_walking", "late_night_walking", "poor_aq_walking"], "final_score": 5.0}
+{"query_id": "Q25", "condition_id": "C4", "mode": "cycling", "base_score": 8, "penalties_applied": ["light_rain_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 5.0}
+{"query_id": "Q25", "condition_id": "C4", "mode": "driving", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C4", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C5", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "temp_below_5_walking", "poor_aq_walking"], "final_score": 3.5}
+{"query_id": "Q25", "condition_id": "C5", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "temp_below_5_cycling", "poor_aq_cycling"], "final_score": 3.5}
+{"query_id": "Q25", "condition_id": "C5", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q25", "condition_id": "C5", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C6", "mode": "walking", "base_score": 8, "penalties_applied": ["heavy_rain_walking", "late_night_walking"], "final_score": 4.0}
+{"query_id": "Q25", "condition_id": "C6", "mode": "cycling", "base_score": 8, "penalties_applied": ["heavy_rain_cycling", "late_night_cycling"], "final_score": 4.0}
+{"query_id": "Q25", "condition_id": "C6", "mode": "driving", "base_score": 8, "penalties_applied": ["heavy_rain_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q25", "condition_id": "C6", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}
+{"query_id": "Q25", "condition_id": "C7", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking"], "final_score": 3.0}
+{"query_id": "Q25", "condition_id": "C7", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling"], "final_score": 3.0}
+{"query_id": "Q25", "condition_id": "C7", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "scarce_parking_driving"], "final_score": 5.5}
+{"query_id": "Q25", "condition_id": "C7", "mode": "transit", "base_score": 8, "penalties_applied": [], "final_score": 8.0}
+{"query_id": "Q25", "condition_id": "C8", "mode": "walking", "base_score": 8, "penalties_applied": ["snow_walking", "temp_below_0_walking", "late_night_walking", "poor_aq_walking"], "final_score": 1}
+{"query_id": "Q25", "condition_id": "C8", "mode": "cycling", "base_score": 8, "penalties_applied": ["snow_cycling", "temp_below_0_cycling", "late_night_cycling", "poor_aq_cycling"], "final_score": 1}
+{"query_id": "Q25", "condition_id": "C8", "mode": "driving", "base_score": 8, "penalties_applied": ["snow_driving", "congested_driving"], "final_score": 5.5}
+{"query_id": "Q25", "condition_id": "C8", "mode": "transit", "base_score": 8, "penalties_applied": ["congested_transit"], "final_score": 7.5}

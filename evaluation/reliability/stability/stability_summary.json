@@ -1,0 +1,100 @@
+{
+  "n_queries": 10,
+  "n_runs_per_query": 5,
+  "condition": "C1",
+  "temperature": 0.1,
+  "era_model": "qwen3-30b-a3b-instruct-2507",
+  "n_calls_attempted": 50,
+  "n_calls_failed": 0,
+  "wall_clock_seconds": 1168.7,
+  "per_query_per_mode_sigma": {
+    "Q01": {
+      "walking": 0.4472,
+      "cycling": 0.4472,
+      "transit": 0.5477,
+      "driving": 0.8367
+    },
+    "Q03": {
+      "walking": 0.4472,
+      "cycling": 0.0,
+      "transit": 0.8367,
+      "driving": 1.0954
+    },
+    "Q06": {
+      "walking": 0.5477,
+      "cycling": 0.0,
+      "transit": 0.4472,
+      "driving": 0.0
+    },
+    "Q08": {
+      "walking": 0.0,
+      "cycling": 0.0,
+      "transit": 0.5477,
+      "driving": 0.4472
+    },
+    "Q10": {
+      "walking": 0.4472,
+      "cycling": 0.0,
+      "transit": 0.8944,
+      "driving": 0.0
+    },
+    "Q11": {
+      "walking": 0.4472,
+      "cycling": 0.0,
+      "transit": 0.5477,
+      "driving": 0.0
+    },
+    "Q15": {
+      "walking": 0.5477,
+      "cycling": 0.0,
+      "transit": 0.0,
+      "driving": 0.0
+    },
+    "Q18": {
+      "walking": 0.4472,
+      "cycling": 0.8944,
+      "transit": 0.5477,
+      "driving": 0.5477
+    },
+    "Q22": {
+      "walking": 0.5477,
+      "cycling": 0.0,
+      "transit": 0.0,
+      "driving": 0.0
+    },
+    "Q25": {
+      "walking": 0.4472,
+      "cycling": 0.4472,
+      "transit": 0.8367,
+      "driving": 0.4472
+    }
+  },
+  "mean_sigma_overall": 0.3674,
+  "mean_sigma_by_mode": {
+    "walking": 0.4326,
+    "cycling": 0.1789,
+    "transit": 0.5206,
+    "driving": 0.3374
+  },
+  "max_sigma_observed": 1.0954,
+  "query_with_max_sigma": "Q03",
+  "mode_with_max_sigma": "driving",
+  "score_range_observed": {
+    "min": 4,
+    "max": 10
+  },
+  "queries": [
+    "Q01",
+    "Q03",
+    "Q06",
+    "Q08",
+    "Q10",
+    "Q11",
+    "Q15",
+    "Q18",
+    "Q22",
+    "Q25"
+  ],
+  "trials_path": "evaluation\\reliability\\stability\\stability_trials.jsonl",
+  "started_at": "2026-05-08T21:29:12.225871Z"
+}

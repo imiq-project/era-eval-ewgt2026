@@ -1,0 +1,201 @@
+query_id,condition_id,no_era_top1,rule_top1,llm_top1,no_era_rule_agree,rule_llm_agree,no_era_llm_agree,llm_rule_disagree_reason
+Q01,C1,driving,driving,cycling,True,False,False,rule=driving llm=cycling
+Q01,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q01,C3,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q01,C4,driving,driving,driving,True,True,True,agree
+Q01,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q01,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q01,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q01,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q02,C1,driving,driving,driving,True,True,True,agree
+Q02,C2,driving,transit,transit,False,True,False,agree
+Q02,C3,driving,transit,transit,False,True,False,agree
+Q02,C4,driving,driving,transit,True,False,False,rule=driving llm=transit
+Q02,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q02,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q02,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q02,C8,driving,transit,transit,False,True,False,agree
+Q03,C1,driving,driving,driving,True,True,True,agree
+Q03,C2,driving,transit,transit,False,True,False,agree
+Q03,C3,driving,transit,transit,False,True,False,agree
+Q03,C4,driving,driving,driving,True,True,True,agree
+Q03,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q03,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q03,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q03,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q04,C1,cycling,cycling,cycling,True,True,True,agree
+Q04,C2,cycling,transit,transit,False,True,False,agree
+Q04,C3,cycling,transit,transit,False,True,False,agree
+Q04,C4,cycling,driving,driving,False,True,False,agree
+Q04,C5,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q04,C6,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q04,C7,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q04,C8,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q05,C1,cycling,cycling,walking,True,False,False,rule=cycling llm=walking
+Q05,C2,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q05,C3,cycling,transit,transit,False,True,False,agree
+Q05,C4,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q05,C5,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q05,C6,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q05,C7,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q05,C8,cycling,transit,driving,False,False,False,rule=transit llm=driving
+Q06,C1,driving,driving,driving,True,True,True,agree
+Q06,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q06,C3,driving,transit,transit,False,True,False,agree
+Q06,C4,driving,driving,driving,True,True,True,agree
+Q06,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q06,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q06,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q06,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q07,C1,driving,driving,driving,True,True,True,agree
+Q07,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q07,C3,driving,transit,transit,False,True,False,agree
+Q07,C4,driving,driving,driving,True,True,True,agree
+Q07,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q07,C6,driving,transit,transit,False,True,False,agree
+Q07,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q07,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q08,C1,driving,driving,cycling,True,False,False,rule=driving llm=cycling
+Q08,C2,driving,transit,transit,False,True,False,agree
+Q08,C3,driving,transit,transit,False,True,False,agree
+Q08,C4,driving,driving,driving,True,True,True,agree
+Q08,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q08,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q08,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q08,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q09,C1,driving,driving,cycling,True,False,False,rule=driving llm=cycling
+Q09,C2,driving,transit,transit,False,True,False,agree
+Q09,C3,driving,transit,transit,False,True,False,agree
+Q09,C4,driving,driving,transit,True,False,False,rule=driving llm=transit
+Q09,C5,driving,transit,transit,False,True,False,agree
+Q09,C6,driving,transit,transit,False,True,False,agree
+Q09,C7,driving,transit,transit,False,True,False,agree
+Q09,C8,driving,transit,transit,False,True,False,agree
+Q10,C1,driving,driving,driving,True,True,True,agree
+Q10,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q10,C3,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q10,C4,driving,driving,driving,True,True,True,agree
+Q10,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q10,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q10,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q10,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q11,C1,driving,driving,driving,True,True,True,agree
+Q11,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q11,C3,driving,transit,transit,False,True,False,agree
+Q11,C4,driving,driving,driving,True,True,True,agree
+Q11,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q11,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q11,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q11,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q12,C1,driving,driving,driving,True,True,True,agree
+Q12,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q12,C3,driving,transit,transit,False,True,False,agree
+Q12,C4,driving,driving,driving,True,True,True,agree
+Q12,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q12,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q12,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q12,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q13,C1,driving,driving,driving,True,True,True,agree
+Q13,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q13,C3,driving,transit,transit,False,True,False,agree
+Q13,C4,driving,driving,transit,True,False,False,rule=driving llm=transit
+Q13,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q13,C6,driving,transit,transit,False,True,False,agree
+Q13,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q13,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q14,C1,driving,driving,driving,True,True,True,agree
+Q14,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q14,C3,driving,transit,transit,False,True,False,agree
+Q14,C4,driving,driving,driving,True,True,True,agree
+Q14,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q14,C6,driving,transit,transit,False,True,False,agree
+Q14,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q14,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q15,C1,driving,driving,driving,True,True,True,agree
+Q15,C2,driving,transit,transit,False,True,False,agree
+Q15,C3,driving,transit,transit,False,True,False,agree
+Q15,C4,driving,driving,driving,True,True,True,agree
+Q15,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q15,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q15,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q15,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q16,C1,driving,driving,driving,True,True,True,agree
+Q16,C2,driving,transit,transit,False,True,False,agree
+Q16,C3,driving,transit,transit,False,True,False,agree
+Q16,C4,driving,driving,driving,True,True,True,agree
+Q16,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q16,C6,driving,transit,transit,False,True,False,agree
+Q16,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q16,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q17,C1,driving,driving,driving,True,True,True,agree
+Q17,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q17,C3,driving,transit,transit,False,True,False,agree
+Q17,C4,driving,driving,transit,True,False,False,rule=driving llm=transit
+Q17,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q17,C6,driving,transit,transit,False,True,False,agree
+Q17,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q17,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q18,C1,driving,driving,driving,True,True,True,agree
+Q18,C2,driving,transit,transit,False,True,False,agree
+Q18,C3,driving,transit,transit,False,True,False,agree
+Q18,C4,driving,driving,transit,True,False,False,rule=driving llm=transit
+Q18,C5,driving,transit,transit,False,True,False,agree
+Q18,C6,driving,transit,transit,False,True,False,agree
+Q18,C7,driving,transit,transit,False,True,False,agree
+Q18,C8,driving,transit,transit,False,True,False,agree
+Q19,C1,driving,driving,driving,True,True,True,agree
+Q19,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q19,C3,driving,transit,transit,False,True,False,agree
+Q19,C4,driving,driving,driving,True,True,True,agree
+Q19,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q19,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q19,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q19,C8,driving,transit,transit,False,True,False,agree
+Q20,C1,driving,driving,driving,True,True,True,agree
+Q20,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q20,C3,driving,transit,transit,False,True,False,agree
+Q20,C4,driving,driving,driving,True,True,True,agree
+Q20,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q20,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q20,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q20,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q21,C1,driving,driving,driving,True,True,True,agree
+Q21,C2,driving,transit,transit,False,True,False,agree
+Q21,C3,driving,transit,transit,False,True,False,agree
+Q21,C4,driving,driving,driving,True,True,True,agree
+Q21,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q21,C6,driving,transit,transit,False,True,False,agree
+Q21,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q21,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q22,C1,driving,driving,driving,True,True,True,agree
+Q22,C2,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q22,C3,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q22,C4,driving,driving,driving,True,True,True,agree
+Q22,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q22,C6,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q22,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q22,C8,driving,transit,transit,False,True,False,agree
+Q23,C1,driving,driving,driving,True,True,True,agree
+Q23,C2,driving,transit,transit,False,True,False,agree
+Q23,C3,driving,transit,transit,False,True,False,agree
+Q23,C4,driving,driving,driving,True,True,True,agree
+Q23,C5,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q23,C6,driving,transit,transit,False,True,False,agree
+Q23,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q23,C8,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q24,C1,driving,driving,transit,True,False,False,rule=driving llm=transit
+Q24,C2,driving,transit,transit,False,True,False,agree
+Q24,C3,driving,transit,transit,False,True,False,agree
+Q24,C4,driving,driving,transit,True,False,False,rule=driving llm=transit
+Q24,C5,driving,transit,transit,False,True,False,agree
+Q24,C6,driving,transit,transit,False,True,False,agree
+Q24,C7,driving,transit,transit,False,True,False,agree
+Q24,C8,driving,transit,transit,False,True,False,agree
+Q25,C1,driving,driving,driving,True,True,True,agree
+Q25,C2,driving,transit,transit,False,True,False,agree
+Q25,C3,driving,transit,transit,False,True,False,agree
+Q25,C4,driving,driving,driving,True,True,True,agree
+Q25,C5,driving,transit,transit,False,True,False,agree
+Q25,C6,driving,transit,transit,False,True,False,agree
+Q25,C7,driving,transit,driving,False,False,True,rule=transit llm=driving
+Q25,C8,driving,transit,transit,False,True,False,agree

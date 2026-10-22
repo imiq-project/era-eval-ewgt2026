@@ -1,0 +1,9 @@
+Category,N,Intent Accuracy (%),Function Selection (%),Entity Resolution (%),Decomposition Trigger (%),Latency p50 (ms),Latency p90 (ms)
+poi_lookup,12,100.0,91.7,100.0,100.0,8623,27336
+transit_routing,13,84.6,100.0,100.0,100.0,11116,36436
+building_entity,11,100.0,100.0,100.0,100.0,5838,16903
+sensor_fiware,9,66.7,100.0,100.0,100.0,6422,14598
+dynamic_query,9,100.0,88.9,100.0,100.0,8293,15328
+compound,10,100.0,80.0,100.0,100.0,11939,39801
+property_edge,15,66.7,46.7,62.5,100.0,5512,12686
+Overall,79,88.6,84.8,93.0,100.0,7538,24441

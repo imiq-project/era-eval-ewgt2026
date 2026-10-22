@@ -1,0 +1,2660 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "name": "NLU_data",
+    "purpose": "Adversarial NLU dataset for the Magdeburg mobility assistant. Each query is designed to test intent recognition, function selection, and entity recognition. Function selection is the deliberate stress point — many queries have a plausible-but-wrong alternative that a single-call mono-agent is likely to pick.",
+    "target_size": 100,
+    "current_size": 100,
+    "categories": {
+      "poi_lookup": 14,
+      "transit_routing": 14,
+      "building_entity": 14,
+      "sensor_fiware": 14,
+      "dynamic_query": 14,
+      "compound": 15,
+      "property_edge": 15
+    },
+    "metrics": [
+      "intent_accuracy",
+      "neo4j_function_selection",
+      "entity_resolution"
+    ],
+    "schema_notes": [
+      "expected.neo4j_functions = the single best graph function (set intersection scoring)",
+      "expected.acceptable_alt_functions = functions that also count as correct",
+      "expected.entity_resolution = mapping from input mention to canonical Neo4j name",
+      "expected.fiware_entity_type / fiware_entity_id = ground truth for sensor queries",
+      "expected.query_graph_spec = ground truth filter spec for dynamic_query category"
+    ],
+    "completed": true
+  },
+  "queries": [
+    {
+      "id": 1,
+      "query": "I'm getting hungry — any chance there's somewhere doing real pizza near the electrical engineering faculty?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "query_graph"
+        ],
+        "entity_resolution": {
+          "electrical engineering faculty": "Building 03"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "query": "From where the rector sits, what's the closest place to grab coffee?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "where the rector sits": "Building 04"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "query": "Tell me everything you know about Sushi City",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_poi_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Sushi City": "Sushi City"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "query": "Which spot serving Italian food has the shortest walk from Building 16?",
+      "category": "poi_lookup",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "Building 16": "Building 16"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "query": "Walk me through the order of stops Tram 5 makes",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_line_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "Tram 5": "Tram 5"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "query": "If I'm at Hauptbahnhof, which stops can I reach on foot in less than ten minutes?",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_walking_connections"
+        ],
+        "acceptable_alt_functions": [
+          "find_transfer_hubs"
+        ],
+        "entity_resolution": {
+          "Hauptbahnhof": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "query": "Is there a stop right by the rector's office that I could catch a tram from?",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "rector's office": "Building 04"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "query": "What sits flush against Building 09 — like sharing a wall?",
+      "category": "building_entity",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_spatial_relations"
+        ],
+        "acceptable_alt_functions": [
+          "get_nearby_buildings",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Building 09": "Building 09"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "query": "What's framing the library on each side?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_borders"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_spatial_relations",
+          "get_nearby_buildings"
+        ],
+        "entity_resolution": {
+          "library": "Building 30"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "query": "Which faculty has the chemistry labs?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_building_by_function"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "chemistry labs": "Building 16"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "query": "Any chance the air's getting bad on Guericke-Strasse right now?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "AirQuality",
+        "fiware_entity_id": "Air:GuerickeStrasse",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 12,
+      "query": "How packed is the Faculty CS junction in terms of bikes today?",
+      "category": "sensor_fiware",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_traffic_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "traffic"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Traffic",
+        "fiware_entity_id": "Traffic:Junction:FacultyCS",
+        "fiware_attributes": [
+          "cyclists"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 13,
+      "query": "Are there spots free at the Wissenschaftshafen lot?",
+      "category": "sensor_fiware",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_parking_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Parking",
+        "fiware_entity_id": "ParkingSpot:ScienceHarbor",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 14,
+      "query": "I'm vegetarian — what restaurants would actually feed me on this campus?",
+      "category": "dynamic_query",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "dietary_options",
+              "operator": "in_list",
+              "value": "vegetarian"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 15,
+      "query": "Stops where wheelchairs can get on without help",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "wheelchair_accessible",
+              "operator": "is_true"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 16,
+      "query": "Show me all the Greek restaurants on campus",
+      "category": "dynamic_query",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "equals",
+              "value": "greek"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 17,
+      "query": "Show me sushi spots within walking distance of Building 16, and also which lines stop there",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building",
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "query_graph",
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "Building 16": "Building 16"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "query": "What faculty handles chemistry, and is there a parking lot near it?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_building_by_function",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "chemistry": "Building 16"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "query": "Which landmarks host wedding ceremonies?",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "services",
+              "operator": "in_list",
+              "value": "wedding"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Lukasklause": "Lukasklause"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "query": "What sensors track PM10 specifically?",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "list_sensors_by_type",
+          "list_all_sensors"
+        ],
+        "query_graph_spec": {
+          "node_label": "Sensor",
+          "filters": [
+            {
+              "property": "realtime_attributes",
+              "operator": "in_list",
+              "value": "pm10"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 21,
+      "query": "Where's the nearest pharmacy if I'm at the Allee-Center?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "Allee-Center": "Magdeburg Allee-Center"
+        }
+      }
+    },
+    {
+      "id": 22,
+      "query": "Are there any Asian fusion spots near where the IT students go?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "query_graph"
+        ],
+        "entity_resolution": {
+          "where the IT students go": "Building 29"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "query": "What fast-food joints are within 500 meters of the mensa?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {
+          "mensa": "Building 27"
+        }
+      }
+    },
+    {
+      "id": 24,
+      "query": "What's the route between Universitätsplatz and the campus library?",
+      "category": "transit_routing",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": true,
+        "era_should_trigger": true,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [],
+        "entity_resolution": {
+          "Universitätsplatz": "Magdeburg Universitätsplatz/Opernhaus",
+          "campus library": "Building 30"
+        }
+      }
+    },
+    {
+      "id": 25,
+      "query": "I need a wheelchair-accessible path from Building 03 to the mensa",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_accessible_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_directions_between_buildings"
+        ],
+        "entity_resolution": {
+          "Building 03": "Building 03",
+          "mensa": "Building 27"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "query": "Where are the busiest interchange spots for switching tram lines?",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_transfer_hubs"
+        ],
+        "acceptable_alt_functions": [
+          "get_all_lines"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 27,
+      "query": "Which buildings are right next to the rectorate?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearby_buildings"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_borders",
+          "get_building_spatial_relations"
+        ],
+        "entity_resolution": {
+          "rectorate": "Building 04"
+        }
+      }
+    },
+    {
+      "id": 28,
+      "query": "What's the deal with Building 80?",
+      "category": "building_entity",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Building 80": "Building 80"
+        }
+      }
+    },
+    {
+      "id": 29,
+      "query": "Which building works as both sports center and dining hall?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_building_by_function"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "sports center and dining hall": "Building 27"
+        }
+      }
+    },
+    {
+      "id": 30,
+      "query": "How fast is the wind blowing right now over at the welcome center?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Weather",
+        "fiware_entity_id": "Sensor:Weather:WelcomeCenter",
+        "fiware_attributes": [
+          "windSpeed"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 31,
+      "query": "How many cars passed through the Science Hub junction this morning?",
+      "category": "sensor_fiware",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_traffic_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "traffic"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Traffic",
+        "fiware_entity_id": "Traffic:Junction:ScienceHub",
+        "fiware_attributes": [
+          "vehiclesIn",
+          "vehiclesOut"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 32,
+      "query": "What's the river running like at Buckau today?",
+      "category": "sensor_fiware",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "WaterLevel",
+        "fiware_entity_id": "WaterLevel:Buckau",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 33,
+      "query": "Restaurants that are marked as wheelchair accessible",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "accessibility",
+              "operator": "contains",
+              "value": "accessible"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 34,
+      "query": "Which buildings on campus offer guest accommodations in their description?",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_building_by_function"
+        ],
+        "query_graph_spec": {
+          "node_label": "Building",
+          "filters": [
+            {
+              "property": "note",
+              "operator": "contains",
+              "value": "guest accommodations"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "guest accommodations": "Building 18"
+        }
+      }
+    },
+    {
+      "id": 35,
+      "query": "Show me places that offer vegan options on campus",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "dietary_options",
+              "operator": "in_list",
+              "value": "vegan"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 36,
+      "query": "What's the temperature near the library, and tell me the closest tram stop",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "fiware_entity_type": "Weather",
+        "entity_resolution": {
+          "library": "Building 30"
+        }
+      }
+    },
+    {
+      "id": 37,
+      "query": "Find Italian places near Building 22 and check if there's a sensor for parking close by",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "Building 22": "Building 22"
+        }
+      }
+    },
+    {
+      "id": 38,
+      "query": "Tell me about Tram 1's full route and where the major switch points are",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_line_route",
+          "find_transfer_hubs"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "Tram 1": "Tram 1"
+        }
+      }
+    },
+    {
+      "id": 39,
+      "query": "Find stops served by both Tram 5 and Tram 9",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_transfer_hubs"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Tram 5"
+            },
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Tram 9"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Tram 5": "Tram 5",
+          "Tram 9": "Tram 9",
+          "Magdeburg Alter Markt": "Magdeburg Alter Markt",
+          "Magdeburg Hasselbachplatz": "Magdeburg Hasselbachplatz"
+        },
+        "notes": "Tests multi-filter on same LIST property (lines) — AND-combined; mono may collapse to a single filter."
+      }
+    },
+    {
+      "id": 40,
+      "query": "Find any stop served by Bus 73",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_route",
+          "get_line_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Bus 73"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Bus 73": "Bus 73"
+        },
+        "notes": "Tests query_graph for a query that get_line_route also handles — distinguishes the dynamic-graph path from the specialized transit function."
+      }
+    },
+    {
+      "id": 41,
+      "query": "How far apart are Sushi City and the library?",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_distance_between_locations"
+        ],
+        "acceptable_alt_functions": [
+          "check_proximity",
+          "get_directions_between_buildings"
+        ],
+        "entity_resolution": {
+          "Sushi City": "Sushi City",
+          "library": "Building 30"
+        }
+      }
+    },
+    {
+      "id": 42,
+      "query": "Where can I grab a beer that's not far from where students eat?",
+      "category": "poi_lookup",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_places_by_cuisine"
+        ],
+        "entity_resolution": {
+          "where students eat": "Building 27"
+        }
+      }
+    },
+    {
+      "id": 43,
+      "query": "What kind of cuisine does ALEX serve?",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_poi_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "ALEX": "ALEX"
+        }
+      }
+    },
+    {
+      "id": 44,
+      "query": "Tell me about all the public transit lines in town",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_all_lines"
+        ],
+        "acceptable_alt_functions": [],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 45,
+      "query": "What lines stop at AOK?",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_stop_info"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "AOK": "Magdeburg AOK"
+        }
+      }
+    },
+    {
+      "id": 46,
+      "query": "I want to drive from the Hauptbahnhof — point me to the route to Building 80",
+      "category": "transit_routing",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "traffic",
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "Hauptbahnhof": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz",
+          "Building 80": "Building 80"
+        }
+      }
+    },
+    {
+      "id": 47,
+      "query": "Which building sits directly south of the EE faculty?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_south_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "EE faculty": "Building 03"
+        }
+      }
+    },
+    {
+      "id": 48,
+      "query": "Tell me what landmarks I'd see from Building 18",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_building_landmarks"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_info",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Building 18": "Building 18"
+        }
+      }
+    },
+    {
+      "id": 49,
+      "query": "Is the Mensa close to Building 03?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "check_proximity"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "Mensa": "Building 27",
+          "Building 03": "Building 03"
+        }
+      }
+    },
+    {
+      "id": 50,
+      "query": "What's the indoor temperature in Room 2?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Room",
+        "fiware_entity_id": "Room2",
+        "fiware_attributes": [
+          "temperature"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 51,
+      "query": "Where can I find the delivery robot right now?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Vehicle",
+        "fiware_entity_id": "DeliveryRobot",
+        "fiware_attributes": [
+          "location"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 52,
+      "query": "Show me every sensor we have running",
+      "category": "sensor_fiware",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_sensor_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "list_all_sensors"
+        ],
+        "acceptable_alt_functions": [
+          "list_sensors_by_type"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 53,
+      "query": "Find any restaurant where the cuisine mentions thai",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "contains",
+              "value": "thai"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 54,
+      "query": "Find any landmark that hosts concerts",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "event_types",
+              "operator": "in_list",
+              "value": "concert"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "FestungMark": "FestungMark"
+        }
+      }
+    },
+    {
+      "id": 55,
+      "query": "Show me POIs that are convenience stores",
+      "category": "dynamic_query",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Convenience"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 56,
+      "query": "Tell me about Building 16 and what sensors are nearby",
+      "category": "compound",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_building_info",
+          "get_all_sensors_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_sensor_near_building"
+        ],
+        "entity_resolution": {
+          "Building 16": "Building 16"
+        }
+      }
+    },
+    {
+      "id": 57,
+      "query": "How do I walk from Universitätsplatz to the Mensa, and is parking nearby?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking",
+          "darkness"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_multimodal_route",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_directions_between_buildings",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "Universitätsplatz": "Magdeburg Universitätsplatz/Opernhaus",
+          "Mensa": "Building 27"
+        }
+      }
+    },
+    {
+      "id": 58,
+      "query": "Which Tram lines pass through Hasselbachplatz, and what's the closest restaurant?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_stop_info",
+          "find_nearest_by_type"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info",
+          "find_places_near_building"
+        ],
+        "entity_resolution": {
+          "Hasselbachplatz": "Magdeburg Hasselbachplatz"
+        }
+      }
+    },
+    {
+      "id": 59,
+      "query": "Cafes that explicitly offer vegetarian options",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Cafe"
+            },
+            {
+              "property": "dietary_options",
+              "operator": "in_list",
+              "value": "vegetarian"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Bo Bo Q": "Bo Bo Q",
+          "Cowvanavegan Food More": "Cowvanavegan Food More"
+        },
+        "notes": "Multi-filter on POI: type + dietary_options. Cafe type filter distinguishes from id 14 (Restaurant + vegetarian)."
+      }
+    },
+    {
+      "id": 60,
+      "query": "Find stops served by Bus 73 that also have a tram line",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_route",
+          "find_transfer_hubs"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Bus 73"
+            },
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Tram"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Bus 73": "Bus 73",
+          "Magdeburg Opernhaus": "Magdeburg Opernhaus"
+        },
+        "notes": "in_list with substring match: 'Tram' matches any line containing 'Tram' (Tram 1..10). Tests filter intersection mono usually misses."
+      }
+    },
+    {
+      "id": 61,
+      "query": "Find me an Italian restaurant",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_by_cuisine"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 62,
+      "query": "Where's that place called Korfu?",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_poi_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Korfu": "Korfu"
+        }
+      }
+    },
+    {
+      "id": 63,
+      "query": "How do I cycle from Building 03 to Hasselbachplatz?",
+      "category": "transit_routing",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "Building 03": "Building 03",
+          "Hasselbachplatz": "Magdeburg Hasselbachplatz"
+        }
+      }
+    },
+    {
+      "id": 64,
+      "query": "Tell me everything about the Universitätsplatz/Opernhaus stop",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_stop_info"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Universitätsplatz/Opernhaus": "Magdeburg Universitätsplatz/Opernhaus"
+        }
+      }
+    },
+    {
+      "id": 65,
+      "query": "What's east of Building 22?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_east_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Building 22": "Building 22"
+        }
+      }
+    },
+    {
+      "id": 66,
+      "query": "Tell me about the Speicher buildings",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_building_by_function"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph",
+          "find_any_location"
+        ],
+        "entity_resolution": {
+          "Speicher buildings": "Building 81"
+        },
+        "notes": "Plural query — wants Building 81 (Speicher K) and Building 82 (Speicher B). Mono may pick get_building_info and ask which one."
+      }
+    },
+    {
+      "id": 67,
+      "query": "What's the latest reading on the Walter weather station?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Weather",
+        "fiware_entity_id": "Sensor:Weather:Walter",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 68,
+      "query": "What's the weather like at NorthPark?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_weather",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Weather",
+        "fiware_entity_id": "Sensor:Weather:NorthPark",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 69,
+      "query": "Show me hotels close to the train station",
+      "category": "dynamic_query",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building",
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Hotel"
+            }
+          ],
+          "near_location": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz"
+        },
+        "entity_resolution": {
+          "train station": "Magdeburg Hauptbahnhof/Willy-Brandt-Platz"
+        }
+      }
+    },
+    {
+      "id": 70,
+      "query": "Restaurants with cuisines including burger",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "contains",
+              "value": "burger"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "ALEX": "ALEX",
+          "Peter Pane": "Peter Pane"
+        }
+      }
+    },
+    {
+      "id": 71,
+      "query": "What's the address of the EE faculty and is the air quality OK there?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_building_info",
+          "get_all_sensors_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_sensor_near_building"
+        ],
+        "fiware_entity_type": "AirQuality",
+        "entity_resolution": {
+          "EE faculty": "Building 03"
+        }
+      }
+    },
+    {
+      "id": 72,
+      "query": "Find a Greek restaurant near the rectorate and check the parking situation around there",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building",
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "Parking",
+        "entity_resolution": {
+          "rectorate": "Building 04"
+        }
+      }
+    },
+    {
+      "id": 73,
+      "query": "Is the IBZ wheelchair accessible, and what's the closest tram stop?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_building_info",
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_accessible_route",
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "IBZ": "Building 32"
+        }
+      }
+    },
+    {
+      "id": 74,
+      "query": "Tell me what's at FestungMark and how I'd get there from Building 03",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": true,
+        "era_should_trigger": true,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_landmark_info",
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location",
+          "get_distance_between_locations"
+        ],
+        "entity_resolution": {
+          "FestungMark": "FestungMark",
+          "Building 03": "Building 03"
+        }
+      }
+    },
+    {
+      "id": 75,
+      "query": "Find any restaurant marked as not accessible",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "accessibility",
+              "operator": "contains",
+              "value": "not accessible"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Hummels Brauhaus": "Hummels Brauhaus",
+          "Korfu": "Korfu",
+          "Tucherstube": "Tucherstube"
+        },
+        "notes": "Tests negative accessibility filter. 3 restaurants verified to have 'not accessible' value."
+      }
+    },
+    {
+      "id": 76,
+      "query": "Show me restaurants whose name starts with 'Asia'",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "name",
+              "operator": "starts_with",
+              "value": "asia"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Asia Long": "Asia Long",
+          "Asia Bixie": "Asia Bixie",
+          "Asia Wok": "Asia Wok"
+        },
+        "notes": "Tests starts_with operator on STRING (rare in dataset)."
+      }
+    },
+    {
+      "id": 77,
+      "query": "Are there any landmarks with theater services?",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "event_types",
+              "operator": "in_list",
+              "value": "theater"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "FestungMark": "FestungMark"
+        }
+      }
+    },
+    {
+      "id": 78,
+      "query": "Find any stop where 'Bus' appears among the lines",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Stop",
+          "filters": [
+            {
+              "property": "lines",
+              "operator": "in_list",
+              "value": "Bus"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 79,
+      "query": "Show me POIs with 'Magdeburg' in their name",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "name",
+              "operator": "contains",
+              "value": "magdeburg"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 80,
+      "query": "Find any building where the function description includes 'office'",
+      "category": "property_edge",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_building_by_function"
+        ],
+        "query_graph_spec": {
+          "node_label": "Building",
+          "filters": [
+            {
+              "property": "function",
+              "operator": "contains",
+              "value": "office"
+            }
+          ]
+        },
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 81,
+      "query": "Find me cafes near 52.139, 11.645",
+      "category": "poi_lookup",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_near_coordinates"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 82,
+      "query": "Where can I get sushi specifically?",
+      "category": "poi_lookup",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "find_places_by_cuisine"
+        ],
+        "acceptable_alt_functions": [
+          "query_graph"
+        ],
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 83,
+      "query": "What's the closest stop to the IBZ?",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearest_tram_from_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_stop_info"
+        ],
+        "entity_resolution": {
+          "IBZ": "Building 32"
+        }
+      }
+    },
+    {
+      "id": 84,
+      "query": "I need walking directions from Building 03 to Building 22",
+      "category": "transit_routing",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_route",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "darkness"
+        ],
+        "neo4j_functions": [
+          "get_directions_between_buildings"
+        ],
+        "acceptable_alt_functions": [
+          "get_multimodal_route"
+        ],
+        "entity_resolution": {
+          "Building 03": "Building 03",
+          "Building 22": "Building 22"
+        }
+      }
+    },
+    {
+      "id": 85,
+      "query": "Show me where Bus 51 goes",
+      "category": "transit_routing",
+      "complexity": "simple",
+      "expected": {
+        "primary_intent": "get_transit_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_line_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_line_info"
+        ],
+        "entity_resolution": {
+          "Bus 51": "Bus 51"
+        }
+      }
+    },
+    {
+      "id": 86,
+      "query": "What's to the west of Building 02?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_west_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Building 02": "Building 02"
+        }
+      }
+    },
+    {
+      "id": 87,
+      "query": "What's north of the Welcome Center?",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "what_is_north_of"
+        ],
+        "acceptable_alt_functions": [
+          "get_buildings_in_direction",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "Welcome Center": "Building 01"
+        }
+      }
+    },
+    {
+      "id": 88,
+      "query": "Find buildings near the IBZ",
+      "category": "building_entity",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "get_nearby_buildings"
+        ],
+        "acceptable_alt_functions": [
+          "get_building_spatial_relations",
+          "get_building_borders"
+        ],
+        "entity_resolution": {
+          "IBZ": "Building 32"
+        }
+      }
+    },
+    {
+      "id": 89,
+      "query": "What pollution levels are at the City Tunnel?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "AirQuality",
+        "fiware_entity_id": "Air:CityTunnel",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 90,
+      "query": "Show me the parking situation right at Faculty CS",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_parking_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "parking"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "Parking",
+        "fiware_entity_id": "ParkingSpot:FacultyCS",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 91,
+      "query": "How clean is the air right now in the West section of town?",
+      "category": "sensor_fiware",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_air_quality",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "neo4j_functions": [],
+        "acceptable_alt_functions": [],
+        "fiware_entity_type": "AirQuality",
+        "fiware_entity_id": "Air:West",
+        "entity_resolution": {}
+      }
+    },
+    {
+      "id": 92,
+      "query": "Show me bars near the rectorate",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Bar"
+            }
+          ],
+          "near_location": "Building 04"
+        },
+        "entity_resolution": {
+          "rectorate": "Building 04"
+        }
+      }
+    },
+    {
+      "id": 93,
+      "query": "Find any building whose department list mentions Algebra",
+      "category": "dynamic_query",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_building_by_function"
+        ],
+        "query_graph_spec": {
+          "node_label": "Building",
+          "filters": [
+            {
+              "property": "departments",
+              "operator": "in_list",
+              "value": "algebra"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Algebra": "Building 02"
+        }
+      }
+    },
+    {
+      "id": 94,
+      "query": "Show me supermarkets near the library",
+      "category": "dynamic_query",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_near_building"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Supermarket"
+            }
+          ],
+          "near_location": "Building 30"
+        },
+        "entity_resolution": {
+          "library": "Building 30"
+        }
+      }
+    },
+    {
+      "id": 95,
+      "query": "Tell me about the closest weather sensor to Building 22 and what's the temperature",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "weather"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_sensor_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "get_all_sensors_near_building",
+          "get_nearest_sensor"
+        ],
+        "fiware_entity_type": "Weather",
+        "entity_resolution": {
+          "Building 22": "Building 22"
+        }
+      }
+    },
+    {
+      "id": 96,
+      "query": "Find Greek restaurants near the rectorate, then check air quality there",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [
+          "air_quality"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "find_places_near_building"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine",
+          "get_all_sensors_near_building"
+        ],
+        "fiware_entity_type": "AirQuality",
+        "entity_resolution": {
+          "rectorate": "Building 04",
+          "Korfu": "Korfu"
+        }
+      }
+    },
+    {
+      "id": 97,
+      "query": "How do I get from Allee-Center to FestungMark, and what's the weather?",
+      "category": "compound",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "compound_query",
+        "is_compound": true,
+        "needs_mode_comparison": true,
+        "era_should_trigger": true,
+        "context_needs": [
+          "weather",
+          "darkness"
+        ],
+        "decomposition_steps": 2,
+        "neo4j_functions": [
+          "get_multimodal_route"
+        ],
+        "acceptable_alt_functions": [
+          "get_distance_between_locations"
+        ],
+        "fiware_entity_type": "Weather",
+        "entity_resolution": {
+          "Allee-Center": "Magdeburg Allee-Center",
+          "FestungMark": "FestungMark"
+        }
+      }
+    },
+    {
+      "id": 98,
+      "query": "Find POIs whose aliases include 'mensa'",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_any_location",
+          "get_poi_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "aliases",
+              "operator": "in_list",
+              "value": "mensa"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Mensa Uni": "Mensa Uni"
+        },
+        "notes": "Tests in_list operator on aliases LIST property of POI."
+      }
+    },
+    {
+      "id": 99,
+      "query": "Find any landmark with a courtyard",
+      "category": "property_edge",
+      "complexity": "medium",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "get_landmark_info"
+        ],
+        "query_graph_spec": {
+          "node_label": "Landmark",
+          "filters": [
+            {
+              "property": "facilities",
+              "operator": "in_list",
+              "value": "courtyard"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "FestungMark": "FestungMark"
+        }
+      }
+    },
+    {
+      "id": 100,
+      "query": "Find restaurants whose cuisine starts with 'german'",
+      "category": "property_edge",
+      "complexity": "complex",
+      "expected": {
+        "primary_intent": "get_location_info",
+        "is_compound": false,
+        "needs_mode_comparison": false,
+        "era_should_trigger": false,
+        "context_needs": [],
+        "neo4j_functions": [
+          "query_graph"
+        ],
+        "acceptable_alt_functions": [
+          "find_places_by_cuisine"
+        ],
+        "query_graph_spec": {
+          "node_label": "POI",
+          "filters": [
+            {
+              "property": "type",
+              "operator": "equals",
+              "value": "Restaurant"
+            },
+            {
+              "property": "cuisine",
+              "operator": "starts_with",
+              "value": "german"
+            }
+          ]
+        },
+        "entity_resolution": {
+          "Kantineder Bordekuche": "Kantineder Bordekuche",
+          "Botelstube": "Botelstube"
+        },
+        "notes": "Tests starts_with operator on cuisine. Multi-filter with type. Distinguishes from contains-style cuisine queries."
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "phase": "full",
+  "started_at": "2026-05-07T13:08:41.891281Z",
+  "selected_query_ids": [
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q06",
+    "Q07",
+    "Q08",
+    "Q09",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q14",
+    "Q15",
+    "Q16",
+    "Q17",
+    "Q18",
+    "Q19",
+    "Q20",
+    "Q21",
+    "Q22",
+    "Q23",
+    "Q24",
+    "Q25"
+  ],
+  "selected_condition_ids": [
+    "C3",
+    "C4",
+    "C6",
+    "C7"
+  ],
+  "n_trials_planned": 100,
+  "era_temperature": 0.0,
+  "era_model": "qwen3-30b-a3b-instruct-2507",
+  "prompt_hash": "2da280da4306"
+}

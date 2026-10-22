@@ -1,0 +1,3255 @@
+{
+  "Q01": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 23.1,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Faculty of Electrical Engineering and Information Technology",
+            "to": "Magdeburg Listemannstra\u00dfe",
+            "from_coords": {
+              "lat": 52.14122135217064,
+              "lon": 11.641157940589354
+            },
+            "to_coords": {
+              "lat": 52.1378004,
+              "lon": 11.6436411
+            },
+            "distance_meters": 652,
+            "walk_time_minutes": 8,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "from": "Magdeburg Listemannstra\u00dfe",
+            "to": "Magdeburg Askanischer Platz",
+            "stop_count": 2,
+            "stops": [
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Askanischer Platz",
+            "to": "Building 30",
+            "from_coords": {
+              "lat": 52.1379893,
+              "lon": 11.650666
+            },
+            "to_coords": {
+              "lat": 52.138934835338766,
+              "lon": 11.647424764557645
+            },
+            "distance_meters": 277,
+            "walk_time_minutes": 3,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Faculty of Electrical Engineering and Information Technology to Magdeburg Listemannstra\u00dfe (652m, ~8 min)",
+            "from": "Faculty of Electrical Engineering and Information Technology",
+            "to": "Magdeburg Listemannstra\u00dfe",
+            "distance_meters": 652,
+            "duration_minutes": 8
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 5 from Magdeburg Listemannstra\u00dfe to Magdeburg Askanischer Platz (2 stops, ~4 min)",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "board_at": "Magdeburg Listemannstra\u00dfe",
+            "alight_at": "Magdeburg Askanischer Platz",
+            "intermediate_stops": [
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz"
+            ],
+            "stops": 2,
+            "duration_minutes": 4
+          },
+          {
+            "step": 3,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Askanischer Platz to Building 30 (277m, ~3 min)",
+            "from": "Magdeburg Askanischer Platz",
+            "to": "Building 30",
+            "distance_meters": 277,
+            "duration_minutes": 3
+          }
+        ],
+        "lines_used": [
+          "Tram 5"
+        ],
+        "total_stops": 2,
+        "transfers": 0,
+        "estimated_duration_minutes": 15,
+        "estimated_duration_text": "15 min",
+        "route_type": "transit_optional",
+        "cost_score": 31.03
+      }
+    ],
+    "walking_alternative": {
+      "distance": "666 m",
+      "distance_meters": 666.6,
+      "duration": "8 min",
+      "duration_seconds": 480.0,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "731 m",
+      "distance_meters": 731,
+      "duration": "2 min",
+      "duration_seconds": 166,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "878 m",
+      "distance_meters": 878.4,
+      "duration": "3 min",
+      "duration_seconds": 225.4,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I get from Building 03 to the University Library?",
+    "_query_sent": "How do I get from Building 03 to the University Library? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q06": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 17.21,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Faculty of Economics",
+            "to": "Magdeburg Universit\u00e4tsbibliothek",
+            "from_coords": {
+              "lat": 52.14018557757729,
+              "lon": 11.645941471982091
+            },
+            "to_coords": {
+              "lat": 52.14034,
+              "lon": 11.6465275
+            },
+            "distance_meters": 206,
+            "walk_time_minutes": 2,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Tram 2",
+            "line_color": "#00AA00",
+            "line_type": "tram",
+            "from": "Magdeburg Universit\u00e4tsbibliothek",
+            "to": "Magdeburg Opernhaus",
+            "stop_count": 3,
+            "stops": [
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Opernhaus"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "from": "Magdeburg Opernhaus",
+            "to": "Magdeburg Zoo",
+            "stop_count": 10,
+            "stops": [
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg AOK",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Zoo"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Faculty of Economics to Magdeburg Universit\u00e4tsbibliothek (206m, ~2 min)",
+            "from": "Faculty of Economics",
+            "to": "Magdeburg Universit\u00e4tsbibliothek",
+            "distance_meters": 206,
+            "duration_minutes": 2
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 2 from Magdeburg Universit\u00e4tsbibliothek to Magdeburg Opernhaus (3 stops, ~6 min)",
+            "line": "Tram 2",
+            "line_color": "#00AA00",
+            "line_type": "tram",
+            "board_at": "Magdeburg Universit\u00e4tsbibliothek",
+            "alight_at": "Magdeburg Opernhaus",
+            "intermediate_stops": [
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Opernhaus"
+            ],
+            "stops": 3,
+            "duration_minutes": 6
+          },
+          {
+            "step": 3,
+            "type": "transit",
+            "instruction": "Take Tram 10 from Magdeburg Opernhaus to Magdeburg Zoo (10 stops, ~20 min)",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "board_at": "Magdeburg Opernhaus",
+            "alight_at": "Magdeburg Zoo",
+            "intermediate_stops": [
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg AOK",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Zoo"
+            ],
+            "stops": 10,
+            "duration_minutes": 20
+          }
+        ],
+        "lines_used": [
+          "Tram 2",
+          "Tram 10"
+        ],
+        "total_stops": 13,
+        "transfers": 1,
+        "estimated_duration_minutes": 28,
+        "estimated_duration_text": "28 min",
+        "route_type": "transit",
+        "cost_score": 19.44
+      }
+    ],
+    "walking_alternative": {
+      "distance": "3.2 km",
+      "distance_meters": 3208.4,
+      "duration": "38 min",
+      "duration_seconds": 2310.0,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "3.9 km",
+      "distance_meters": 3851,
+      "duration": "7 min",
+      "duration_seconds": 474,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.6 km",
+      "distance_meters": 3551.4,
+      "duration": "12 min",
+      "duration_seconds": 741.9,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Best way from Building 22 to Magdeburg Zoo",
+    "_query_sent": "Best way from Building 22 to Magdeburg Zoo Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q08": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 35.49,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "IMIQ Project Building",
+            "to": "Magdeburg Wissenschaftshafen",
+            "from_coords": {
+              "lat": 52.141220062856185,
+              "lon": 11.65497609511592
+            },
+            "to_coords": {
+              "lat": 52.1407693,
+              "lon": 11.6564316
+            },
+            "distance_meters": 116,
+            "walk_time_minutes": 1,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "from": "Magdeburg Wissenschaftshafen",
+            "to": "Magdeburg Olvenstedter Platz",
+            "stop_count": 12,
+            "stops": [
+              "Magdeburg Wissenschaftshafen",
+              "Magdeburg Wittenberger Platz",
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg M\u00fchlenstra\u00dfe",
+              "Magdeburg Sankt Petri",
+              "Magdeburg Weitlingstra\u00dfe",
+              "Magdeburg Universit\u00e4tsplatz/Opernhaus",
+              "Magdeburg Walther-Rathenau-Stra\u00dfe",
+              "Magdeburg Gagernstra\u00dfe",
+              "Magdeburg Westernplan",
+              "Magdeburg Harsdorfer Stra\u00dfe",
+              "Magdeburg Olvenstedter Platz"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 3",
+            "line_color": "#0000FF",
+            "line_type": "tram",
+            "from": "Magdeburg Olvenstedter Platz",
+            "to": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "stop_count": 5,
+            "stops": [
+              "Magdeburg Olvenstedter Platz",
+              "Magdeburg Friesenstra\u00dfe",
+              "Magdeburg Wilhelmst\u00e4dter Platz",
+              "Magdeburg Goethestra\u00dfe",
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "to": "Fahrradparkhaus Hauptbahnhof",
+            "from_coords": {
+              "lat": 52.132036,
+              "lon": 11.6265224
+            },
+            "to_coords": {
+              "lat": 52.131545989462836,
+              "lon": 11.626764494158442
+            },
+            "distance_meters": 141,
+            "walk_time_minutes": 2,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from IMIQ Project Building to Magdeburg Wissenschaftshafen (116m, ~1 min)",
+            "from": "IMIQ Project Building",
+            "to": "Magdeburg Wissenschaftshafen",
+            "distance_meters": 116,
+            "duration_minutes": 1
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Bus 73 from Magdeburg Wissenschaftshafen to Magdeburg Olvenstedter Platz (12 stops, ~24 min)",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "board_at": "Magdeburg Wissenschaftshafen",
+            "alight_at": "Magdeburg Olvenstedter Platz",
+            "intermediate_stops": [
+              "Magdeburg Wissenschaftshafen",
+              "Magdeburg Wittenberger Platz",
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg M\u00fchlenstra\u00dfe",
+              "Magdeburg Sankt Petri",
+              "Magdeburg Weitlingstra\u00dfe",
+              "Magdeburg Universit\u00e4tsplatz/Opernhaus",
+              "Magdeburg Walther-Rathenau-Stra\u00dfe",
+              "Magdeburg Gagernstra\u00dfe",
+              "Magdeburg Westernplan",
+              "Magdeburg Harsdorfer Stra\u00dfe",
+              "Magdeburg Olvenstedter Platz"
+            ],
+            "stops": 12,
+            "duration_minutes": 24
+          },
+          {
+            "step": 3,
+            "type": "transit",
+            "instruction": "Take Tram 3 from Magdeburg Olvenstedter Platz to Magdeburg Hauptbahnhof/K\u00f6lner Platz (5 stops, ~10 min)",
+            "line": "Tram 3",
+            "line_color": "#0000FF",
+            "line_type": "tram",
+            "board_at": "Magdeburg Olvenstedter Platz",
+            "alight_at": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "intermediate_stops": [
+              "Magdeburg Olvenstedter Platz",
+              "Magdeburg Friesenstra\u00dfe",
+              "Magdeburg Wilhelmst\u00e4dter Platz",
+              "Magdeburg Goethestra\u00dfe",
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz"
+            ],
+            "stops": 5,
+            "duration_minutes": 10
+          },
+          {
+            "step": 4,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Hauptbahnhof/K\u00f6lner Platz to Fahrradparkhaus Hauptbahnhof (141m, ~2 min)",
+            "from": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "to": "Fahrradparkhaus Hauptbahnhof",
+            "distance_meters": 141,
+            "duration_minutes": 2
+          }
+        ],
+        "lines_used": [
+          "Bus 73",
+          "Tram 3"
+        ],
+        "total_stops": 17,
+        "transfers": 1,
+        "estimated_duration_minutes": 37,
+        "estimated_duration_text": "37 min",
+        "route_type": "transit_optional",
+        "cost_score": 25.03
+      }
+    ],
+    "walking_alternative": {
+      "distance": "2.7 km",
+      "distance_meters": 2736.5,
+      "duration": "32 min",
+      "duration_seconds": 1970.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "3.5 km",
+      "distance_meters": 3463,
+      "duration": "9 min",
+      "duration_seconds": 581,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.0 km",
+      "distance_meters": 3007.8,
+      "duration": "11 min",
+      "duration_seconds": 700.9,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I travel from the IMIQ Project Building to Hauptbahnhof?",
+    "_query_sent": "How do I travel from the IMIQ Project Building to Hauptbahnhof? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q13": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 11.21,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "from": "Magdeburg ENERCON",
+            "to": "Magdeburg Universit\u00e4t",
+            "stop_count": 17,
+            "stops": [
+              "Magdeburg ENERCON",
+              "Magdeburg Rothensee",
+              "Magdeburg Betriebshof Nord/AMROC",
+              "Magdeburg Hohenwarther Stra\u00dfe",
+              "Magdeburg Schule Rothensee",
+              "Magdeburg Havelstra\u00dfe",
+              "Magdeburg S-Bahnhof Eichenweiler",
+              "Magdeburg Pettenkoferstra\u00dfe (Neue Neustadt)",
+              "Magdeburg Zoo",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg AOK",
+              "Magdeburg Universit\u00e4t"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "from": "Magdeburg Universit\u00e4t",
+            "to": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "stop_count": 6,
+            "stops": [
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg Opernhaus",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Alter Markt",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 10 from Magdeburg ENERCON to Magdeburg Universit\u00e4t (17 stops, ~34 min)",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "board_at": "Magdeburg ENERCON",
+            "alight_at": "Magdeburg Universit\u00e4t",
+            "intermediate_stops": [
+              "Magdeburg ENERCON",
+              "Magdeburg Rothensee",
+              "Magdeburg Betriebshof Nord/AMROC",
+              "Magdeburg Hohenwarther Stra\u00dfe",
+              "Magdeburg Schule Rothensee",
+              "Magdeburg Havelstra\u00dfe",
+              "Magdeburg S-Bahnhof Eichenweiler",
+              "Magdeburg Pettenkoferstra\u00dfe (Neue Neustadt)",
+              "Magdeburg Zoo",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg AOK",
+              "Magdeburg Universit\u00e4t"
+            ],
+            "stops": 17,
+            "duration_minutes": 34
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 1 from Magdeburg Universit\u00e4t to Magdeburg Hauptbahnhof/K\u00f6lner Platz (6 stops, ~12 min)",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "board_at": "Magdeburg Universit\u00e4t",
+            "alight_at": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "intermediate_stops": [
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg Opernhaus",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Alter Markt",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz"
+            ],
+            "stops": 6,
+            "duration_minutes": 12
+          }
+        ],
+        "lines_used": [
+          "Tram 10",
+          "Tram 1"
+        ],
+        "total_stops": 23,
+        "transfers": 1,
+        "estimated_duration_minutes": 46,
+        "estimated_duration_text": "46 min",
+        "route_type": "transit",
+        "cost_score": 23.0
+      }
+    ],
+    "walking_alternative": {
+      "distance": "9.2 km",
+      "distance_meters": 9194.1,
+      "duration": "1h 50min",
+      "duration_seconds": 6619.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "14.5 km",
+      "distance_meters": 14474,
+      "duration": "15 min",
+      "duration_seconds": 953,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "11.8 km",
+      "distance_meters": 11806.6,
+      "duration": "46 min",
+      "duration_seconds": 2777.1,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Best way from ENERCON to Magdeburg Hauptbahnhof",
+    "_query_sent": "Best way from ENERCON to Magdeburg Hauptbahnhof Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q24": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 10.45,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "from": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "to": "Magdeburg Opernhaus",
+            "stop_count": 5,
+            "stops": [
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 1 from Magdeburg Hauptbahnhof/K\u00f6lner Platz to Magdeburg Opernhaus (5 stops, ~10 min)",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "board_at": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "alight_at": "Magdeburg Opernhaus",
+            "intermediate_stops": [
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus"
+            ],
+            "stops": 5,
+            "duration_minutes": 10
+          }
+        ],
+        "lines_used": [
+          "Tram 1"
+        ],
+        "total_stops": 5,
+        "transfers": 0,
+        "estimated_duration_minutes": 10,
+        "estimated_duration_text": "10 min",
+        "route_type": "transit",
+        "cost_score": 5.0
+      }
+    ],
+    "walking_alternative": {
+      "distance": "1.4 km",
+      "distance_meters": 1381.7,
+      "duration": "16 min",
+      "duration_seconds": 994.8,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "1.9 km",
+      "distance_meters": 1906,
+      "duration": "5 min",
+      "duration_seconds": 311,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "1.4 km",
+      "distance_meters": 1376.5,
+      "duration": "5 min",
+      "duration_seconds": 320.8,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Route from Magdeburg Hauptbahnhof to Magdeburg Opernhaus",
+    "_query_sent": "Route from Magdeburg Hauptbahnhof to Magdeburg Opernhaus Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q02": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 30.01,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Mensa",
+            "to": "Magdeburg Simonstra\u00dfe",
+            "from_coords": {
+              "lat": 52.123643432872655,
+              "lon": 11.66496729860738
+            },
+            "to_coords": {
+              "lat": 52.1186845,
+              "lon": 11.6618927
+            },
+            "distance_meters": 742,
+            "walk_time_minutes": 9,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Tram 4",
+            "line_color": "#FFFF00",
+            "line_type": "tram",
+            "from": "Magdeburg Simonstra\u00dfe",
+            "to": "Magdeburg City Carr\u00e9",
+            "stop_count": 7,
+            "stops": [
+              "Magdeburg Simonstra\u00dfe",
+              "Magdeburg Mehringstra\u00dfe",
+              "Magdeburg Am Cracauer Tor",
+              "Magdeburg Heumarkt",
+              "Magdeburg Zollbr\u00fccke",
+              "Magdeburg Allee-Center",
+              "Magdeburg City Carr\u00e9"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "from": "Magdeburg City Carr\u00e9",
+            "to": "Magdeburg Universit\u00e4t",
+            "stop_count": 5,
+            "stops": [
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Universit\u00e4t",
+            "to": "Faculty of Process and Systems Engineering / Interaktionszentrum Entrepreneurship",
+            "from_coords": {
+              "lat": 52.1386281,
+              "lon": 11.6400079
+            },
+            "to_coords": {
+              "lat": 52.13915097675528,
+              "lon": 11.641176410098925
+            },
+            "distance_meters": 131,
+            "walk_time_minutes": 2,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Mensa to Magdeburg Simonstra\u00dfe (742m, ~9 min)",
+            "from": "Mensa",
+            "to": "Magdeburg Simonstra\u00dfe",
+            "distance_meters": 742,
+            "duration_minutes": 9
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 4 from Magdeburg Simonstra\u00dfe to Magdeburg City Carr\u00e9 (7 stops, ~14 min)",
+            "line": "Tram 4",
+            "line_color": "#FFFF00",
+            "line_type": "tram",
+            "board_at": "Magdeburg Simonstra\u00dfe",
+            "alight_at": "Magdeburg City Carr\u00e9",
+            "intermediate_stops": [
+              "Magdeburg Simonstra\u00dfe",
+              "Magdeburg Mehringstra\u00dfe",
+              "Magdeburg Am Cracauer Tor",
+              "Magdeburg Heumarkt",
+              "Magdeburg Zollbr\u00fccke",
+              "Magdeburg Allee-Center",
+              "Magdeburg City Carr\u00e9"
+            ],
+            "stops": 7,
+            "duration_minutes": 14
+          },
+          {
+            "step": 3,
+            "type": "transit",
+            "instruction": "Take Tram 1 from Magdeburg City Carr\u00e9 to Magdeburg Universit\u00e4t (5 stops, ~10 min)",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "board_at": "Magdeburg City Carr\u00e9",
+            "alight_at": "Magdeburg Universit\u00e4t",
+            "intermediate_stops": [
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t"
+            ],
+            "stops": 5,
+            "duration_minutes": 10
+          },
+          {
+            "step": 4,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Universit\u00e4t to Faculty of Process and Systems Engineering / Interaktionszentrum Entrepreneurship (131m, ~2 min)",
+            "from": "Magdeburg Universit\u00e4t",
+            "to": "Faculty of Process and Systems Engineering / Interaktionszentrum Entrepreneurship",
+            "distance_meters": 131,
+            "duration_minutes": 2
+          }
+        ],
+        "lines_used": [
+          "Tram 4",
+          "Tram 1"
+        ],
+        "total_stops": 12,
+        "transfers": 1,
+        "estimated_duration_minutes": 35,
+        "estimated_duration_text": "35 min",
+        "route_type": "transit_optional",
+        "cost_score": 39.28
+      }
+    ],
+    "walking_alternative": {
+      "distance": "3.0 km",
+      "distance_meters": 3044.8,
+      "duration": "36 min",
+      "duration_seconds": 2192.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "3.0 km",
+      "distance_meters": 2976,
+      "duration": "6 min",
+      "duration_seconds": 386,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.1 km",
+      "distance_meters": 3082.7,
+      "duration": "13 min",
+      "duration_seconds": 812.4,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "What's the best route from the Mensa to Building 09?",
+    "_query_sent": "What's the best route from the Mensa to Building 09? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q03": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 11.87,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Faculty of Computer Science",
+            "to": "Magdeburg Universit\u00e4tsbibliothek",
+            "from_coords": {
+              "lat": 52.13881610863436,
+              "lon": 11.645676173208896
+            },
+            "to_coords": {
+              "lat": 52.14034,
+              "lon": 11.6465275
+            },
+            "distance_meters": 197,
+            "walk_time_minutes": 2,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "from": "Magdeburg Universit\u00e4tsbibliothek",
+            "to": "Magdeburg Wissenschaftshafen",
+            "stop_count": 3,
+            "stops": [
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg Wittenberger Platz",
+              "Magdeburg Wissenschaftshafen"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Wissenschaftshafen",
+            "to": "IMIQ Project Building",
+            "from_coords": {
+              "lat": 52.1407693,
+              "lon": 11.6564316
+            },
+            "to_coords": {
+              "lat": 52.141220062856185,
+              "lon": 11.65497609511592
+            },
+            "distance_meters": 116,
+            "walk_time_minutes": 1,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Faculty of Computer Science to Magdeburg Universit\u00e4tsbibliothek (197m, ~2 min)",
+            "from": "Faculty of Computer Science",
+            "to": "Magdeburg Universit\u00e4tsbibliothek",
+            "distance_meters": 197,
+            "duration_minutes": 2
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Bus 73 from Magdeburg Universit\u00e4tsbibliothek to Magdeburg Wissenschaftshafen (3 stops, ~6 min)",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "board_at": "Magdeburg Universit\u00e4tsbibliothek",
+            "alight_at": "Magdeburg Wissenschaftshafen",
+            "intermediate_stops": [
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg Wittenberger Platz",
+              "Magdeburg Wissenschaftshafen"
+            ],
+            "stops": 3,
+            "duration_minutes": 6
+          },
+          {
+            "step": 3,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Wissenschaftshafen to IMIQ Project Building (116m, ~1 min)",
+            "from": "Magdeburg Wissenschaftshafen",
+            "to": "IMIQ Project Building",
+            "distance_meters": 116,
+            "duration_minutes": 1
+          }
+        ],
+        "lines_used": [
+          "Bus 73"
+        ],
+        "total_stops": 3,
+        "transfers": 0,
+        "estimated_duration_minutes": 9,
+        "estimated_duration_text": "9 min",
+        "route_type": "transit",
+        "cost_score": 12.78
+      }
+    ],
+    "walking_alternative": {
+      "distance": "886 m",
+      "distance_meters": 886.4,
+      "duration": "10 min",
+      "duration_seconds": 638.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "985 m",
+      "distance_meters": 985,
+      "duration": "3 min",
+      "duration_seconds": 195,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "939 m",
+      "distance_meters": 939.9,
+      "duration": "3 min",
+      "duration_seconds": 202.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I travel from the Faculty of Computer Science to the IMIQ Project Building?",
+    "_query_sent": "How do I travel from the Faculty of Computer Science to the IMIQ Project Building? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q04": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 9.81,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 3",
+            "line_color": "#0000FF",
+            "line_type": "tram",
+            "from": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "to": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "stop_count": 4,
+            "stops": [
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+              "Magdeburg Hauptbahnhof/Willy-Brandt-Platz",
+              "Magdeburg Verkehrsbetriebe",
+              "Magdeburg Haeckelstra\u00dfe/Museum"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "to": "Magdeburger Dom",
+            "from_coords": {
+              "lat": 52.1244144,
+              "lon": 11.6285198
+            },
+            "to_coords": {
+              "lat": 52.12464994869138,
+              "lon": 11.634720929333609
+            },
+            "distance_meters": 602,
+            "walk_time_minutes": 7,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 3 from Magdeburg Hauptbahnhof/K\u00f6lner Platz to Magdeburg Haeckelstra\u00dfe/Museum (4 stops, ~8 min)",
+            "line": "Tram 3",
+            "line_color": "#0000FF",
+            "line_type": "tram",
+            "board_at": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "alight_at": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "intermediate_stops": [
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+              "Magdeburg Hauptbahnhof/Willy-Brandt-Platz",
+              "Magdeburg Verkehrsbetriebe",
+              "Magdeburg Haeckelstra\u00dfe/Museum"
+            ],
+            "stops": 4,
+            "duration_minutes": 8
+          },
+          {
+            "step": 2,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Haeckelstra\u00dfe/Museum to Magdeburger Dom (602m, ~7 min)",
+            "from": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "to": "Magdeburger Dom",
+            "distance_meters": 602,
+            "duration_minutes": 7
+          }
+        ],
+        "lines_used": [
+          "Tram 3"
+        ],
+        "total_stops": 4,
+        "transfers": 0,
+        "estimated_duration_minutes": 15,
+        "estimated_duration_text": "15 min",
+        "route_type": "transit_optional",
+        "cost_score": 22.81
+      }
+    ],
+    "walking_alternative": {
+      "distance": "1.3 km",
+      "distance_meters": 1319.0,
+      "duration": "15 min",
+      "duration_seconds": 949.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "2.0 km",
+      "distance_meters": 2044,
+      "duration": "6 min",
+      "duration_seconds": 403,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "1.5 km",
+      "distance_meters": 1475.5,
+      "duration": "6 min",
+      "duration_seconds": 383.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Route from Magdeburg Hauptbahnhof to the Magdeburger Dom",
+    "_query_sent": "Route from Magdeburg Hauptbahnhof to the Magdeburger Dom Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q05": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 6.64,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Allee-Center",
+            "to": "Magdeburg Alter Markt",
+            "from_coords": {
+              "lat": 52.12993302696213,
+              "lon": 11.637666928351763
+            },
+            "to_coords": {
+              "lat": 52.1321866,
+              "lon": 11.6370765
+            },
+            "distance_meters": 338,
+            "walk_time_minutes": 4,
+            "ors_enriched": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Allee-Center to Magdeburg Alter Markt (254m, ~3 min)",
+            "from": "Allee-Center",
+            "to": "Magdeburg Alter Markt",
+            "distance_meters": 254,
+            "duration_minutes": 3
+          }
+        ],
+        "lines_used": [],
+        "total_stops": 0,
+        "transfers": 0,
+        "estimated_duration_minutes": 4,
+        "estimated_duration_text": "4 min",
+        "route_type": "walking_only",
+        "note": "Very short distance, just walk"
+      }
+    ],
+    "walking_alternative": {
+      "distance": "337 m",
+      "distance_meters": 337.6,
+      "duration": "4 min",
+      "duration_seconds": 243.1,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "1.1 km",
+      "distance_meters": 1139,
+      "duration": "8 min",
+      "duration_seconds": 494,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "390 m",
+      "distance_meters": 390.6,
+      "duration": "1 min",
+      "duration_seconds": 101.9,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I get from Allee-Center to Alter Markt?",
+    "_query_sent": "How do I get from Allee-Center to Alter Markt? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q07": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 12.65,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "from": "Magdeburg Hasselbachplatz",
+            "to": "Magdeburg Universit\u00e4t",
+            "stop_count": 8,
+            "stops": [
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Domplatz",
+              "Magdeburg Leiterstra\u00dfe",
+              "Magdeburg Goldschmiedebr\u00fccke",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Universit\u00e4t",
+            "to": "Faculty of Mathematics",
+            "from_coords": {
+              "lat": 52.1386281,
+              "lon": 11.6400079
+            },
+            "to_coords": {
+              "lat": 52.140951062374526,
+              "lon": 11.640635073111092
+            },
+            "distance_meters": 408,
+            "walk_time_minutes": 5,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 10 from Magdeburg Hasselbachplatz to Magdeburg Universit\u00e4t (8 stops, ~16 min)",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "board_at": "Magdeburg Hasselbachplatz",
+            "alight_at": "Magdeburg Universit\u00e4t",
+            "intermediate_stops": [
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Domplatz",
+              "Magdeburg Leiterstra\u00dfe",
+              "Magdeburg Goldschmiedebr\u00fccke",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t"
+            ],
+            "stops": 8,
+            "duration_minutes": 16
+          },
+          {
+            "step": 2,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Universit\u00e4t to Faculty of Mathematics (408m, ~5 min)",
+            "from": "Magdeburg Universit\u00e4t",
+            "to": "Faculty of Mathematics",
+            "distance_meters": 408,
+            "duration_minutes": 5
+          }
+        ],
+        "lines_used": [
+          "Tram 10"
+        ],
+        "total_stops": 8,
+        "transfers": 0,
+        "estimated_duration_minutes": 21,
+        "estimated_duration_text": "21 min",
+        "route_type": "transit",
+        "cost_score": 20.75
+      }
+    ],
+    "walking_alternative": {
+      "distance": "2.8 km",
+      "distance_meters": 2777.3,
+      "duration": "33 min",
+      "duration_seconds": 1999.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.9 km",
+      "distance_meters": 4900,
+      "duration": "9 min",
+      "duration_seconds": 563,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "2.8 km",
+      "distance_meters": 2765.9,
+      "duration": "10 min",
+      "duration_seconds": 646.1,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Route from Hasselbachplatz to the Faculty of Mathematics",
+    "_query_sent": "Route from Hasselbachplatz to the Faculty of Mathematics Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q09": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 42.77,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "from": "Magdeburg Opernhaus",
+            "to": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "stop_count": 7,
+            "stops": [
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 5 from Magdeburg Opernhaus to Magdeburg Messegel\u00e4nde/Elbauenpark (7 stops, ~14 min)",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "board_at": "Magdeburg Opernhaus",
+            "alight_at": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "intermediate_stops": [
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark"
+            ],
+            "stops": 7,
+            "duration_minutes": 14
+          }
+        ],
+        "lines_used": [
+          "Tram 5"
+        ],
+        "total_stops": 7,
+        "transfers": 0,
+        "estimated_duration_minutes": 14,
+        "estimated_duration_text": "14 min",
+        "route_type": "transit",
+        "cost_score": 7.0
+      }
+    ],
+    "walking_alternative": {
+      "distance": "2.5 km",
+      "distance_meters": 2465.7,
+      "duration": "29 min",
+      "duration_seconds": 1775.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.4 km",
+      "distance_meters": 4375,
+      "duration": "9 min",
+      "duration_seconds": 595,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "2.7 km",
+      "distance_meters": 2741.1,
+      "duration": "10 min",
+      "duration_seconds": 615.9,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "What's the best route from Magdeburg Opernhaus to Messegel\u00e4nde Elbauenpark?",
+    "_query_sent": "What's the best route from Magdeburg Opernhaus to Messegel\u00e4nde Elbauenpark? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q10": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 11.06,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "",
+            "to": "Magdeburg Listemannstra\u00dfe",
+            "from_coords": {
+              "lat": 52.14089617723852,
+              "lon": 11.640933194206053
+            },
+            "to_coords": {
+              "lat": 52.1378004,
+              "lon": 11.6436411
+            },
+            "distance_meters": 696,
+            "walk_time_minutes": 8,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "from": "Magdeburg Listemannstra\u00dfe",
+            "to": "Magdeburg Klinikum Olvenstedt",
+            "stop_count": 29,
+            "stops": [
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Alter Markt",
+              "Magdeburg Leiterstra\u00dfe",
+              "Magdeburg Domplatz",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Planckstra\u00dfe",
+              "Magdeburg AMO/Steubenallee",
+              "Magdeburg Benediktinerstra\u00dfe/Gesellschaftshaus",
+              "Magdeburg S-Bahnhof Buckau/Puppentheater",
+              "Magdeburg Dodendorfer Stra\u00dfe",
+              "Magdeburg Raiffeisenstra\u00dfe",
+              "Magdeburg Hertzstra\u00dfe",
+              "Magdeburg S\u00fcdring",
+              "Magdeburg Westringbr\u00fccke",
+              "Magdeburg Liebknechtstra\u00dfe",
+              "Magdeburg Spielhagenstra\u00dfe",
+              "Magdeburg Westring",
+              "Magdeburg Alexander-Puschkin-Stra\u00dfe",
+              "Magdeburg Harsdorfer Stra\u00dfe",
+              "Magdeburg Albert-Vater-Stra\u00dfe",
+              "Magdeburg Rennetal",
+              "Magdeburg Eisvogelstra\u00dfe",
+              "Magdeburg Drosselsteig",
+              "Magdeburg Sternbogen/B\u00fcrgerb\u00fcro",
+              "Magdeburg Am Stern",
+              "Magdeburg Brunnenstieg",
+              "Magdeburg Klinikum Olvenstedt"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from  to Magdeburg Listemannstra\u00dfe (696m, ~8 min)",
+            "from": "",
+            "to": "Magdeburg Listemannstra\u00dfe",
+            "distance_meters": 696,
+            "duration_minutes": 8
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 5 from Magdeburg Listemannstra\u00dfe to Magdeburg Klinikum Olvenstedt (29 stops, ~58 min)",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "board_at": "Magdeburg Listemannstra\u00dfe",
+            "alight_at": "Magdeburg Klinikum Olvenstedt",
+            "intermediate_stops": [
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Alter Markt",
+              "Magdeburg Leiterstra\u00dfe",
+              "Magdeburg Domplatz",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Planckstra\u00dfe",
+              "Magdeburg AMO/Steubenallee",
+              "Magdeburg Benediktinerstra\u00dfe/Gesellschaftshaus",
+              "Magdeburg S-Bahnhof Buckau/Puppentheater",
+              "Magdeburg Dodendorfer Stra\u00dfe",
+              "Magdeburg Raiffeisenstra\u00dfe",
+              "Magdeburg Hertzstra\u00dfe",
+              "Magdeburg S\u00fcdring",
+              "Magdeburg Westringbr\u00fccke",
+              "Magdeburg Liebknechtstra\u00dfe",
+              "Magdeburg Spielhagenstra\u00dfe",
+              "Magdeburg Westring",
+              "Magdeburg Alexander-Puschkin-Stra\u00dfe",
+              "Magdeburg Harsdorfer Stra\u00dfe",
+              "Magdeburg Albert-Vater-Stra\u00dfe",
+              "Magdeburg Rennetal",
+              "Magdeburg Eisvogelstra\u00dfe",
+              "Magdeburg Drosselsteig",
+              "Magdeburg Sternbogen/B\u00fcrgerb\u00fcro",
+              "Magdeburg Am Stern",
+              "Magdeburg Brunnenstieg",
+              "Magdeburg Klinikum Olvenstedt"
+            ],
+            "stops": 29,
+            "duration_minutes": 58
+          }
+        ],
+        "lines_used": [
+          "Tram 5"
+        ],
+        "total_stops": 29,
+        "transfers": 0,
+        "estimated_duration_minutes": 66,
+        "estimated_duration_text": "66 min",
+        "route_type": "transit_optional",
+        "cost_score": 50.75
+      }
+    ],
+    "walking_alternative": {
+      "distance": "5.3 km",
+      "distance_meters": 5266.0,
+      "duration": "1h 3min",
+      "duration_seconds": 3791.5,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "7.0 km",
+      "distance_meters": 6986,
+      "duration": "13 min",
+      "duration_seconds": 804,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "5.4 km",
+      "distance_meters": 5445.4,
+      "duration": "18 min",
+      "duration_seconds": 1113.8,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I get from the University to Klinikum Olvenstedt?",
+    "_query_sent": "How do I get from the University to Klinikum Olvenstedt? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q11": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 11.55,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "from": "Magdeburg Wissenschaftshafen",
+            "to": "Magdeburg Universit\u00e4tsbibliothek",
+            "stop_count": 3,
+            "stops": [
+              "Magdeburg Wissenschaftshafen",
+              "Magdeburg Wittenberger Platz",
+              "Magdeburg Universit\u00e4tsbibliothek"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 2",
+            "line_color": "#00AA00",
+            "line_type": "tram",
+            "from": "Magdeburg Universit\u00e4tsbibliothek",
+            "to": "Magdeburg Domplatz",
+            "stop_count": 7,
+            "stops": [
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Alter Markt",
+              "Magdeburg Leiterstra\u00dfe",
+              "Magdeburg Domplatz"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Domplatz",
+            "to": "Magdeburger Dom",
+            "from_coords": {
+              "lat": 52.1252462,
+              "lon": 11.632031
+            },
+            "to_coords": {
+              "lat": 52.12464994869138,
+              "lon": 11.634720929333609
+            },
+            "distance_meters": 263,
+            "walk_time_minutes": 3,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Bus 73 from Magdeburg Wissenschaftshafen to Magdeburg Universit\u00e4tsbibliothek (3 stops, ~6 min)",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "board_at": "Magdeburg Wissenschaftshafen",
+            "alight_at": "Magdeburg Universit\u00e4tsbibliothek",
+            "intermediate_stops": [
+              "Magdeburg Wissenschaftshafen",
+              "Magdeburg Wittenberger Platz",
+              "Magdeburg Universit\u00e4tsbibliothek"
+            ],
+            "stops": 3,
+            "duration_minutes": 6
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 2 from Magdeburg Universit\u00e4tsbibliothek to Magdeburg Domplatz (7 stops, ~14 min)",
+            "line": "Tram 2",
+            "line_color": "#00AA00",
+            "line_type": "tram",
+            "board_at": "Magdeburg Universit\u00e4tsbibliothek",
+            "alight_at": "Magdeburg Domplatz",
+            "intermediate_stops": [
+              "Magdeburg Universit\u00e4tsbibliothek",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Alter Markt",
+              "Magdeburg Leiterstra\u00dfe",
+              "Magdeburg Domplatz"
+            ],
+            "stops": 7,
+            "duration_minutes": 14
+          },
+          {
+            "step": 3,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Domplatz to Magdeburger Dom (263m, ~3 min)",
+            "from": "Magdeburg Domplatz",
+            "to": "Magdeburger Dom",
+            "distance_meters": 263,
+            "duration_minutes": 3
+          }
+        ],
+        "lines_used": [
+          "Bus 73",
+          "Tram 2"
+        ],
+        "total_stops": 10,
+        "transfers": 1,
+        "estimated_duration_minutes": 23,
+        "estimated_duration_text": "23 min",
+        "route_type": "transit",
+        "cost_score": 18.22
+      }
+    ],
+    "walking_alternative": {
+      "distance": "2.5 km",
+      "distance_meters": 2521.1,
+      "duration": "30 min",
+      "duration_seconds": 1815.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "2.7 km",
+      "distance_meters": 2686,
+      "duration": "6 min",
+      "duration_seconds": 369,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "2.6 km",
+      "distance_meters": 2550.8,
+      "duration": "9 min",
+      "duration_seconds": 591.9,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Route from Wissenschaftshafen to Magdeburger Dom",
+    "_query_sent": "Route from Wissenschaftshafen to Magdeburger Dom Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q12": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 10.78,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Bus 52",
+            "line_color": "#808080",
+            "line_type": "bus",
+            "from": "Magdeburg Bahnhof Sudenburg",
+            "to": "Magdeburg Stormstra\u00dfe",
+            "stop_count": 12,
+            "stops": [
+              "Magdeburg Bahnhof Sudenburg",
+              "Magdeburg Helmstedter Stra\u00dfe",
+              "Magdeburg Westringbr\u00fccke",
+              "Magdeburg Hermann-Gieseler-Halle",
+              "Magdeburg Schlachthof",
+              "Magdeburg Kleiststra\u00dfe",
+              "Magdeburg Wilhelm-K\u00fclz-Stra\u00dfe",
+              "Magdeburg Arndtstra\u00dfe",
+              "Magdeburg Annastra\u00dfe",
+              "Magdeburg Steinigstra\u00dfe",
+              "Magdeburg Friesenstra\u00dfe",
+              "Magdeburg Stormstra\u00dfe"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "from": "Magdeburg Stormstra\u00dfe",
+            "to": "Magdeburg Universit\u00e4tsbibliothek",
+            "stop_count": 9,
+            "stops": [
+              "Magdeburg Stormstra\u00dfe",
+              "Magdeburg Westernplan",
+              "Magdeburg Gagernstra\u00dfe",
+              "Magdeburg Walther-Rathenau-Stra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Weitlingstra\u00dfe",
+              "Magdeburg Sankt Petri",
+              "Magdeburg M\u00fchlenstra\u00dfe",
+              "Magdeburg Universit\u00e4tsbibliothek"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Bus 52 from Magdeburg Bahnhof Sudenburg to Magdeburg Stormstra\u00dfe (12 stops, ~24 min)",
+            "line": "Bus 52",
+            "line_color": "#808080",
+            "line_type": "bus",
+            "board_at": "Magdeburg Bahnhof Sudenburg",
+            "alight_at": "Magdeburg Stormstra\u00dfe",
+            "intermediate_stops": [
+              "Magdeburg Bahnhof Sudenburg",
+              "Magdeburg Helmstedter Stra\u00dfe",
+              "Magdeburg Westringbr\u00fccke",
+              "Magdeburg Hermann-Gieseler-Halle",
+              "Magdeburg Schlachthof",
+              "Magdeburg Kleiststra\u00dfe",
+              "Magdeburg Wilhelm-K\u00fclz-Stra\u00dfe",
+              "Magdeburg Arndtstra\u00dfe",
+              "Magdeburg Annastra\u00dfe",
+              "Magdeburg Steinigstra\u00dfe",
+              "Magdeburg Friesenstra\u00dfe",
+              "Magdeburg Stormstra\u00dfe"
+            ],
+            "stops": 12,
+            "duration_minutes": 24
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Bus 73 from Magdeburg Stormstra\u00dfe to Magdeburg Universit\u00e4tsbibliothek (9 stops, ~18 min)",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "board_at": "Magdeburg Stormstra\u00dfe",
+            "alight_at": "Magdeburg Universit\u00e4tsbibliothek",
+            "intermediate_stops": [
+              "Magdeburg Stormstra\u00dfe",
+              "Magdeburg Westernplan",
+              "Magdeburg Gagernstra\u00dfe",
+              "Magdeburg Walther-Rathenau-Stra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Weitlingstra\u00dfe",
+              "Magdeburg Sankt Petri",
+              "Magdeburg M\u00fchlenstra\u00dfe",
+              "Magdeburg Universit\u00e4tsbibliothek"
+            ],
+            "stops": 9,
+            "duration_minutes": 18
+          }
+        ],
+        "lines_used": [
+          "Bus 52",
+          "Bus 73"
+        ],
+        "total_stops": 21,
+        "transfers": 1,
+        "estimated_duration_minutes": 42,
+        "estimated_duration_text": "42 min",
+        "route_type": "transit",
+        "cost_score": 21.0
+      }
+    ],
+    "walking_alternative": {
+      "distance": "5.1 km",
+      "distance_meters": 5075.4,
+      "duration": "1h 0min",
+      "duration_seconds": 3654.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "6.6 km",
+      "distance_meters": 6565,
+      "duration": "10 min",
+      "duration_seconds": 654,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "5.4 km",
+      "distance_meters": 5394.6,
+      "duration": "19 min",
+      "duration_seconds": 1185.7,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I travel from Bahnhof Sudenburg to Universit\u00e4tsbibliothek?",
+    "_query_sent": "How do I travel from Bahnhof Sudenburg to Universit\u00e4tsbibliothek? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q14": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 10.11,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 6",
+            "line_color": "#0099CC",
+            "line_type": "tram",
+            "from": "Magdeburg Bahnhof Herrenkrug",
+            "to": "Magdeburg Allee-Center",
+            "stop_count": 8,
+            "stops": [
+              "Magdeburg Bahnhof Herrenkrug",
+              "Magdeburg Hochschule Magdeburg-Stendal",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Arenen",
+              "Magdeburg Heumarkt",
+              "Magdeburg Zollbr\u00fccke",
+              "Magdeburg Allee-Center"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Allee-Center",
+            "to": "Allee-Center",
+            "from_coords": {
+              "lat": 52.1308412,
+              "lon": 11.6370934
+            },
+            "to_coords": {
+              "lat": 52.12993302696213,
+              "lon": 11.637666928351763
+            },
+            "distance_meters": 179,
+            "walk_time_minutes": 2,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 6 from Magdeburg Bahnhof Herrenkrug to Magdeburg Allee-Center (8 stops, ~16 min)",
+            "line": "Tram 6",
+            "line_color": "#0099CC",
+            "line_type": "tram",
+            "board_at": "Magdeburg Bahnhof Herrenkrug",
+            "alight_at": "Magdeburg Allee-Center",
+            "intermediate_stops": [
+              "Magdeburg Bahnhof Herrenkrug",
+              "Magdeburg Hochschule Magdeburg-Stendal",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Arenen",
+              "Magdeburg Heumarkt",
+              "Magdeburg Zollbr\u00fccke",
+              "Magdeburg Allee-Center"
+            ],
+            "stops": 8,
+            "duration_minutes": 16
+          },
+          {
+            "step": 2,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Allee-Center to Allee-Center (179m, ~2 min)",
+            "from": "Magdeburg Allee-Center",
+            "to": "Allee-Center",
+            "distance_meters": 179,
+            "duration_minutes": 2
+          }
+        ],
+        "lines_used": [
+          "Tram 6"
+        ],
+        "total_stops": 8,
+        "transfers": 0,
+        "estimated_duration_minutes": 18,
+        "estimated_duration_text": "18 min",
+        "route_type": "transit",
+        "cost_score": 13.59
+      }
+    ],
+    "walking_alternative": {
+      "distance": "4.1 km",
+      "distance_meters": 4060.6,
+      "duration": "48 min",
+      "duration_seconds": 2923.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.2 km",
+      "distance_meters": 4209,
+      "duration": "10 min",
+      "duration_seconds": 602,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "4.5 km",
+      "distance_meters": 4487.7,
+      "duration": "17 min",
+      "duration_seconds": 1034.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Route from Bahnhof Herrenkrug to Allee-Center",
+    "_query_sent": "Route from Bahnhof Herrenkrug to Allee-Center Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q15": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 24.9,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 9",
+            "line_color": "#FF9900",
+            "line_type": "tram",
+            "from": "Magdeburg Reform",
+            "to": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "stop_count": 18,
+            "stops": [
+              "Magdeburg Reform",
+              "Magdeburg B\u00f6rdepark-Ost",
+              "Magdeburg Pallasweg",
+              "Magdeburg Merkurweg",
+              "Magdeburg Lindenhof/Flugplatz",
+              "Magdeburg Am Hopfengarten",
+              "Magdeburg Weinbrennerallee",
+              "Magdeburg Leipziger Chaussee",
+              "Magdeburg Freibad S\u00fcd",
+              "Magdeburg Brenneckestra\u00dfe",
+              "Magdeburg Universit\u00e4tsklinikum",
+              "Magdeburg Fermersleber Weg",
+              "Magdeburg S\u00fcdfriedhof",
+              "Magdeburg Raiffeisenstra\u00dfe",
+              "Magdeburg Am Fuchsberg",
+              "Magdeburg Leipziger Stra\u00dfe/Halberst\u00e4dter Stra\u00dfe",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Haeckelstra\u00dfe/Museum"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "to": "Magdeburger Dom",
+            "from_coords": {
+              "lat": 52.1244144,
+              "lon": 11.6285198
+            },
+            "to_coords": {
+              "lat": 52.12464994869138,
+              "lon": 11.634720929333609
+            },
+            "distance_meters": 602,
+            "walk_time_minutes": 7,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 9 from Magdeburg Reform to Magdeburg Haeckelstra\u00dfe/Museum (18 stops, ~36 min)",
+            "line": "Tram 9",
+            "line_color": "#FF9900",
+            "line_type": "tram",
+            "board_at": "Magdeburg Reform",
+            "alight_at": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "intermediate_stops": [
+              "Magdeburg Reform",
+              "Magdeburg B\u00f6rdepark-Ost",
+              "Magdeburg Pallasweg",
+              "Magdeburg Merkurweg",
+              "Magdeburg Lindenhof/Flugplatz",
+              "Magdeburg Am Hopfengarten",
+              "Magdeburg Weinbrennerallee",
+              "Magdeburg Leipziger Chaussee",
+              "Magdeburg Freibad S\u00fcd",
+              "Magdeburg Brenneckestra\u00dfe",
+              "Magdeburg Universit\u00e4tsklinikum",
+              "Magdeburg Fermersleber Weg",
+              "Magdeburg S\u00fcdfriedhof",
+              "Magdeburg Raiffeisenstra\u00dfe",
+              "Magdeburg Am Fuchsberg",
+              "Magdeburg Leipziger Stra\u00dfe/Halberst\u00e4dter Stra\u00dfe",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Haeckelstra\u00dfe/Museum"
+            ],
+            "stops": 18,
+            "duration_minutes": 36
+          },
+          {
+            "step": 2,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Haeckelstra\u00dfe/Museum to Magdeburger Dom (602m, ~7 min)",
+            "from": "Magdeburg Haeckelstra\u00dfe/Museum",
+            "to": "Magdeburger Dom",
+            "distance_meters": 602,
+            "duration_minutes": 7
+          }
+        ],
+        "lines_used": [
+          "Tram 9"
+        ],
+        "total_stops": 18,
+        "transfers": 0,
+        "estimated_duration_minutes": 43,
+        "estimated_duration_text": "43 min",
+        "route_type": "transit",
+        "cost_score": 36.81
+      }
+    ],
+    "walking_alternative": {
+      "distance": "4.6 km",
+      "distance_meters": 4584.8,
+      "duration": "55 min",
+      "duration_seconds": 3301.0,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "5.3 km",
+      "distance_meters": 5301,
+      "duration": "12 min",
+      "duration_seconds": 734,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "5.1 km",
+      "distance_meters": 5132.6,
+      "duration": "20 min",
+      "duration_seconds": 1213.8,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I get from Reform to the Magdeburger Dom?",
+    "_query_sent": "How do I get from Reform to the Magdeburger Dom? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q16": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 16.82,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 9",
+            "line_color": "#FF9900",
+            "line_type": "tram",
+            "from": "Magdeburg Universit\u00e4tsklinikum",
+            "to": "Magdeburg Alter Markt",
+            "stop_count": 12,
+            "stops": [
+              "Magdeburg Universit\u00e4tsklinikum",
+              "Magdeburg Fermersleber Weg",
+              "Magdeburg S\u00fcdfriedhof",
+              "Magdeburg Raiffeisenstra\u00dfe",
+              "Magdeburg Am Fuchsberg",
+              "Magdeburg Leipziger Stra\u00dfe/Halberst\u00e4dter Stra\u00dfe",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Haeckelstra\u00dfe/Museum",
+              "Magdeburg Verkehrsbetriebe",
+              "Magdeburg Hauptbahnhof/Willy-Brandt-Platz",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Alter Markt",
+            "to": "Allee-Center",
+            "from_coords": {
+              "lat": 52.1321866,
+              "lon": 11.6370765
+            },
+            "to_coords": {
+              "lat": 52.12993302696213,
+              "lon": 11.637666928351763
+            },
+            "distance_meters": 338,
+            "walk_time_minutes": 4,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 9 from Magdeburg Universit\u00e4tsklinikum to Magdeburg Alter Markt (12 stops, ~24 min)",
+            "line": "Tram 9",
+            "line_color": "#FF9900",
+            "line_type": "tram",
+            "board_at": "Magdeburg Universit\u00e4tsklinikum",
+            "alight_at": "Magdeburg Alter Markt",
+            "intermediate_stops": [
+              "Magdeburg Universit\u00e4tsklinikum",
+              "Magdeburg Fermersleber Weg",
+              "Magdeburg S\u00fcdfriedhof",
+              "Magdeburg Raiffeisenstra\u00dfe",
+              "Magdeburg Am Fuchsberg",
+              "Magdeburg Leipziger Stra\u00dfe/Halberst\u00e4dter Stra\u00dfe",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Haeckelstra\u00dfe/Museum",
+              "Magdeburg Verkehrsbetriebe",
+              "Magdeburg Hauptbahnhof/Willy-Brandt-Platz",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt"
+            ],
+            "stops": 12,
+            "duration_minutes": 24
+          },
+          {
+            "step": 2,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Alter Markt to Allee-Center (338m, ~4 min)",
+            "from": "Magdeburg Alter Markt",
+            "to": "Allee-Center",
+            "distance_meters": 338,
+            "duration_minutes": 4
+          }
+        ],
+        "lines_used": [
+          "Tram 9"
+        ],
+        "total_stops": 12,
+        "transfers": 0,
+        "estimated_duration_minutes": 28,
+        "estimated_duration_text": "28 min",
+        "route_type": "transit",
+        "cost_score": 22.56
+      }
+    ],
+    "walking_alternative": {
+      "distance": "3.9 km",
+      "distance_meters": 3876.4,
+      "duration": "46 min",
+      "duration_seconds": 2790.9,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.2 km",
+      "distance_meters": 4244,
+      "duration": "13 min",
+      "duration_seconds": 795,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.8 km",
+      "distance_meters": 3810.5,
+      "duration": "17 min",
+      "duration_seconds": 1037.1,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "What's the best route from Universit\u00e4tsklinikum to Allee-Center?",
+    "_query_sent": "What's the best route from Universit\u00e4tsklinikum to Allee-Center? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q17": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 11.59,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Faculty of Mathematics",
+            "to": "Magdeburg Universit\u00e4t",
+            "from_coords": {
+              "lat": 52.140951062374526,
+              "lon": 11.640635073111092
+            },
+            "to_coords": {
+              "lat": 52.1386281,
+              "lon": 11.6400079
+            },
+            "distance_meters": 408,
+            "walk_time_minutes": 5,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "from": "Magdeburg Universit\u00e4t",
+            "to": "Magdeburg Zoo",
+            "stop_count": 9,
+            "stops": [
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg AOK",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Zoo"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Faculty of Mathematics to Magdeburg Universit\u00e4t (408m, ~5 min)",
+            "from": "Faculty of Mathematics",
+            "to": "Magdeburg Universit\u00e4t",
+            "distance_meters": 408,
+            "duration_minutes": 5
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 10 from Magdeburg Universit\u00e4t to Magdeburg Zoo (9 stops, ~18 min)",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "board_at": "Magdeburg Universit\u00e4t",
+            "alight_at": "Magdeburg Zoo",
+            "intermediate_stops": [
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg AOK",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Zoo"
+            ],
+            "stops": 9,
+            "duration_minutes": 18
+          }
+        ],
+        "lines_used": [
+          "Tram 10"
+        ],
+        "total_stops": 9,
+        "transfers": 0,
+        "estimated_duration_minutes": 23,
+        "estimated_duration_text": "23 min",
+        "route_type": "transit",
+        "cost_score": 21.75
+      }
+    ],
+    "walking_alternative": {
+      "distance": "3.0 km",
+      "distance_meters": 2998.7,
+      "duration": "35 min",
+      "duration_seconds": 2159.0,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.1 km",
+      "distance_meters": 4126,
+      "duration": "9 min",
+      "duration_seconds": 543,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.2 km",
+      "distance_meters": 3223.3,
+      "duration": "12 min",
+      "duration_seconds": 746.3,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I travel from Faculty of Mathematics to Magdeburg Zoo?",
+    "_query_sent": "How do I travel from Faculty of Mathematics to Magdeburg Zoo? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q18": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 10.01,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "from": "Magdeburg Alter Markt",
+            "to": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "stop_count": 9,
+            "stops": [
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 5 from Magdeburg Alter Markt to Magdeburg Messegel\u00e4nde/Elbauenpark (9 stops, ~18 min)",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "board_at": "Magdeburg Alter Markt",
+            "alight_at": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "intermediate_stops": [
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark"
+            ],
+            "stops": 9,
+            "duration_minutes": 18
+          }
+        ],
+        "lines_used": [
+          "Tram 5"
+        ],
+        "total_stops": 9,
+        "transfers": 0,
+        "estimated_duration_minutes": 18,
+        "estimated_duration_text": "18 min",
+        "route_type": "transit",
+        "cost_score": 9.0
+      }
+    ],
+    "walking_alternative": {
+      "distance": "2.7 km",
+      "distance_meters": 2743.5,
+      "duration": "32 min",
+      "duration_seconds": 1975.3,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.8 km",
+      "distance_meters": 4820,
+      "duration": "11 min",
+      "duration_seconds": 669,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.3 km",
+      "distance_meters": 3258.1,
+      "duration": "13 min",
+      "duration_seconds": 817.0,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Route from Alter Markt to Messegel\u00e4nde Elbauenpark",
+    "_query_sent": "Route from Alter Markt to Messegel\u00e4nde Elbauenpark Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q19": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 12.43,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "from": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "to": "Magdeburg Universit\u00e4t",
+            "stop_count": 6,
+            "stops": [
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "from": "Magdeburg Universit\u00e4t",
+            "to": "Magdeburg ENERCON",
+            "stop_count": 17,
+            "stops": [
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg AOK",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Zoo",
+              "Magdeburg Pettenkoferstra\u00dfe",
+              "Magdeburg S-Bahnhof Eichenweiler",
+              "Magdeburg Havelstra\u00dfe",
+              "Magdeburg Schule Rothensee",
+              "Magdeburg Hohenwarther Stra\u00dfe",
+              "Magdeburg Betriebshof Nord/AMROC",
+              "Magdeburg Rothensee",
+              "Magdeburg ENERCON"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 1 from Magdeburg Hauptbahnhof/K\u00f6lner Platz to Magdeburg Universit\u00e4t (6 stops, ~12 min)",
+            "line": "Tram 1",
+            "line_color": "#FF0000",
+            "line_type": "tram",
+            "board_at": "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+            "alight_at": "Magdeburg Universit\u00e4t",
+            "intermediate_stops": [
+              "Magdeburg Hauptbahnhof/K\u00f6lner Platz",
+              "Magdeburg City Carr\u00e9",
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Universit\u00e4t"
+            ],
+            "stops": 6,
+            "duration_minutes": 12
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 10 from Magdeburg Universit\u00e4t to Magdeburg ENERCON (17 stops, ~34 min)",
+            "line": "Tram 10",
+            "line_color": "#00CCCC",
+            "line_type": "tram",
+            "board_at": "Magdeburg Universit\u00e4t",
+            "alight_at": "Magdeburg ENERCON",
+            "intermediate_stops": [
+              "Magdeburg Universit\u00e4t",
+              "Magdeburg AOK",
+              "Magdeburg S-Bahnhof Neustadt",
+              "Magdeburg Neust\u00e4dter Friedhof",
+              "Magdeburg Mittagstra\u00dfe",
+              "Magdeburg Nicolaiplatz",
+              "Magdeburg Kastanienstra\u00dfe",
+              "Magdeburg Rostocker Stra\u00dfe",
+              "Magdeburg Zoo",
+              "Magdeburg Pettenkoferstra\u00dfe",
+              "Magdeburg S-Bahnhof Eichenweiler",
+              "Magdeburg Havelstra\u00dfe",
+              "Magdeburg Schule Rothensee",
+              "Magdeburg Hohenwarther Stra\u00dfe",
+              "Magdeburg Betriebshof Nord/AMROC",
+              "Magdeburg Rothensee",
+              "Magdeburg ENERCON"
+            ],
+            "stops": 17,
+            "duration_minutes": 34
+          }
+        ],
+        "lines_used": [
+          "Tram 1",
+          "Tram 10"
+        ],
+        "total_stops": 23,
+        "transfers": 1,
+        "estimated_duration_minutes": 46,
+        "estimated_duration_text": "46 min",
+        "route_type": "transit",
+        "cost_score": 23.0
+      }
+    ],
+    "walking_alternative": {
+      "distance": "9.2 km",
+      "distance_meters": 9194.1,
+      "duration": "1h 50min",
+      "duration_seconds": 6619.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "10.3 km",
+      "distance_meters": 10345,
+      "duration": "15 min",
+      "duration_seconds": 955,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "10.3 km",
+      "distance_meters": 10298.3,
+      "duration": "39 min",
+      "duration_seconds": 2399.3,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Best way from Magdeburg Hauptbahnhof to ENERCON",
+    "_query_sent": "Best way from Magdeburg Hauptbahnhof to ENERCON Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q20": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 13.33,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Faculty of Humanities",
+            "to": "Magdeburg Opernhaus",
+            "from_coords": {
+              "lat": 52.138056,
+              "lon": 11.633889
+            },
+            "to_coords": {
+              "lat": 52.1368862,
+              "lon": 11.6391425
+            },
+            "distance_meters": 565,
+            "walk_time_minutes": 7,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "from": "Magdeburg Opernhaus",
+            "to": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "stop_count": 7,
+            "stops": [
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 6",
+            "line_color": "#0099CC",
+            "line_type": "tram",
+            "from": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "to": "Magdeburg Bahnhof Herrenkrug",
+            "stop_count": 3,
+            "stops": [
+              "Magdeburg Messegel\u00e4nde/Elbauenpark",
+              "Magdeburg Hochschule Magdeburg-Stendal",
+              "Magdeburg Bahnhof Herrenkrug"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Faculty of Humanities to Magdeburg Opernhaus (565m, ~7 min)",
+            "from": "Faculty of Humanities",
+            "to": "Magdeburg Opernhaus",
+            "distance_meters": 565,
+            "duration_minutes": 7
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 5 from Magdeburg Opernhaus to Magdeburg Messegel\u00e4nde/Elbauenpark (7 stops, ~14 min)",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "board_at": "Magdeburg Opernhaus",
+            "alight_at": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "intermediate_stops": [
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Messegel\u00e4nde/Elbauenpark"
+            ],
+            "stops": 7,
+            "duration_minutes": 14
+          },
+          {
+            "step": 3,
+            "type": "transit",
+            "instruction": "Take Tram 6 from Magdeburg Messegel\u00e4nde/Elbauenpark to Magdeburg Bahnhof Herrenkrug (3 stops, ~6 min)",
+            "line": "Tram 6",
+            "line_color": "#0099CC",
+            "line_type": "tram",
+            "board_at": "Magdeburg Messegel\u00e4nde/Elbauenpark",
+            "alight_at": "Magdeburg Bahnhof Herrenkrug",
+            "intermediate_stops": [
+              "Magdeburg Messegel\u00e4nde/Elbauenpark",
+              "Magdeburg Hochschule Magdeburg-Stendal",
+              "Magdeburg Bahnhof Herrenkrug"
+            ],
+            "stops": 3,
+            "duration_minutes": 6
+          }
+        ],
+        "lines_used": [
+          "Tram 5",
+          "Tram 6"
+        ],
+        "total_stops": 10,
+        "transfers": 1,
+        "estimated_duration_minutes": 27,
+        "estimated_duration_text": "27 min",
+        "route_type": "transit",
+        "cost_score": 27.66
+      }
+    ],
+    "walking_alternative": {
+      "distance": "4.1 km",
+      "distance_meters": 4088.7,
+      "duration": "49 min",
+      "duration_seconds": 2943.8,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.3 km",
+      "distance_meters": 4269,
+      "duration": "9 min",
+      "duration_seconds": 551,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "4.1 km",
+      "distance_meters": 4138.4,
+      "duration": "16 min",
+      "duration_seconds": 997.4,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "Route from Faculty of Humanities to Bahnhof Herrenkrug",
+    "_query_sent": "Route from Faculty of Humanities to Bahnhof Herrenkrug Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q21": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 11.77,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Fahrradparkhaus Hauptbahnhof",
+            "to": "Magdeburg ZOB-Bussteig 2",
+            "from_coords": {
+              "lat": 52.131545989462836,
+              "lon": 11.626764494158442
+            },
+            "to_coords": {
+              "lat": 52.13131751136236,
+              "lon": 11.62448423960938
+            },
+            "distance_meters": 296,
+            "walk_time_minutes": 4,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Bus 59",
+            "line_color": "#DC143C",
+            "line_type": "bus",
+            "from": "Magdeburg ZOB-Bussteig 2",
+            "to": "Magdeburg Stadthalle",
+            "stop_count": 8,
+            "stops": [
+              "Magdeburg ZOB-Bussteig 2",
+              "Magdeburg Maybachstra\u00dfe",
+              "Magdeburg Hermann-Gieseler-Halle",
+              "Magdeburg Halberst\u00e4dter Stra\u00dfe/Leipziger Stra\u00dfe",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Planckstra\u00dfe",
+              "Magdeburg Hammersteinweg",
+              "Magdeburg Stadthalle"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Stadthalle",
+            "to": "Albinm\u00fcller-Turm",
+            "from_coords": {
+              "lat": 52.1172764,
+              "lon": 11.6405173
+            },
+            "to_coords": {
+              "lat": 52.117752339088845,
+              "lon": 11.64065440477249
+            },
+            "distance_meters": 108,
+            "walk_time_minutes": 1,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Fahrradparkhaus Hauptbahnhof to Magdeburg ZOB-Bussteig 2 (296m, ~4 min)",
+            "from": "Fahrradparkhaus Hauptbahnhof",
+            "to": "Magdeburg ZOB-Bussteig 2",
+            "distance_meters": 296,
+            "duration_minutes": 4
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Bus 59 from Magdeburg ZOB-Bussteig 2 to Magdeburg Stadthalle (8 stops, ~16 min)",
+            "line": "Bus 59",
+            "line_color": "#DC143C",
+            "line_type": "bus",
+            "board_at": "Magdeburg ZOB-Bussteig 2",
+            "alight_at": "Magdeburg Stadthalle",
+            "intermediate_stops": [
+              "Magdeburg ZOB-Bussteig 2",
+              "Magdeburg Maybachstra\u00dfe",
+              "Magdeburg Hermann-Gieseler-Halle",
+              "Magdeburg Halberst\u00e4dter Stra\u00dfe/Leipziger Stra\u00dfe",
+              "Magdeburg Hasselbachplatz",
+              "Magdeburg Planckstra\u00dfe",
+              "Magdeburg Hammersteinweg",
+              "Magdeburg Stadthalle"
+            ],
+            "stops": 8,
+            "duration_minutes": 16
+          },
+          {
+            "step": 3,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Stadthalle to Albinm\u00fcller-Turm (108m, ~1 min)",
+            "from": "Magdeburg Stadthalle",
+            "to": "Albinm\u00fcller-Turm",
+            "distance_meters": 108,
+            "duration_minutes": 1
+          }
+        ],
+        "lines_used": [
+          "Bus 59"
+        ],
+        "total_stops": 8,
+        "transfers": 0,
+        "estimated_duration_minutes": 21,
+        "estimated_duration_text": "21 min",
+        "route_type": "transit",
+        "cost_score": 20.62
+      }
+    ],
+    "walking_alternative": {
+      "distance": "2.8 km",
+      "distance_meters": 2789.7,
+      "duration": "33 min",
+      "duration_seconds": 2008.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "2.8 km",
+      "distance_meters": 2751,
+      "duration": "7 min",
+      "duration_seconds": 472,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.2 km",
+      "distance_meters": 3174.0,
+      "duration": "11 min",
+      "duration_seconds": 685.2,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I get from Hauptbahnhof to the Albinm\u00fcller-Turm?",
+    "_query_sent": "How do I get from Hauptbahnhof to the Albinm\u00fcller-Turm? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q22": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 24.76,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "walking",
+            "from": "Mensa",
+            "to": "Magdeburg Arenen",
+            "from_coords": {
+              "lat": 52.123643432872655,
+              "lon": 11.66496729860738
+            },
+            "to_coords": {
+              "lat": 52.128868,
+              "lon": 11.662539
+            },
+            "distance_meters": 919,
+            "walk_time_minutes": 11,
+            "ors_validated": true
+          },
+          {
+            "type": "transit",
+            "line": "Tram 6",
+            "line_color": "#0099CC",
+            "line_type": "tram",
+            "from": "Magdeburg Arenen",
+            "to": "Magdeburg Jerichower Platz",
+            "stop_count": 2,
+            "stops": [
+              "Magdeburg Arenen",
+              "Magdeburg Jerichower Platz"
+            ]
+          },
+          {
+            "type": "transit",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "from": "Magdeburg Jerichower Platz",
+            "to": "Magdeburg Askanischer Platz",
+            "stop_count": 4,
+            "stops": [
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Askanischer Platz"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Askanischer Platz",
+            "to": "Lukasklause",
+            "from_coords": {
+              "lat": 52.1379893,
+              "lon": 11.650666
+            },
+            "to_coords": {
+              "lat": 52.135877733933405,
+              "lon": 11.650513342571301
+            },
+            "distance_meters": 389,
+            "walk_time_minutes": 5,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "walk",
+            "instruction": "Walk from Mensa to Magdeburg Arenen (919m, ~11 min)",
+            "from": "Mensa",
+            "to": "Magdeburg Arenen",
+            "distance_meters": 919,
+            "duration_minutes": 11
+          },
+          {
+            "step": 2,
+            "type": "transit",
+            "instruction": "Take Tram 6 from Magdeburg Arenen to Magdeburg Jerichower Platz (2 stops, ~4 min)",
+            "line": "Tram 6",
+            "line_color": "#0099CC",
+            "line_type": "tram",
+            "board_at": "Magdeburg Arenen",
+            "alight_at": "Magdeburg Jerichower Platz",
+            "intermediate_stops": [
+              "Magdeburg Arenen",
+              "Magdeburg Jerichower Platz"
+            ],
+            "stops": 2,
+            "duration_minutes": 4
+          },
+          {
+            "step": 3,
+            "type": "transit",
+            "instruction": "Take Tram 5 from Magdeburg Jerichower Platz to Magdeburg Askanischer Platz (4 stops, ~8 min)",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "board_at": "Magdeburg Jerichower Platz",
+            "alight_at": "Magdeburg Askanischer Platz",
+            "intermediate_stops": [
+              "Magdeburg Jerichower Platz",
+              "Magdeburg Turmschanzenstra\u00dfe/Friedensbr\u00fccke",
+              "Magdeburg Gartenstra\u00dfe",
+              "Magdeburg Askanischer Platz"
+            ],
+            "stops": 4,
+            "duration_minutes": 8
+          },
+          {
+            "step": 4,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Askanischer Platz to Lukasklause (389m, ~5 min)",
+            "from": "Magdeburg Askanischer Platz",
+            "to": "Lukasklause",
+            "distance_meters": 389,
+            "duration_minutes": 5
+          }
+        ],
+        "lines_used": [
+          "Tram 6",
+          "Tram 5"
+        ],
+        "total_stops": 6,
+        "transfers": 1,
+        "estimated_duration_minutes": 28,
+        "estimated_duration_text": "28 min",
+        "route_type": "transit_optional",
+        "cost_score": 46.88
+      }
+    ],
+    "walking_alternative": {
+      "distance": "2.5 km",
+      "distance_meters": 2465.0,
+      "duration": "29 min",
+      "duration_seconds": 1774.8,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "3.3 km",
+      "distance_meters": 3315,
+      "duration": "6 min",
+      "duration_seconds": 394,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "2.6 km",
+      "distance_meters": 2626.9,
+      "duration": "10 min",
+      "duration_seconds": 643.7,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "What's the best route from the Mensa to the Lukasklause?",
+    "_query_sent": "What's the best route from the Mensa to the Lukasklause? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q23": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 14.4,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "from": "Magdeburg Alter Markt",
+            "to": "Magdeburg Askanischer Platz",
+            "stop_count": 5,
+            "stops": [
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz"
+            ]
+          },
+          {
+            "type": "walking",
+            "from": "Magdeburg Askanischer Platz",
+            "to": "Lukasklause",
+            "from_coords": {
+              "lat": 52.1379893,
+              "lon": 11.650666
+            },
+            "to_coords": {
+              "lat": 52.135877733933405,
+              "lon": 11.650513342571301
+            },
+            "distance_meters": 389,
+            "walk_time_minutes": 5,
+            "ors_validated": true
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Tram 5 from Magdeburg Alter Markt to Magdeburg Askanischer Platz (5 stops, ~10 min)",
+            "line": "Tram 5",
+            "line_color": "#FF6600",
+            "line_type": "tram",
+            "board_at": "Magdeburg Alter Markt",
+            "alight_at": "Magdeburg Askanischer Platz",
+            "intermediate_stops": [
+              "Magdeburg Alter Markt",
+              "Magdeburg Am Katharinenturm",
+              "Magdeburg Opernhaus",
+              "Magdeburg Listemannstra\u00dfe",
+              "Magdeburg Askanischer Platz"
+            ],
+            "stops": 5,
+            "duration_minutes": 10
+          },
+          {
+            "step": 2,
+            "type": "walk",
+            "instruction": "Walk from Magdeburg Askanischer Platz to Lukasklause (389m, ~5 min)",
+            "from": "Magdeburg Askanischer Platz",
+            "to": "Lukasklause",
+            "distance_meters": 389,
+            "duration_minutes": 5
+          }
+        ],
+        "lines_used": [
+          "Tram 5"
+        ],
+        "total_stops": 5,
+        "transfers": 0,
+        "estimated_duration_minutes": 15,
+        "estimated_duration_text": "15 min",
+        "route_type": "transit_optional",
+        "cost_score": 17.16
+      }
+    ],
+    "walking_alternative": {
+      "distance": "1.4 km",
+      "distance_meters": 1401.0,
+      "duration": "16 min",
+      "duration_seconds": 1008.7,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "1.5 km",
+      "distance_meters": 1538,
+      "duration": "5 min",
+      "duration_seconds": 308,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "1.6 km",
+      "distance_meters": 1632.3,
+      "duration": "7 min",
+      "duration_seconds": 435.0,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I travel from Alter Markt to the Lukasklause?",
+    "_query_sent": "How do I travel from Alter Markt to the Lukasklause? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  },
+  "Q25": {
+    "success": true,
+    "error": null,
+    "pipeline_seconds": 32.31,
+    "candidates": [
+      {
+        "segments": [
+          {
+            "type": "transit",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "from": "Magdeburg Olvenstedter Platz",
+            "to": "Magdeburg Universit\u00e4tsbibliothek",
+            "stop_count": 11,
+            "stops": [
+              "Magdeburg Olvenstedter Platz",
+              "Magdeburg Friesenstra\u00dfe",
+              "Magdeburg Stormstra\u00dfe",
+              "Magdeburg Westernplan",
+              "Magdeburg Gagernstra\u00dfe",
+              "Magdeburg Walther-Rathenau-Stra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Weitlingstra\u00dfe",
+              "Magdeburg Sankt Petri",
+              "Magdeburg M\u00fchlenstra\u00dfe",
+              "Magdeburg Universit\u00e4tsbibliothek"
+            ]
+          }
+        ],
+        "step_by_step": [
+          {
+            "step": 1,
+            "type": "transit",
+            "instruction": "Take Bus 73 from Magdeburg Olvenstedter Platz to Magdeburg Universit\u00e4tsbibliothek (11 stops, ~22 min)",
+            "line": "Bus 73",
+            "line_color": "#BA55D3",
+            "line_type": "bus",
+            "board_at": "Magdeburg Olvenstedter Platz",
+            "alight_at": "Magdeburg Universit\u00e4tsbibliothek",
+            "intermediate_stops": [
+              "Magdeburg Olvenstedter Platz",
+              "Magdeburg Friesenstra\u00dfe",
+              "Magdeburg Stormstra\u00dfe",
+              "Magdeburg Westernplan",
+              "Magdeburg Gagernstra\u00dfe",
+              "Magdeburg Walther-Rathenau-Stra\u00dfe",
+              "Magdeburg Opernhaus",
+              "Magdeburg Weitlingstra\u00dfe",
+              "Magdeburg Sankt Petri",
+              "Magdeburg M\u00fchlenstra\u00dfe",
+              "Magdeburg Universit\u00e4tsbibliothek"
+            ],
+            "stops": 11,
+            "duration_minutes": 22
+          }
+        ],
+        "lines_used": [
+          "Bus 73"
+        ],
+        "total_stops": 11,
+        "transfers": 0,
+        "estimated_duration_minutes": 22,
+        "estimated_duration_text": "22 min",
+        "route_type": "transit",
+        "cost_score": 11.0
+      }
+    ],
+    "walking_alternative": {
+      "distance": "3.2 km",
+      "distance_meters": 3184.7,
+      "duration": "38 min",
+      "duration_seconds": 2292.9,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "driving_alternative": {
+      "distance": "4.2 km",
+      "distance_meters": 4232,
+      "duration": "9 min",
+      "duration_seconds": 555,
+      "traffic_status": "clear",
+      "traffic_delay_minutes": 0
+    },
+    "cycling_alternative": {
+      "distance": "3.9 km",
+      "distance_meters": 3862.7,
+      "duration": "13 min",
+      "duration_seconds": 830.6,
+      "traffic_status": null,
+      "traffic_delay_minutes": 0
+    },
+    "_neo4j_success": true,
+    "_query_original": "How do I get from Olvenstedter Platz to Universit\u00e4tsbibliothek?",
+    "_query_sent": "How do I get from Olvenstedter Platz to Universit\u00e4tsbibliothek? Compare routes.",
+    "_force_all_modes": true,
+    "_n_modes_enriched": 3
+  }
+}

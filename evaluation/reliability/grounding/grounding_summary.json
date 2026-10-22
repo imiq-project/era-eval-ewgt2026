@@ -1,0 +1,112 @@
+{
+  "n_trials_total": 200,
+  "n_judge_errors": 0,
+  "n_evaluated": 200,
+  "grounding_rate": 1.0,
+  "faithfulness_rate": 0.985,
+  "grounding_by_condition": {
+    "C1": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 1.0,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    },
+    "C2": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 1.0,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    },
+    "C3": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 1.0,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    },
+    "C4": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 1.0,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    },
+    "C5": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 1.0,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    },
+    "C6": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 1.0,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    },
+    "C7": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 0.96,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    },
+    "C8": {
+      "grounding_rate": 1.0,
+      "faithfulness_rate": 0.92,
+      "n": 25,
+      "n_judged": 25,
+      "errors": 0
+    }
+  },
+  "grounding_by_mode": {
+    "cycling": {
+      "grounding_rate": 1.0,
+      "n": 4
+    },
+    "driving": {
+      "grounding_rate": 1.0,
+      "n": 129
+    },
+    "transit": {
+      "grounding_rate": 1.0,
+      "n": 66
+    },
+    "walking": {
+      "grounding_rate": 1.0,
+      "n": 1
+    }
+  },
+  "faithfulness_violations": [
+    {
+      "query_id": "Q02",
+      "condition_id": "C7",
+      "recommended_mode": "driving",
+      "reasoning_text": "Driving offers full shelter from snow, wind, and extreme cold. Minimal outdoor exposure (only 2 minutes walking to/from car) and no risk of slipping on icy paths. Despite the short trip, the weather makes active modes dangerous.",
+      "condition_description": "Weather: snow (~5 cm/h)\nTemperature: -5°C (feels like -10°C)\nWind: 18 km/h\nHumidity: 90%\nTime of day: 12:00 on Wednesday (daylight)\nAir quality: good (PM2.5 = 10 μg/m³, PM10 = 20, NO2 = 20)\nTraffic: free flow, no incidents\nParking: full (3/100 spaces free)"
+    },
+    {
+      "query_id": "Q15",
+      "condition_id": "C8",
+      "recommended_mode": "driving",
+      "reasoning_text": "Driving offers shelter from extreme cold, snow, wind, and darkness. Despite congestion and moderate parking uncertainty, the car provides safety and minimal outdoor exposure. Generalized cost is lowest.",
+      "condition_description": "Weather: snow (~5 cm/h)\nTemperature: -5°C (feels like -10°C)\nWind: 18 km/h\nHumidity: 90%\nTime of day: 22:00 on Wednesday (dark outside)\nAir quality: unhealthy (PM2.5 = 60 μg/m³, PM10 = 90, NO2 = 80)\nTraffic: congested (~12 min delay, 1 incident(s))\nParking: available (80/100 spaces free)"
+    },
+    {
+      "query_id": "Q17",
+      "condition_id": "C8",
+      "recommended_mode": "driving",
+      "reasoning_text": "The car provides full protection from snow, wind, and extreme cold. Darkness is less of a concern due to vehicle lighting and visibility. Despite congestion and a moderate parking risk, the shelter and safety advantages are decisive. The 9-minute drive is fast and efficient.",
+      "condition_description": "Weather: snow (~5 cm/h)\nTemperature: -5°C (feels like -10°C)\nWind: 18 km/h\nHumidity: 90%\nTime of day: 22:00 on Wednesday (dark outside)\nAir quality: unhealthy (PM2.5 = 60 μg/m³, PM10 = 90, NO2 = 80)\nTraffic: congested (~12 min delay, 1 incident(s))\nParking: available (80/100 spaces free)"
+    }
+  ],
+  "judge_errors": [],
+  "judge_model": "gpt-5.4",
+  "judge_temperature": 0.0,
+  "wall_clock_seconds": 573.7,
+  "trials_path": "evaluation\\reliability\\grounding\\grounding_trials.jsonl",
+  "started_at": "2026-05-08T22:29:55.005791Z"
+}

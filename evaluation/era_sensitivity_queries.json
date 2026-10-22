@@ -1,0 +1,300 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "purpose": "ERA sensitivity evaluation — 25 condition-relevant routing queries.",
+    "design_notes": [
+      "All origins and destinations are real Magdeburg places verified in Neo4j (buildings, stops, landmarks).",
+      "All queries are mode-neutral ('get from X to Y', not 'drive to X') so the orchestrator enriches all alternatives and ERA gets to compare modes.",
+      "Distance distribution: 5 short (<1km, walk-dominant), 12 medium (1-3km, all modes feasible), 8 long (>3km, transit/drive-dominant).",
+      "Each query tagged with dominant_exposed_mode — the mode whose ERA score is most expected to react to weather/AQ/darkness changes."
+    ],
+    "distance_categories": {
+      "short": "<1 km, walking is the natural primary mode",
+      "medium": "1-3 km, all modes feasible (walking, cycling, transit, driving)",
+      "long": ">3 km, walking impractical, transit/drive/cycle dominate"
+    },
+    "dominant_exposed_mode": {
+      "walking": "Outdoor-exposure-relevant; walk score should drop most under bad weather",
+      "cycling": "Outdoor-exposure-relevant; bike score should drop most under bad weather and ice",
+      "transit": "Lower exposure (covered cars + brief walks); score should be more stable across weather",
+      "driving": "Minimal exposure; score should react mainly to traffic and parking, not weather"
+    }
+  },
+  "queries": [
+    {
+      "id": "Q01",
+      "query": "How do I get from Building 03 to the University Library?",
+      "origin": "Building 03",
+      "destination": "Building 30",
+      "distance_category": "short",
+      "approx_distance_m": 200,
+      "dominant_exposed_mode": "walking",
+      "category": "campus_internal",
+      "notes": "Both on OVGU main campus — walk-dominant trip"
+    },
+    {
+      "id": "Q02",
+      "query": "What's the best route from the Mensa to Building 09?",
+      "origin": "Mensa",
+      "destination": "Building 09",
+      "distance_category": "short",
+      "approx_distance_m": 250,
+      "dominant_exposed_mode": "walking",
+      "category": "campus_internal",
+      "notes": "Campus crossing — short walk, no transit needed"
+    },
+    {
+      "id": "Q03",
+      "query": "How do I travel from the Faculty of Computer Science to the IMIQ Project Building?",
+      "origin": "Faculty of Computer Science",
+      "destination": "IMIQ Project Building",
+      "distance_category": "short",
+      "approx_distance_m": 700,
+      "dominant_exposed_mode": "walking",
+      "category": "campus_to_extension",
+      "notes": "Main campus to research extension — walk vs short transit choice"
+    },
+    {
+      "id": "Q04",
+      "query": "Route from Magdeburg Hauptbahnhof to the Magdeburger Dom",
+      "origin": "Magdeburg Hauptbahnhof",
+      "destination": "Magdeburger Dom",
+      "distance_category": "medium",
+      "approx_distance_m": 1100,
+      "dominant_exposed_mode": "walking",
+      "category": "transport_hub_to_landmark",
+      "notes": "Classic tourist trip — walking is natural, but transit available"
+    },
+    {
+      "id": "Q05",
+      "query": "How do I get from Allee-Center to Alter Markt?",
+      "origin": "Allee-Center",
+      "destination": "Magdeburg Alter Markt",
+      "distance_category": "short",
+      "approx_distance_m": 350,
+      "dominant_exposed_mode": "walking",
+      "category": "city_center_short",
+      "notes": "Two adjacent city-center hubs — walking dominant"
+    },
+    {
+      "id": "Q06",
+      "query": "Best way from Building 22 to Magdeburg Zoo",
+      "origin": "Building 22",
+      "destination": "Magdeburg Zoo",
+      "distance_category": "long",
+      "approx_distance_m": 3500,
+      "dominant_exposed_mode": "transit",
+      "category": "campus_to_destination",
+      "notes": "Campus to far north — Tram 10 direct, walking impractical"
+    },
+    {
+      "id": "Q07",
+      "query": "Route from Hasselbachplatz to the Faculty of Mathematics",
+      "origin": "Magdeburg Hasselbachplatz",
+      "destination": "Faculty of Mathematics",
+      "distance_category": "medium",
+      "approx_distance_m": 2100,
+      "dominant_exposed_mode": "transit",
+      "category": "hub_to_campus",
+      "notes": "Transit hub to campus — Tram 8/9 direct"
+    },
+    {
+      "id": "Q08",
+      "query": "How do I travel from the IMIQ Project Building to Hauptbahnhof?",
+      "origin": "IMIQ Project Building",
+      "destination": "Magdeburg Hauptbahnhof",
+      "distance_category": "medium",
+      "approx_distance_m": 2600,
+      "dominant_exposed_mode": "cycling",
+      "category": "campus_to_hub",
+      "notes": "Bike-friendly distance — cycling competitive with transit"
+    },
+    {
+      "id": "Q09",
+      "query": "What's the best route from Magdeburg Opernhaus to Messegelände Elbauenpark?",
+      "origin": "Magdeburg Opernhaus",
+      "destination": "Magdeburg Messegelände/Elbauenpark",
+      "distance_category": "medium",
+      "approx_distance_m": 2500,
+      "dominant_exposed_mode": "transit",
+      "category": "city_to_outdoor_park",
+      "notes": "Center to outdoor park — Tram 5/6 direct; outdoor destination → AQ-relevant"
+    },
+    {
+      "id": "Q10",
+      "query": "How do I get from the University to Klinikum Olvenstedt?",
+      "origin": "Magdeburg Universität",
+      "destination": "Magdeburg Klinikum Olvenstedt",
+      "distance_category": "long",
+      "approx_distance_m": 5300,
+      "dominant_exposed_mode": "transit",
+      "category": "cross_city",
+      "notes": "Far west — Tram 3/4 with possible transfer"
+    },
+    {
+      "id": "Q11",
+      "query": "Route from Wissenschaftshafen to Magdeburger Dom",
+      "origin": "Magdeburg Wissenschaftshafen",
+      "destination": "Magdeburger Dom",
+      "distance_category": "medium",
+      "approx_distance_m": 2700,
+      "dominant_exposed_mode": "cycling",
+      "category": "north_to_center",
+      "notes": "Bike-friendly riverside route, scenic in good weather"
+    },
+    {
+      "id": "Q12",
+      "query": "How do I travel from Bahnhof Sudenburg to Universitätsbibliothek?",
+      "origin": "Magdeburg Bahnhof Sudenburg",
+      "destination": "Building 30",
+      "distance_category": "long",
+      "approx_distance_m": 3300,
+      "dominant_exposed_mode": "transit",
+      "category": "south_to_campus",
+      "notes": "South to campus — Bus 52 + tram transfer likely"
+    },
+    {
+      "id": "Q13",
+      "query": "Best way from ENERCON to Magdeburg Hauptbahnhof",
+      "origin": "Magdeburg ENERCON",
+      "destination": "Magdeburg Hauptbahnhof",
+      "distance_category": "long",
+      "approx_distance_m": 7800,
+      "dominant_exposed_mode": "transit",
+      "category": "industrial_to_hub",
+      "notes": "Far north industrial — Tram 10 direct or driving; parking-relevant downtown"
+    },
+    {
+      "id": "Q14",
+      "query": "Route from Bahnhof Herrenkrug to Allee-Center",
+      "origin": "Magdeburg Bahnhof Herrenkrug",
+      "destination": "Magdeburg Allee-Center",
+      "distance_category": "medium",
+      "approx_distance_m": 3400,
+      "dominant_exposed_mode": "transit",
+      "category": "east_to_center",
+      "notes": "East rail station to mall — Tram 6 direct; shopping → parking matters"
+    },
+    {
+      "id": "Q15",
+      "query": "How do I get from Reform to the Magdeburger Dom?",
+      "origin": "Magdeburg Reform",
+      "destination": "Magdeburger Dom",
+      "distance_category": "long",
+      "approx_distance_m": 4500,
+      "dominant_exposed_mode": "transit",
+      "category": "south_to_landmark",
+      "notes": "Far south to center landmark — Tram 9 direct"
+    },
+    {
+      "id": "Q16",
+      "query": "What's the best route from Universitätsklinikum to Allee-Center?",
+      "origin": "Magdeburg Universitätsklinikum",
+      "destination": "Magdeburg Allee-Center",
+      "distance_category": "long",
+      "approx_distance_m": 5400,
+      "dominant_exposed_mode": "transit",
+      "category": "hospital_to_mall",
+      "notes": "Hospital south to mall — Tram 3/9 + parking-relevant at destination"
+    },
+    {
+      "id": "Q17",
+      "query": "How do I travel from Faculty of Mathematics to Magdeburg Zoo?",
+      "origin": "Faculty of Mathematics",
+      "destination": "Magdeburg Zoo",
+      "distance_category": "long",
+      "approx_distance_m": 3300,
+      "dominant_exposed_mode": "cycling",
+      "category": "campus_to_outdoor",
+      "notes": "Cycling-friendly distance to outdoor venue — AQ + weather both relevant"
+    },
+    {
+      "id": "Q18",
+      "query": "Route from Alter Markt to Messegelände Elbauenpark",
+      "origin": "Magdeburg Alter Markt",
+      "destination": "Magdeburg Messegelände/Elbauenpark",
+      "distance_category": "medium",
+      "approx_distance_m": 3000,
+      "dominant_exposed_mode": "cycling",
+      "category": "center_to_park",
+      "notes": "Center to park — bike paths along Elbe, weather/AQ-sensitive"
+    },
+    {
+      "id": "Q19",
+      "query": "Best way from Magdeburg Hauptbahnhof to ENERCON",
+      "origin": "Magdeburg Hauptbahnhof",
+      "destination": "Magdeburg ENERCON",
+      "distance_category": "long",
+      "approx_distance_m": 7800,
+      "dominant_exposed_mode": "transit",
+      "category": "hub_to_industrial",
+      "notes": "Reverse of Q13 — same Tram 10 corridor but direction effect"
+    },
+    {
+      "id": "Q20",
+      "query": "Route from Faculty of Humanities to Bahnhof Herrenkrug",
+      "origin": "Faculty of Humanities",
+      "destination": "Magdeburg Bahnhof Herrenkrug",
+      "distance_category": "long",
+      "approx_distance_m": 5200,
+      "dominant_exposed_mode": "cycling",
+      "category": "campus_to_east_station",
+      "notes": "Long cycling-feasible trip; transit needs transfer"
+    },
+    {
+      "id": "Q21",
+      "query": "How do I get from Hauptbahnhof to the Albinmüller-Turm?",
+      "origin": "Magdeburg Hauptbahnhof",
+      "destination": "Albinmüller-Turm",
+      "distance_category": "medium",
+      "approx_distance_m": 1900,
+      "dominant_exposed_mode": "walking",
+      "category": "hub_to_outdoor_landmark",
+      "notes": "Stadtpark Rotehorn tower — outdoor sightseeing, walk or short tram"
+    },
+    {
+      "id": "Q22",
+      "query": "What's the best route from the Mensa to the Lukasklause?",
+      "origin": "Mensa",
+      "destination": "Lukasklause",
+      "distance_category": "medium",
+      "approx_distance_m": 1500,
+      "dominant_exposed_mode": "cycling",
+      "category": "campus_to_riverside",
+      "notes": "Riverside historic landmark — bike or short transit"
+    },
+    {
+      "id": "Q23",
+      "query": "How do I travel from Alter Markt to the Lukasklause?",
+      "origin": "Magdeburg Alter Markt",
+      "destination": "Lukasklause",
+      "distance_category": "medium",
+      "approx_distance_m": 1400,
+      "dominant_exposed_mode": "walking",
+      "category": "center_to_riverside",
+      "notes": "Walkable city-to-riverside trip"
+    },
+    {
+      "id": "Q24",
+      "query": "Route from Magdeburg Hauptbahnhof to Magdeburg Opernhaus",
+      "origin": "Magdeburg Hauptbahnhof",
+      "destination": "Magdeburg Opernhaus",
+      "distance_category": "medium",
+      "approx_distance_m": 1300,
+      "dominant_exposed_mode": "walking",
+      "category": "hub_to_venue",
+      "notes": "Station to opera — walking common, multiple trams direct"
+    },
+    {
+      "id": "Q25",
+      "query": "How do I get from Olvenstedter Platz to Universitätsbibliothek?",
+      "origin": "Magdeburg Olvenstedter Platz",
+      "destination": "Magdeburg Universitätsbibliothek",
+      "distance_category": "medium",
+      "approx_distance_m": 3200,
+      "dominant_exposed_mode": "transit",
+      "category": "transfer_hub_to_campus",
+      "notes": "West hub to campus — Tram 3/4 + transfer to Tram 2 or Bus 73"
+    }
+  ]
+}
